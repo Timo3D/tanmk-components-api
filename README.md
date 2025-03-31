@@ -1,75 +1,59 @@
-# Tanmk Components Data
+# Tank Components Database
 
-This repository contains tank component data in both Lua and JSON formats.
+A comprehensive database and web interface for browsing tank components including guns, turrets, and hulls.
 
-## Repository Structure
+## 🌐 Live Website
 
-- `src/` - Contains the original Lua data files
-  - `guns.lua` - Gun data
-  - `turrets.lua` - Turret data
-  - `hulls.lua` - Hull data
-- `data/` - Contains the auto-generated JSON files
-  - `guns.json` - Gun data in JSON format
-  - `turrets.json` - Turret data in JSON format
-  - `hulls.json` - Hull data in JSON format
-- `scripts/` - Contains conversion utilities
-  - `lua-to-json.js` - Script to convert Lua files to JSON
+**[View the Interactive Database](https://timo3d.github.io/tanmk-components-api/)**
 
-## Automated Conversion
+Browse all components with an easy-to-use interface featuring searchable lists, detailed specifications, and organized information.
 
-This repository uses GitHub Actions to automatically convert Lua files to JSON whenever changes are pushed to the `src/` directory. The workflow is defined in `.github/workflows/convert-lua-to-json.yml`.
+## 📊 Data Access
 
-## How It Works
+All component data is available in a single JSON file:
 
-1. Push updates to the Lua files in the `src/` directory
-2. GitHub Actions automatically runs the conversion script
-3. The script generates updated JSON files in the `data/` directory
-4. GitHub Actions commits and pushes the updated JSON files
+- **[components.json](./data/components.json)** - Combined data for all guns, turrets, and hulls
 
-## Manual Conversion
+## ⚙️ Features
 
-If you need to run the conversion manually:
+- **Comprehensive Data**: Detailed specifications for hundreds of tank components
+- **Component Types**:
+  - **Guns**: Weapon systems with caliber, shell types, and ballistic data
+  - **Turrets**: Turret mechanisms with traverse specifications and crew information
+  - **Hulls**: Tank chassis with mobility characteristics and armor details
+- **Searchable Interface**: Find components quickly with the search feature
+- **Organized Information**: Data is clearly categorized and presented in an intuitive layout
 
-1. Clone the repository
-2. Install Node.js if you haven't already
-3. Run the conversion script:
-
-```bash
-node scripts/lua-to-json.js src/guns.lua data/guns.json
-node scripts/lua-to-json.js src/turrets.lua data/turrets.json
-node scripts/lua-to-json.js src/hulls.lua data/hulls.json
-```
-
-## Using the Data
-
-### Direct Access
-
-You can directly access the JSON files via raw GitHub URLs:
+## 🔧 Structure
 
 ```
-https://raw.githubusercontent.com/your-username/tank-data/main/data/guns.json
-https://raw.githubusercontent.com/your-username/tank-data/main/data/turrets.json
-https://raw.githubusercontent.com/your-username/tank-data/main/data/hulls.json
+.
+├── data/                # Component data in JSON format
+├── scripts/             # Processing scripts
+├── index.html           # Web interface
+└── README.md            # This file
 ```
 
-### In Your Application
+## 🚀 Using the Data
 
-Example of how to fetch the data in JavaScript:
+The components.json file contains three main sections:
 
 ```javascript
-async function fetchGunData() {
-  const response = await fetch('https://raw.githubusercontent.com/your-username/tank-data/main/data/guns.json');
-  const data = await response.json();
-  return data;
+{
+  "guns": { /* gun components */ },
+  "turrets": { /* turret components */ },
+  "hulls": { /* hull components */ },
+  "count": { /* component counts */ },
+  "lastUpdated": "2025-03-31T12:34:56.789Z"
 }
 ```
 
-## Contributing
+Each component contains detailed metadata including attributes, configuration parameters, and technical specifications.
 
-1. Update the Lua files in the `src/` directory
-2. Push your changes
-3. The JSON files will be automatically updated
+## 📋 License
 
-## License
+This project is intended for informational and educational purposes.
 
-[Your License Here]
+---
+
+Made by qolop ft. Claude AI
