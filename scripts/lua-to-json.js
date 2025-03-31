@@ -3,9 +3,9 @@ const path = require('path');
 const glob = require('glob');
 
 /**
- * A brute force parser specifically designed for Lua format with turrets and hulls
+ * A brute force parser specifically designed for Lua format with guns, turrets and hulls
  * @param {string} luaContent - Content of the Lua file
- * @returns {Object} Parsed data with turrets and hulls identified
+ * @returns {Object} Parsed data with guns, turrets and hulls identified
  */
 function parseLuaFile(luaContent) {
   console.log("Starting robust parsing of Lua data...");
@@ -16,6 +16,7 @@ function parseLuaFile(luaContent) {
   
   // Split the content by components (each component is a line starting with ['ComponentName'])
   const result = {
+    guns: {},    // Added guns section
     turrets: {},
     hulls: {}
   };
@@ -215,7 +216,7 @@ function parseLuaFile(luaContent) {
         }
       }
       
-      // Extract Shells section if present (for turrets)
+      // Extract Shells section if present (for guns)
       const shellsStart = configContent.indexOf("Shells = {");
       if (shellsStart !== -1) {
         // Initialize Shells object
@@ -294,49 +295,66 @@ function parseLuaFile(luaContent) {
       }
     }
     
-    // Determine whether this component is a turret or hull
-    let isTurret = false;
-    let isHull = false;
+    // Determine component type (gun, turret, or hull)
+    const componentType = identifyComponentType(componentData);
     
-    // Check for turret-specific config attributes
-    if (componentData.metadata.config.hasOwnProperty('VtPos') || 
-        componentData.metadata.config.hasOwnProperty('HzTraverse') || 
-        componentData.metadata.config.hasOwnProperty('Stabiliser')) {
-      isTurret = true;
-    }
-    
-    // Check for hull-specific config attributes
-    if (componentData.metadata.config.hasOwnProperty('ReverseGears') || 
-        componentData.metadata.config.hasOwnProperty('TrackThickness') || 
-        componentData.metadata.config.hasOwnProperty('SpringStiffness') ||
-        componentData.metadata.config.hasOwnProperty('MaxSteerAngle')) {
-      isHull = true;
-    }
-    
-    // Assign to the appropriate section
-    if (isTurret && !isHull) {
-      result.turrets[componentName] = componentData;
-    } else if (isHull && !isTurret) {
-      result.hulls[componentName] = componentData;
-    } else {
-      // If it's ambiguous or has properties of both, check for more indicators
-      if (componentData.metadata.config.hasOwnProperty('TurretWeight')) {
-        result.turrets[componentName] = componentData;
-      } else if (componentData.metadata.config.hasOwnProperty('HullWeight')) {
-        result.hulls[componentName] = componentData;
-      } else {
-        // Default to turrets if we can't determine
-        console.log(`Warning: Component type ambiguous for ${componentName}, defaulting to turret`);
-        result.turrets[componentName] = componentData;
-      }
-    }
+    // Place the component in the appropriate section
+    result[componentType][componentName] = componentData;
   }
   
   return result;
 }
 
 /**
- * Main function to convert multiple Lua files to a single JSON with turrets and hulls
+ * Identify the type of component (gun, turret, or hull)
+ * @param {Object} component - The component data
+ * @returns {string} The component type: 'guns', 'turrets', or 'hulls'
+ */
+function identifyComponentType(component) {
+  if (!component.metadata || !component.metadata.config) {
+    return 'turrets'; // Default fallback
+  }
+  
+  const config = component.metadata.config;
+  
+  // Check for gun-specific properties
+  const hasGunProperties = config.hasOwnProperty('GunCaliber') || 
+                          config.hasOwnProperty('RecoilForce') ||
+                          config.hasOwnProperty('RecoilLength') ||
+                          config.hasOwnProperty('OverheatMult') ||
+                          config.hasOwnProperty('GunWeight') ||
+                          (config.Shells && Object.keys(config.Shells).length > 0);
+  
+  // Check for turret-specific properties
+  const hasTurretProperties = config.hasOwnProperty('VtPos') || 
+                             config.hasOwnProperty('HzTraverse') || 
+                             config.hasOwnProperty('VtTraverse') ||
+                             config.hasOwnProperty('Stabiliser') ||
+                             config.hasOwnProperty('TurretWeight');
+  
+  // Check for hull-specific properties
+  const hasHullProperties = config.hasOwnProperty('ReverseGears') || 
+                           config.hasOwnProperty('TrackThickness') || 
+                           config.hasOwnProperty('SpringStiffness') ||
+                           config.hasOwnProperty('MaxSteerAngle') ||
+                           config.hasOwnProperty('HullWeight');
+  
+  // Prioritize identification (guns take precedence if both gun and turret properties exist)
+  if (hasGunProperties && !hasHullProperties) {
+    return 'guns';
+  } else if (hasTurretProperties && !hasHullProperties && !hasGunProperties) {
+    return 'turrets';
+  } else if (hasHullProperties) {
+    return 'hulls';
+  } else {
+    // Default to turrets for ambiguous cases
+    console.log(`Warning: Component type ambiguous, defaulting to turret`);
+    return 'turrets';
+  }
+}
+
+/**
+ * Main function to convert multiple Lua files to a single JSON with guns, turrets and hulls
  */
 function convertMultipleLuaToJson() {
   // Get command line arguments
@@ -367,9 +385,11 @@ function convertMultipleLuaToJson() {
     
     // Initialize the combined data
     const combinedData = {
+      guns: {},     // Added guns section
       turrets: {},
       hulls: {},
       count: {
+        guns: 0,    // Added guns count
         turrets: 0,
         hulls: 0,
         total: 0
@@ -390,19 +410,22 @@ function convertMultipleLuaToJson() {
       const parsedData = parseLuaFile(luaContent);
       
       // Count components
+      const gunsCount = Object.keys(parsedData.guns).length;
       const turretCount = Object.keys(parsedData.turrets).length;
       const hullCount = Object.keys(parsedData.hulls).length;
       
-      console.log(`Found ${turretCount} turrets and ${hullCount} hulls in ${file}`);
+      console.log(`Found ${gunsCount} guns, ${turretCount} turrets and ${hullCount} hulls in ${file}`);
       
       // Merge with combined data
+      Object.assign(combinedData.guns, parsedData.guns);
       Object.assign(combinedData.turrets, parsedData.turrets);
       Object.assign(combinedData.hulls, parsedData.hulls);
       
       // Update counts
+      combinedData.count.guns += gunsCount;
       combinedData.count.turrets += turretCount;
       combinedData.count.hulls += hullCount;
-      combinedData.count.total += turretCount + hullCount;
+      combinedData.count.total += gunsCount + turretCount + hullCount;
     }
     
     // Add metadata
@@ -425,7 +448,10 @@ function convertMultipleLuaToJson() {
     console.log(`\nSuccessfully processed ${files.length} files`);
     console.log(`Combined data written to ${outputFile}`);
     console.log(`Debug version saved as ${debugOutputFile}`);
-    console.log(`Total components: ${combinedData.count.total} (${combinedData.count.turrets} turrets, ${combinedData.count.hulls} hulls)`);
+    console.log(`Total components: ${combinedData.count.total}`);
+    console.log(`- Guns: ${combinedData.count.guns}`);
+    console.log(`- Turrets: ${combinedData.count.turrets}`);
+    console.log(`- Hulls: ${combinedData.count.hulls}`);
     
   } catch (error) {
     console.error('Error:', error);
