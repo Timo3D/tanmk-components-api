@@ -483,74 +483,80 @@
       return { groupedProps, groups };
     }
     
-    // Load component data from combined JSON file
-    async function loadComponentData() {
-      loadingSpinner.style.display = 'block';
+   // Load component data from combined JSON file
+async function loadComponentData() {
+  loadingSpinner.style.display = 'block';
+  
+  try {
+    // Load combined components data
+    const componentsResponse = await fetch(`${DATA_BASE_URL}/components.json`);
+    if (componentsResponse.ok) {
+      const data = await componentsResponse.json();
       
-      try {
-        // Load combined components data
-        const componentsResponse = await fetch(`${DATA_BASE_URL}/components.json`);
-        if (componentsResponse.ok) {
-          const data = await componentsResponse.json();
-          
-          // Store the component data in our structure
-          componentData.turrets = data.turrets || {};
-          componentData.hulls = data.hulls || {};
-          
-          // Try to load guns separately if available
-          try {
-            const gunsResponse = await fetch(`${DATA_BASE_URL}/guns.json`);
-            if (gunsResponse.ok) {
-              const gunsData = await gunsResponse.json();
-              componentData.guns = gunsData.items || {};
-              
-              // Remove any guns that are also in the turrets list to avoid duplication
-              if (componentData.turrets) {
-                const gunNames = Object.keys(componentData.guns);
-                gunNames.forEach(name => {
-                  if (componentData.turrets[name]) {
-                    delete componentData.turrets[name];
-                  }
-                });
-              }
-            } else {
-              setPlaceholder(gunsListElement, 'No guns data available');
-              componentData.guns = {};
-            }
-          } catch (error) {
-            console.error('Error loading guns data:', error);
+      // Store the component data in our structure
+      componentData.turrets = data.turrets || {};
+      componentData.hulls = data.hulls || {};
+      
+      // Check if guns are in the components.json file
+      if (data.guns) {
+        // Use guns from components.json
+        componentData.guns = data.guns;
+      } else {
+        // Try to load guns separately if available
+        try {
+          const gunsResponse = await fetch(`${DATA_BASE_URL}/guns.json`);
+          if (gunsResponse.ok) {
+            const gunsData = await gunsResponse.json();
+            componentData.guns = gunsData.items || {};
+          } else {
             setPlaceholder(gunsListElement, 'No guns data available');
             componentData.guns = {};
           }
-          
-          // Populate component lists
-          populateComponentList('guns', componentData.guns);
-          populateComponentList('turrets', componentData.turrets);
-          populateComponentList('hulls', componentData.hulls);
-          
-          // Update counters
-          updateCounters();
-          
-          // Update last updated timestamp
-          if (data.lastUpdated) {
-            const date = new Date(data.lastUpdated);
-            lastUpdatedElement.textContent = `Last updated: ${date.toLocaleString()}`;
-          }
-        } else {
-          throw new Error('Failed to load components data');
+        } catch (error) {
+          console.error('Error loading guns data:', error);
+          setPlaceholder(gunsListElement, 'No guns data available');
+          componentData.guns = {};
         }
-      } catch (error) {
-        console.error('Error loading component data:', error);
-        alert('Error loading component data. Please check the console for details.');
-        
-        // Set placeholders for all lists
-        setPlaceholder(gunsListElement, 'No guns data available');
-        setPlaceholder(turretsListElement, 'No turrets data available');
-        setPlaceholder(hullsListElement, 'No hulls data available');
-      } finally {
-        loadingSpinner.style.display = 'none';
       }
+      
+      // Remove any duplicates between guns and turrets
+      if (componentData.guns && componentData.turrets) {
+        const gunNames = Object.keys(componentData.guns);
+        gunNames.forEach(name => {
+          if (componentData.turrets[name]) {
+            delete componentData.turrets[name];
+          }
+        });
+      }
+      
+      // Populate component lists
+      populateComponentList('guns', componentData.guns);
+      populateComponentList('turrets', componentData.turrets);
+      populateComponentList('hulls', componentData.hulls);
+      
+      // Update counters
+      updateCounters();
+      
+      // Update last updated timestamp
+      if (data.lastUpdated) {
+        const date = new Date(data.lastUpdated);
+        lastUpdatedElement.textContent = `Last updated: ${date.toLocaleString()}`;
+      }
+    } else {
+      throw new Error('Failed to load components data');
     }
+  } catch (error) {
+    console.error('Error loading component data:', error);
+    alert('Error loading component data. Please check the console for details.');
+    
+    // Set placeholders for all lists
+    setPlaceholder(gunsListElement, 'No guns data available');
+    setPlaceholder(turretsListElement, 'No turrets data available');
+    setPlaceholder(hullsListElement, 'No hulls data available');
+  } finally {
+    loadingSpinner.style.display = 'none';
+  }
+}
     
     // Update component counters
     function updateCounters() {
