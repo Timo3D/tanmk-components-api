@@ -1,0 +1,1518 @@
+{
+  "items": {
+    "100mm Brochette": {
+      "id": "116733224493742",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "122mm D-25T": {
+      "id": "78613245316279",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm F2 48 Calibre": {
+      "id": "117324196408466",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm GT-7": {
+      "id": "129906445464909",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm HEAT Launcher": {
+      "id": "81216214882830",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm High Pressure CV": {
+      "id": "99145373796709",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm XM-291": {
+      "id": "100521606036955",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "50mm KwK 39 II": {
+      "id": "124276762087584",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "25mm Bushmaster": {
+      "id": "106816636815599",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "114mm Finnisher": {
+      "id": "78571525580045",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "helicopter": {
+      "id": "81915419478518",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "85mm Strela AK": {
+      "id": "117215178067315",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "100mm 2A70": {
+      "id": "82158385420492",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "BM-1": {
+      "id": "129815547152500",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm CSE": {
+      "id": "98647081708009",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "84mm 20pdr Type B": {
+      "id": "124532877446918",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm AT43": {
+      "id": "128147158181727",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Empire": {
+      "id": "75876556710531",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm Howitzer": {
+      "id": "93949688073849",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "155mm Heavy Hitter": {
+      "id": "90434663343383",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "15mm ZB-53": {
+      "id": "128542507258943",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "57mm Crusader": {
+      "id": "89811344004229",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Ikonisch": {
+      "id": "131515602799171",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "57mm ASU": {
+      "id": "79699200574445",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm Pom Pom": {
+      "id": "137933159439904",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm SA50": {
+      "id": "74952788254137",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm TG2": {
+      "id": "75430798516765",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm KwK44": {
+      "id": "108077120796485",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Tea Dumper": {
+      "id": "128469020694298",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "15 cm/50 41st Year Type": {
+      "id": "91800439113544",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm QF-2": {
+      "id": "119198027592592",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm M256": {
+      "id": "134577290918390",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "8.8cm Ikonisch": {
+      "id": "78053725043008",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "125mm 2A46M": {
+      "id": "107329023724238",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "8.8cm Ikonisch II": {
+      "id": "137571864772401",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm M61 Vulcan": {
+      "id": "138875992621325",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "62.7mm Fusiler II": {
+      "id": "75199482504976",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "60mm 2077": {
+      "id": "79878062385003",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "60mm 2077 Mk.1": {
+      "id": "136196141701105",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "183mm  QF L4A1": {
+      "id": "87321209811414",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "76mm Freedom": {
+      "id": "131671515897853",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "50mm KwK 39": {
+      "id": "96140333265303",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "57mm Pom Pom Mk. X": {
+      "id": "140655811902729",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "57mm Scimitar": {
+      "id": "140547391779725",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "57mm Ue": {
+      "id": "78671053766373",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "58mm Fusiler": {
+      "id": "123738572201335",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "60mm SPAGAT": {
+      "id": "129040845583228",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm QOLOP": {
+      "id": "136982240480840",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Quack": {
+      "id": "80034941855552",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "122mm SM-30": {
+      "id": "107351808912634",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "77mm HV": {
+      "id": "98184411722793",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm L74": {
+      "id": "110801297083427",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm XM274": {
+      "id": "116659925330882",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm L/88": {
+      "id": "102831127881973",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm 2A73": {
+      "id": "84013827103882",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm Freedom IV": {
+      "id": "135871073664818",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "106.5mm XL2K": {
+      "id": "88111904847915",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "125mm Spud-B": {
+      "id": "140246276512489",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "10.5cm Ikonisch": {
+      "id": "103295924471439",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "165mm Demolition Charge Projector": {
+      "id": "84629769446863",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "140mm Japanese glory": {
+      "id": "108274454405284",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm QOLOP": {
+      "id": "133815703855419",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm M81 Gun Launcher": {
+      "id": "111864975507869",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm Devastator": {
+      "id": "97358153291042",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "145mm XL1K": {
+      "id": "88893866742423",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "130mm S-70": {
+      "id": "124518268766337",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "128mm German Punch": {
+      "id": "96734078079807",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "128mm Festive Punch": {
+      "id": "85409480360739",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "130mm TG50": {
+      "id": "84890203476490",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Type 2": {
+      "id": "81876361902296",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "TOW": {
+      "id": "115675540815433",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "100mm Molotok": {
+      "id": "93892068170204",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm KBA-1": {
+      "id": "136760203997899",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm Freedom II": {
+      "id": "102942164616090",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm M41": {
+      "id": "140597006449396",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm Marteau": {
+      "id": "76421176300409",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm Needle": {
+      "id": "135214098660240",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "94mm 28 Pdr": {
+      "id": "118240005459036",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm Bofors L/70": {
+      "id": "75253979744230",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm CRAD": {
+      "id": "120527917479110",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm Pom Pom Mini": {
+      "id": "138747311934331",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "45mm 20-K": {
+      "id": "110286193062406",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "45mm EGG": {
+      "id": "106071926108977",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "45mm Poopenfartenkanone": {
+      "id": "94002594627072",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "125mm 2A26": {
+      "id": "94823665394979",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Scud": {
+      "id": "116589031183198",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm CN90 F4": {
+      "id": "118044706294334",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm ML-20S": {
+      "id": "124414825923797",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm M139": {
+      "id": "118374287812852",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "28mm Mosquito": {
+      "id": "119066880116656",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm TN": {
+      "id": "114495393778357",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm Oerlikon (REAL AND FIXED)": {
+      "id": "96405059081159",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm Oerlikon": {
+      "id": "74885030472192",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Canon de 120mm": {
+      "id": "115819661887278",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "17.3cm Jericho": {
+      "id": "70395536486860",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "ZU-23 (Twin)": {
+      "id": "74818417628599",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "38cm Doomsday": {
+      "id": "84835264420567",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "320mm Punisher": {
+      "id": "104427126532356",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "76mm OTO old": {
+      "id": "79441942482105",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "185mm UHistory Mk.1": {
+      "id": "97682051153966",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "185mm UHistory": {
+      "id": "91184648757893",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "160mm Rigatoni II": {
+      "id": "82754451939681",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "160mm Rigatoni": {
+      "id": "139066388699620",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "9M37M": {
+      "id": "121201509573649",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Among Cannon": {
+      "id": "108054411995293",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Basskanone": {
+      "id": "122660165450230",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Bomb": {
+      "id": "99899541153256",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Pan": {
+      "id": "88377955165750",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Fusiler Mini": {
+      "id": "140571067341645",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm Havoc": {
+      "id": "78266224569620",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm Rarden": {
+      "id": "110355936454308",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm 2A42": {
+      "id": "88648190414680",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "TOW - HE": {
+      "id": "96343883903504",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm 2A38": {
+      "id": "97793357250473",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm L11A1": {
+      "id": "136967590493955",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "DRQ50": {
+      "id": "87894289775079",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "TOS M2 Browning": {
+      "id": "130443842489484",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "DRQ100": {
+      "id": "81361029888164",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "106mm Recoilless": {
+      "id": "102745223703167",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "130mm B-13": {
+      "id": "80096433271526",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "DRQ100R": {
+      "id": "81712706416509",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm Type 92": {
+      "id": "136273949655249",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "150mm Type 96 Howitzer": {
+      "id": "71621012697627",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm Royal": {
+      "id": "97851586273238",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Freedom": {
+      "id": "106370874260006",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "122mm 2A18": {
+      "id": "121843961286364",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm Mk. 30-2/ABM": {
+      "id": "73411051206099",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm CN90 F3": {
+      "id": "97151942856280",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "AT4": {
+      "id": "86231492808756",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm Terminator": {
+      "id": "75493049197309",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "49.7mm DbGPAC": {
+      "id": "90913839580520",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "25mm Oerlikon": {
+      "id": "94472939910549",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "H-2 Ares Jupiter": {
+      "id": "100286505138722",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "112mm  HATG": {
+      "id": "103292452353453",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm KBM-2": {
+      "id": "71574962943506",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "35mm GA-35": {
+      "id": "98685746139403",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm sdkfzG": {
+      "id": "92634127004520",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm L15": {
+      "id": "136902122556614",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "38cm SK": {
+      "id": "102073572097640",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "125mm 2A821M": {
+      "id": "75350738274223",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm Flak": {
+      "id": "117250735373294",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm TCB L/60": {
+      "id": "100465196182496",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm L/44": {
+      "id": "74839967832216",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm German Slap": {
+      "id": "125482600725888",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "20mm FS": {
+      "id": "114557799463262",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "99.7mm Fusiler LARP": {
+      "id": "88413015565035",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "190mm Bruh": {
+      "id": "126635403528507",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "8.8 cm Kw.K. L/100": {
+      "id": "122619002302264",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "256mm German Kick": {
+      "id": "72080787529222",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm BK90": {
+      "id": "125142672319665",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm IMI": {
+      "id": "81541376484665",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Ikonisch II": {
+      "id": "94161094805041",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm CN 105 F1": {
+      "id": "72395718756684",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "9mm QLABS  Mk II": {
+      "id": "112848298217976",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "107mm ZiS-6": {
+      "id": "125710728715885",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "130mm M-65": {
+      "id": "121062468245344",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "DRQ140R": {
+      "id": "105828826563998",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "160mm Annihilator": {
+      "id": "74984143016852",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "A-10 Thunderbolt": {
+      "id": "125208849905885",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "12.7mm M2": {
+      "id": "89547981762301",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "73mm 2A28": {
+      "id": "135250991950885",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Cannon Model 1897": {
+      "id": "128693505877890",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "21cm Jericho": {
+      "id": "72950213281742",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm GIAT F1": {
+      "id": "139753956719909",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "TOW but epic": {
+      "id": "96270063438640",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "125mm 2A46M-1": {
+      "id": "113910982117965",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "RPG-7 Bomblet": {
+      "id": "87030926415743",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "MARS": {
+      "id": "113965549113948",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "66mm NUCLEAR WEAPON 5000": {
+      "id": "91427334832331",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "MistleTOW": {
+      "id": "73177417409465",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "35mm Bushmaster AGDS": {
+      "id": "124185855948371",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Bazooka": {
+      "id": "132514809164613",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Gun Jumper": {
+      "id": "72627125064004",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "140mm ATAC 140": {
+      "id": "133178962244222",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "85mm ZIS-S": {
+      "id": "98055017745311",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "203mm 2A44": {
+      "id": "94490604948111",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "75mm Type 3": {
+      "id": "76224852048598",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm TKG": {
+      "id": "88784559311070",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm BL-10": {
+      "id": "116315384487893",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "38cm RW61": {
+      "id": "119465267045521",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm M68": {
+      "id": "83384989720195",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm OTO": {
+      "id": "122106191480730",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm L/55A1": {
+      "id": "107870123219856",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "47mm Type-1": {
+      "id": "139119124052678",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "25mm GAU-12U Equalizer": {
+      "id": "91573079229264",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "8.8cm Ikonisch Zweimal": {
+      "id": "138783777186136",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "140mm Freedom X": {
+      "id": "124947340830572",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "155mm L/52": {
+      "id": "126896347935350",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "135mm Sayonara": {
+      "id": "127461660754174",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "35mm KDE": {
+      "id": "100223258588310",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm M230LF": {
+      "id": "119136911075676",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "155mm SPAT Phase 1": {
+      "id": "113603854269537",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "115mm U-5TS": {
+      "id": "115161876172498",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "90mm XAC 24": {
+      "id": "125132065433896",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "37mm M6": {
+      "id": "138076065425300",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "M29 Davy Crockett": {
+      "id": "96616847988078",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm Eagle": {
+      "id": "108334206562393",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "30mm 2A72": {
+      "id": "136922521143887",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "40mm MK19 GMG": {
+      "id": "111839227608254",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "150mm Jolly Gift": {
+      "id": "95687368842751",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "87mm 17-Gauge QLABS": {
+      "id": "70433219096676",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "No gun": {
+      "id": "126567672114275",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm JSW": {
+      "id": "72366154342510",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm OTO": {
+      "id": "127764303012722",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "127mm Justicar Mk.90/41.5": {
+      "id": "79389635594371",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "166mm Peacemaker": {
+      "id": "117687304760386",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "95mm MG95": {
+      "id": "131093030527351",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm XM150E6": {
+      "id": "134179982619770",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "117mm Betwixt": {
+      "id": "77420756584995",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "76mm OTO": {
+      "id": "135431819671454",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm Mk.III Rifled": {
+      "id": "103613706916436",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "105mm M68A1": {
+      "id": "136672790602766",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "Audiojungle": {
+      "id": "119305368234098",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "152mm Nadiya": {
+      "id": "104458242222862",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "120mm Coloniser": {
+      "id": "131402208634071",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    },
+    "155mm Heavy Hitter BUT EPIC": {
+      "id": "99677285751998",
+      "metadata": {
+        "attributes": {},
+        "config": {}
+      }
+    }
+  },
+  "count": 216,
+  "lastUpdated": "2025-03-31T02:46:35.099Z"
+}
