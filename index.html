@@ -573,8 +573,28 @@
         return;
       }
       
-      // Sort components by name
-      const sortedNames = Object.keys(data).sort();
+      // Get all component names
+      let sortedNames = Object.keys(data);
+      
+      // Sort components based on type
+      if (type === 'guns') {
+        // Sort guns by caliber (ascending), then by name
+        sortedNames.sort((a, b) => {
+          const caliberA = data[a].metadata?.config?.GunCaliber || 0;
+          const caliberB = data[b].metadata?.config?.GunCaliber || 0;
+          
+          // If calibers are different, sort by caliber
+          if (caliberA !== caliberB) {
+            return caliberA - caliberB;
+          }
+          
+          // If calibers are the same, sort alphabetically
+          return a.localeCompare(b);
+        });
+      } else {
+        // Sort other components alphabetically
+        sortedNames.sort();
+      }
       
       sortedNames.forEach(name => {
         const component = data[name];
@@ -583,7 +603,7 @@
         item.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center';
         
         // For guns, show caliber
-        if (type === 'guns' && component.metadata && component.metadata.config && component.metadata.config.GunCaliber) {
+        if (type === 'guns' && component.metadata.config && component.metadata.config.GunCaliber) {
           item.innerHTML = `
             ${name}
             <span class="badge bg-secondary rounded-pill">${component.metadata.config.GunCaliber}mm</span>
@@ -594,10 +614,6 @@
         
         item.addEventListener('click', (e) => {
           e.preventDefault();
-          
-          // Highlight the selected item
-          listElement.querySelectorAll('a').forEach(el => el.classList.remove('active'));
-          item.classList.add('active');
           
           // Display component details
           displayComponentDetails(type, name, component);
@@ -624,26 +640,49 @@
       });
     }
     
-    // Display component details
-    function displayComponentDetails(type, name, component) {
-      // Clear previous content
-      componentDetailsElement.innerHTML = '';
-      
-      // Clone the appropriate template
-      let template;
-      if (type === 'guns') {
-        template = gunDetailsTemplate.content.cloneNode(true);
-        displayGunDetails(template, name, component);
-      } else if (type === 'turrets') {
-        template = turretDetailsTemplate.content.cloneNode(true);
-        displayTurretDetails(template, name, component);
-      } else if (type === 'hulls') {
-        template = hullDetailsTemplate.content.cloneNode(true);
-        displayHullDetails(template, name, component);
+  // Display component details
+  function displayComponentDetails(type, name, component) {
+    // Clear previous content
+    componentDetailsElement.innerHTML = '';
+    
+    // Clear active highlighting from ALL component lists
+    clearAllActiveSelections();
+    
+    // Highlight the selected item in current list
+    const listElement = document.getElementById(`${type}List`);
+    const items = listElement.querySelectorAll('a');
+    
+    // Find the correct item to highlight
+    items.forEach(item => {
+      const itemText = item.textContent.trim().replace(/\d+mm$/, '').trim();
+      if (itemText === name) {
+        item.classList.add('active');
       }
-      
-      componentDetailsElement.appendChild(template);
+    });
+    
+    // Clone the appropriate template
+    let template;
+    if (type === 'guns') {
+      template = gunDetailsTemplate.content.cloneNode(true);
+      displayGunDetails(template, name, component);
+    } else if (type === 'turrets') {
+      template = turretDetailsTemplate.content.cloneNode(true);
+      displayTurretDetails(template, name, component);
+    } else if (type === 'hulls') {
+      template = hullDetailsTemplate.content.cloneNode(true);
+      displayHullDetails(template, name, component);
     }
+    
+    componentDetailsElement.appendChild(template);
+  }
+
+// Helper function to clear all active selections
+function clearAllActiveSelections() {
+  // Remove active class from all lists
+  document.querySelectorAll('#gunsList a, #turretsList a, #hullsList a').forEach(el => {
+    el.classList.remove('active');
+  });
+}
     
     // Display gun details with organized property groups
     function displayGunDetails(template, name, gun) {
