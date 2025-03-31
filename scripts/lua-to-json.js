@@ -428,36 +428,30 @@ function convertMultipleLuaToJson() {
       combinedData.count.total += gunsCount + turretCount + hullCount;
     }
     
-    // Add metadata
-    combinedData.sourceFiles = files;
-    combinedData.lastUpdated = new Date().toISOString();
-    
-    // Create directories if they don't exist
-    const outputDir = path.dirname(outputFile);
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
-    
-    // Write the output file
-    fs.writeFileSync(outputFile, JSON.stringify(combinedData, null, 2), 'utf8');
-    
-    // Also write a debug version with extra spacing for readability
-    const debugOutputFile = outputFile.replace('.json', '-debug.json');
-    fs.writeFileSync(debugOutputFile, JSON.stringify(combinedData, null, 4), 'utf8');
-    
-    console.log(`\nSuccessfully processed ${files.length} files`);
-    console.log(`Combined data written to ${outputFile}`);
-    console.log(`Debug version saved as ${debugOutputFile}`);
-    console.log(`Total components: ${combinedData.count.total}`);
-    console.log(`- Guns: ${combinedData.count.guns}`);
-    console.log(`- Turrets: ${combinedData.count.turrets}`);
-    console.log(`- Hulls: ${combinedData.count.hulls}`);
-    
+  // Add metadata
+  combinedData.sourceFiles = files;
+  combinedData.lastUpdated = new Date().toISOString();
+
+  // Create directories if they don't exist
+  const outputDir = path.dirname(outputFile);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  // Write the output file
+  fs.writeFileSync(outputFile, JSON.stringify(combinedData, null, 2), 'utf8');
+
+  console.log(`\nSuccessfully processed ${files.length} files`);
+  console.log(`Combined data written to ${outputFile}`);
+  console.log(`Total components: ${combinedData.count.total}`);
+  console.log(`- Guns: ${combinedData.count.guns}`);
+  console.log(`- Turrets: ${combinedData.count.turrets}`);
+  console.log(`- Hulls: ${combinedData.count.hulls}`);
+
   } catch (error) {
     console.error('Error:', error);
     process.exit(1);
   }
 }
-
 // Run the conversion
 convertMultipleLuaToJson();
