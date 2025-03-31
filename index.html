@@ -87,6 +87,21 @@
       padding: 8px 12px;
       border-radius: 4px;
     }
+    .shell-group {
+      background-color: rgba(0,0,0,.02);
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .shell-group h6 {
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      padding-bottom: 4px;
+    }
+    .prop-group-title {
+      font-size: 1.1rem;
+    }
   </style>
 </head>
 <body>
@@ -191,19 +206,8 @@
         </ul>
         <div class="tab-content mt-3" id="gunTabContent">
           <div class="tab-pane fade show active" id="gun-overview" role="tabpanel" aria-labelledby="gun-overview-tab">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Attributes</h5>
-                  <div id="gunAttributes" class="attribute-grid"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Configuration</h5>
-                  <div id="gunConfig" class="attribute-grid"></div>
-                </div>
-              </div>
+            <div id="gunPropertyGroups">
+              <!-- Property groups will be inserted here -->
             </div>
           </div>
           <div class="tab-pane fade" id="gun-shells" role="tabpanel" aria-labelledby="gun-shells-tab">
@@ -241,19 +245,8 @@
         </ul>
         <div class="tab-content mt-3" id="turretTabContent">
           <div class="tab-pane fade show active" id="turret-overview" role="tabpanel" aria-labelledby="turret-overview-tab">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Attributes</h5>
-                  <div id="turretAttributes" class="attribute-grid"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Configuration</h5>
-                  <div id="turretConfig" class="attribute-grid"></div>
-                </div>
-              </div>
+            <div id="turretPropertyGroups">
+              <!-- Property groups will be inserted here -->
             </div>
           </div>
           <div class="tab-pane fade" id="turret-crew" role="tabpanel" aria-labelledby="turret-crew-tab">
@@ -291,19 +284,8 @@
         </ul>
         <div class="tab-content mt-3" id="hullTabContent">
           <div class="tab-pane fade show active" id="hull-overview" role="tabpanel" aria-labelledby="hull-overview-tab">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Attributes</h5>
-                  <div id="hullAttributes" class="attribute-grid"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="attribute-section">
-                  <h5>Configuration</h5>
-                  <div id="hullConfig" class="attribute-grid"></div>
-                </div>
-              </div>
+            <div id="hullPropertyGroups">
+              <!-- Property groups will be inserted here -->
             </div>
           </div>
           <div class="tab-pane fade" id="hull-mobility" role="tabpanel" aria-labelledby="hull-mobility-tab">
@@ -314,6 +296,20 @@
             <pre id="hullRawJson"></pre>
           </div>
         </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="propertyGroupTemplate">
+    <div class="card mb-3">
+      <div class="card-header bg-light">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-icon me-2"></i>
+          <h5 class="mb-0 prop-group-title">Group Title</h5>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="attribute-grid"></div>
       </div>
     </div>
   </template>
@@ -346,6 +342,7 @@
     const gunDetailsTemplate = document.getElementById('gunDetailsTemplate');
     const turretDetailsTemplate = document.getElementById('turretDetailsTemplate');
     const hullDetailsTemplate = document.getElementById('hullDetailsTemplate');
+    const propertyGroupTemplate = document.getElementById('propertyGroupTemplate');
     
     // Initialize the app
     document.addEventListener('DOMContentLoaded', () => {
@@ -356,6 +353,121 @@
       searchTurretsInput.addEventListener('input', (e) => filterComponentList('turrets', e.target.value));
       searchHullsInput.addEventListener('input', (e) => filterComponentList('hulls', e.target.value));
     });
+    
+    // Group properties by category
+    function groupProperties(component, type) {
+      // Combined properties from both attributes and config
+      const allProps = {
+        ...component.metadata.attributes,
+        ...component.metadata.config
+      };
+      
+      // Define property groups based on component type
+      let groups = {};
+      
+      if (type === 'guns') {
+        groups = {
+          // Basic information group
+          'Basic Info': {
+            props: ['Rarity', 'Nation', 'Era', 'Tier', 'Dealer', 'Desc'],
+            icon: 'bi-info-circle'
+          },
+          // Economic properties
+          'Economics': {
+            props: ['Yen', 'Iron', 'Steel', 'Aluminium', 'Chromium', 'Carbon_Fibre', 'Composite', 'Titanium'],
+            icon: 'bi-currency-dollar'
+          },
+          // Gun performance properties
+          'Performance': {
+            props: ['GunWeight', 'Accuracy', 'RecoilZoom', 'RecoilForce', 'OverheatMult', 
+                    'DamageMult', 'RecoilLength', 'ReloadTime', 'GunCaliber'],
+            icon: 'bi-speedometer'
+          }
+        };
+      } else if (type === 'turrets') {
+        groups = {
+          'Basic Info': {
+            props: ['Rarity', 'Nation', 'Era', 'Tier', 'Dealer', 'Desc', 'Armour'],
+            icon: 'bi-info-circle'
+          },
+          'Economics': {
+            props: ['Yen', 'Iron', 'Steel', 'Aluminium', 'Chromium', 'Carbon_Fibre', 'Composite', 'Titanium'],
+            icon: 'bi-currency-dollar'
+          },
+          'Performance': {
+            props: ['TurretWeight', 'Responsiveness', 'Stabiliser', 'HzTraverse', 'VtTraverse',
+                    'HzLimits', 'VtLimits', 'ReloadMultiplier', 'Range', 'RangefinderType'],
+            icon: 'bi-speedometer'
+          },
+          'Configuration': {
+            props: ['HzSound', 'VtSound', 'GunPos', 'VtPos', 'SightZoom', 'Thermals'],
+            icon: 'bi-gear'
+          }
+        };
+      } else if (type === 'hulls') {
+        groups = {
+          'Basic Info': {
+            props: ['Rarity', 'Nation', 'Era', 'Tier', 'Dealer', 'Desc', 'Armour', 'RepairMult'],
+            icon: 'bi-info-circle'
+          },
+          'Economics': {
+            props: ['Yen', 'Iron', 'Steel', 'Aluminium', 'Chromium', 'Carbon_Fibre', 'Composite', 'Titanium'],
+            icon: 'bi-currency-dollar'
+          },
+          'Mobility': {
+            props: ['HullWeight', 'Acceleration', 'Torque', 'TurnSpeed', 'WheelFriction', 
+                    'MaxSteerAngle', 'NeutralSteer', 'SpringStiffness', 'SpringDamping'],
+            icon: 'bi-truck'
+          },
+          'Tracks & Wheels': {
+            props: ['TrackWidth', 'TrackThickness', 'TrackLinkLength', 'TrackLinks', 
+                    'TracksOffset', 'TracksOffsetAbs', 'Wheeled'],
+            icon: 'bi-gear-wide'
+          },
+          'Advanced': {
+            props: ['IR_Camera_Module', 'Computer_Systems', 'Radar_Module', 'Circuitry', 'Laser_Module'],
+            icon: 'bi-cpu'
+          }
+        };
+      }
+      
+      // Organize properties into their groups
+      const groupedProps = {};
+      
+      // Initialize all groups (even empty ones)
+      Object.keys(groups).forEach(groupName => {
+        groupedProps[groupName] = [];
+      });
+      
+      // Special handling for certain properties
+      const excluded = ['CF', 'Shells', 'ForwardGears', 'ReverseGears', 'TrackColour'];
+      
+      // Process each property
+      Object.entries(allProps).forEach(([key, value]) => {
+        // Skip special properties
+        if (excluded.includes(key)) return;
+        
+        // Check which group this property belongs to
+        let assigned = false;
+        
+        Object.entries(groups).forEach(([groupName, groupInfo]) => {
+          if (groupInfo.props.includes(key)) {
+            groupedProps[groupName].push({ key, value });
+            assigned = true;
+          }
+        });
+        
+        // If not assigned to any group, add to "Other" group
+        if (!assigned) {
+          if (!groupedProps['Other']) {
+            groupedProps['Other'] = [];
+          }
+          groupedProps['Other'].push({ key, value });
+        }
+      });
+      
+      return { groupedProps, groups };
+    }
     
     // Load all component data
     async function loadComponentData() {
@@ -422,7 +534,7 @@
         item.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center';
         
         // For guns, show caliber
-        if (type === 'guns' && component.metadata.config.GunCaliber) {
+        if (type === 'guns' && component.metadata.config && component.metadata.config.GunCaliber) {
           item.innerHTML = `
             ${name}
             <span class="badge bg-secondary rounded-pill">${component.metadata.config.GunCaliber}mm</span>
@@ -484,7 +596,7 @@
       componentDetailsElement.appendChild(template);
     }
     
-    // Display gun details
+    // Display gun details with organized property groups
     function displayGunDetails(template, name, gun) {
       // Set name and tier
       template.getElementById('gunName').textContent = name;
@@ -497,17 +609,58 @@
       const era = gun.metadata.attributes.Era || 'Unknown Era';
       template.getElementById('gunBasicInfo').textContent = `${nation} • ${era} • ID: ${gun.id}`;
       
-      // Populate attributes
-      const attributesContainer = template.getElementById('gunAttributes');
-      populateAttributeGrid(attributesContainer, gun.metadata.attributes, ['CF']); // Exclude CF which is complex
+      // Group properties by category
+      const { groupedProps, groups } = groupProperties(gun, 'guns');
       
-      // Populate config
-      const configContainer = template.getElementById('gunConfig');
-      populateAttributeGrid(configContainer, gun.metadata.config, ['Shells']); // Exclude Shells which is handled separately
+      // Populate property groups
+      const propertyGroupsContainer = template.getElementById('gunPropertyGroups');
+      
+      // Clear container
+      propertyGroupsContainer.innerHTML = '';
+      
+      // Add each property group
+      Object.entries(groupedProps).forEach(([groupName, properties]) => {
+        // Skip empty groups
+        if (properties.length === 0) return;
+        
+        // Clone the group template
+        const groupElement = propertyGroupTemplate.content.cloneNode(true);
+        
+        // Set group title and icon
+        const titleElement = groupElement.querySelector('.prop-group-title');
+        titleElement.textContent = groupName;
+        
+        const iconElement = groupElement.querySelector('.bi');
+        iconElement.className = `bi ${groups[groupName]?.icon || 'bi-three-dots'} me-2`;
+        
+        // Add properties to the grid
+        const gridElement = groupElement.querySelector('.attribute-grid');
+        
+        properties.forEach(({ key, value }) => {
+          const attrElement = document.createElement('div');
+          attrElement.className = 'attribute-item';
+          
+          // Format the display value
+          let displayValue = value;
+          if (typeof value === 'object') {
+            displayValue = JSON.stringify(value);
+          }
+          
+          attrElement.innerHTML = `
+            <div class="stat-label">${formatLabel(key)}</div>
+            <div class="stat-value">${displayValue}</div>
+          `;
+          
+          gridElement.appendChild(attrElement);
+        });
+        
+        // Add the group to the container
+        propertyGroupsContainer.appendChild(groupElement);
+      });
       
       // Populate shells
       const shellsContainer = template.getElementById('gunShells');
-      if (gun.metadata.config.Shells && Object.keys(gun.metadata.config.Shells).length > 0) {
+      if (gun.metadata.config && gun.metadata.config.Shells && Object.keys(gun.metadata.config.Shells).length > 0) {
         shellsContainer.innerHTML = '';
         
         Object.entries(gun.metadata.config.Shells).forEach(([shellType, shellData]) => {
@@ -516,20 +669,55 @@
           
           let shellContent = `
             <h6>${shellType} - ${shellData.ShellName || 'Unknown'}</h6>
-            <div class="attribute-grid">
           `;
           
-          // Add shell properties
-          Object.entries(shellData).forEach(([key, value]) => {
-            shellContent += `
-              <div class="attribute-item">
-                <div class="stat-label">${formatLabel(key)}</div>
-                <div class="stat-value">${value}</div>
-              </div>
-            `;
+          // Group shell properties
+          const shellProps = {
+            'Basic': ['ShellName', 'HEATFS'],
+            'Ballistics': ['ShellSpeed', 'BulletGravity', 'RicochetAngle'],
+            'Damage': ['Penetration', 'Penetration60', 'ExplosiveMult', 'DamageMult'],
+            'Technical': ['FuseDelay', 'FuseSensitivity']
+          };
+          
+          // Organize shell properties by group
+          const organizedProps = {};
+          Object.entries(shellProps).forEach(([group, propList]) => {
+            organizedProps[group] = [];
+            propList.forEach(prop => {
+              if (shellData[prop] !== undefined) {
+                organizedProps[group].push({ key: prop, value: shellData[prop] });
+              }
+            });
           });
           
-          shellContent += '</div>';
+          // Add other properties that weren't categorized
+          const categorizedProps = Object.values(shellProps).flat();
+          const otherProps = Object.entries(shellData)
+            .filter(([key]) => !categorizedProps.includes(key))
+            .map(([key, value]) => ({ key, value }));
+          
+          if (otherProps.length > 0) {
+            organizedProps['Other'] = otherProps;
+          }
+          
+          // Add shell properties by group
+          Object.entries(organizedProps).forEach(([group, props]) => {
+            if (props.length === 0) return;
+            
+            shellContent += `<div class="shell-group mb-2"><h6 class="small text-muted">${group}</h6><div class="attribute-grid">`;
+            
+            props.forEach(({ key, value }) => {
+              shellContent += `
+                <div class="attribute-item">
+                  <div class="stat-label">${formatLabel(key)}</div>
+                  <div class="stat-value">${value}</div>
+                </div>
+              `;
+            });
+            
+            shellContent += '</div></div>';
+          });
+          
           shellCard.innerHTML = shellContent;
           shellsContainer.appendChild(shellCard);
         });
@@ -541,7 +729,7 @@
       template.getElementById('gunRawJson').textContent = JSON.stringify(gun, null, 2);
     }
     
-    // Display turret details
+    // Display turret details with organized property groups
     function displayTurretDetails(template, name, turret) {
       // Set name and tier
       template.getElementById('turretName').textContent = name;
@@ -554,21 +742,54 @@
       const era = turret.metadata.attributes?.Era || 'Unknown Era';
       template.getElementById('turretBasicInfo').textContent = `${nation} • ${era} • ID: ${turret.id}`;
       
-      // Populate attributes
-      const attributesContainer = template.getElementById('turretAttributes');
-      if (turret.metadata.attributes) {
-        populateAttributeGrid(attributesContainer, turret.metadata.attributes, ['CF']); // Exclude CF which is complex
-      } else {
-        attributesContainer.innerHTML = '<p class="text-muted">No attribute data available</p>';
-      }
+      // Group properties by category
+      const { groupedProps, groups } = groupProperties(turret, 'turrets');
       
-      // Populate config
-      const configContainer = template.getElementById('turretConfig');
-      if (turret.metadata.config) {
-        populateAttributeGrid(configContainer, turret.metadata.config);
-      } else {
-        configContainer.innerHTML = '<p class="text-muted">No configuration data available</p>';
-      }
+      // Populate property groups
+      const propertyGroupsContainer = template.getElementById('turretPropertyGroups');
+      
+      // Clear container
+      propertyGroupsContainer.innerHTML = '';
+      
+      // Add each property group
+      Object.entries(groupedProps).forEach(([groupName, properties]) => {
+        // Skip empty groups
+        if (properties.length === 0) return;
+        
+        // Clone the group template
+        const groupElement = propertyGroupTemplate.content.cloneNode(true);
+        
+        // Set group title and icon
+        const titleElement = groupElement.querySelector('.prop-group-title');
+        titleElement.textContent = groupName;
+        
+        const iconElement = groupElement.querySelector('.bi');
+        iconElement.className = `bi ${groups[groupName]?.icon || 'bi-three-dots'} me-2`;
+        
+        // Add properties to the grid
+        const gridElement = groupElement.querySelector('.attribute-grid');
+        
+        properties.forEach(({ key, value }) => {
+          const attrElement = document.createElement('div');
+          attrElement.className = 'attribute-item';
+          
+          // Format the display value
+          let displayValue = value;
+          if (typeof value === 'object') {
+            displayValue = JSON.stringify(value);
+          }
+          
+          attrElement.innerHTML = `
+            <div class="stat-label">${formatLabel(key)}</div>
+            <div class="stat-value">${displayValue}</div>
+          `;
+          
+          gridElement.appendChild(attrElement);
+        });
+        
+        // Add the group to the container
+        propertyGroupsContainer.appendChild(groupElement);
+      });
       
       // Populate crew
       const crewContainer = template.getElementById('turretCrew');
@@ -592,7 +813,7 @@
       template.getElementById('turretRawJson').textContent = JSON.stringify(turret, null, 2);
     }
     
-    // Display hull details
+    // Display hull details with organized property groups
     function displayHullDetails(template, name, hull) {
       // Set name and tier
       template.getElementById('hullName').textContent = name;
@@ -605,36 +826,113 @@
       const era = hull.metadata.attributes?.Era || 'Unknown Era';
       template.getElementById('hullBasicInfo').textContent = `${nation} • ${era} • ID: ${hull.id}`;
       
-      // Populate attributes
-      const attributesContainer = template.getElementById('hullAttributes');
-      if (hull.metadata.attributes) {
-        populateAttributeGrid(attributesContainer, hull.metadata.attributes, ['CF']); // Exclude CF which is complex
-      } else {
-        attributesContainer.innerHTML = '<p class="text-muted">No attribute data available</p>';
-      }
+      // Group properties by category
+      const { groupedProps, groups } = groupProperties(hull, 'hulls');
       
-      // Populate config
-      const configContainer = template.getElementById('hullConfig');
-      if (hull.metadata.config) {
-        populateAttributeGrid(configContainer, hull.metadata.config, [
-          'ForwardGears', 'ReverseGears', 'TrackColour' // These will be displayed in mobility tab
-        ]);
-      } else {
-        configContainer.innerHTML = '<p class="text-muted">No configuration data available</p>';
-      }
+      // Populate property groups
+      const propertyGroupsContainer = template.getElementById('hullPropertyGroups');
+      
+      // Clear container
+      propertyGroupsContainer.innerHTML = '';
+      
+      // Add each property group
+      Object.entries(groupedProps).forEach(([groupName, properties]) => {
+        // Skip empty groups
+        if (properties.length === 0) return;
+        
+        // Skip 'Mobility' as it has its own tab
+        if (groupName === 'Mobility' || groupName === 'Tracks & Wheels') return;
+        
+        // Clone the group template
+        const groupElement = propertyGroupTemplate.content.cloneNode(true);
+        
+        // Set group title and icon
+        const titleElement = groupElement.querySelector('.prop-group-title');
+        titleElement.textContent = groupName;
+        
+        const iconElement = groupElement.querySelector('.bi');
+        iconElement.className = `bi ${groups[groupName]?.icon || 'bi-three-dots'} me-2`;
+        
+        // Add properties to the grid
+        const gridElement = groupElement.querySelector('.attribute-grid');
+        
+        properties.forEach(({ key, value }) => {
+          const attrElement = document.createElement('div');
+          attrElement.className = 'attribute-item';
+          
+          // Format the display value
+          let displayValue = value;
+          if (typeof value === 'object') {
+            displayValue = JSON.stringify(value);
+          }
+          
+          attrElement.innerHTML = `
+            <div class="stat-label">${formatLabel(key)}</div>
+            <div class="stat-value">${displayValue}</div>
+          `;
+          
+          gridElement.appendChild(attrElement);
+        });
+        
+        // Add the group to the container
+        propertyGroupsContainer.appendChild(groupElement);
+      });
       
       // Populate mobility details
       const mobilityContainer = template.getElementById('hullMobility');
+      
+      // Clear container
+      mobilityContainer.innerHTML = '';
+      
       if (hull.metadata.config) {
-        const mobilityInfo = document.createElement('div');
+        // Use the Mobility group properties directly
+        const mobilityProps = groupedProps['Mobility'] || [];
         
-        // Create a card for gears
+        if (mobilityProps.length > 0) {
+          const mobilityCard = document.createElement('div');
+          mobilityCard.className = 'card mb-3';
+          
+          mobilityCard.innerHTML = `
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-truck me-2"></i>
+                <h5 class="mb-0">Performance Parameters</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="attribute-grid"></div>
+            </div>
+          `;
+          
+          const gridElement = mobilityCard.querySelector('.attribute-grid');
+          
+          mobilityProps.forEach(({ key, value }) => {
+            const attrElement = document.createElement('div');
+            attrElement.className = 'attribute-item';
+            
+            attrElement.innerHTML = `
+              <div class="stat-label">${formatLabel(key)}</div>
+              <div class="stat-value">${value}</div>
+            `;
+            
+            gridElement.appendChild(attrElement);
+          });
+          
+          mobilityContainer.appendChild(mobilityCard);
+        }
+        
+        // Add gears section if available
         if (hull.metadata.config.ForwardGears || hull.metadata.config.ReverseGears) {
           const gearsCard = document.createElement('div');
           gearsCard.className = 'card mb-3';
           
           let gearsContent = `
-            <div class="card-header">Transmission</div>
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-gear me-2"></i>
+                <h5 class="mb-0">Transmission</h5>
+              </div>
+            </div>
             <div class="card-body">
               <div class="row">
           `;
@@ -663,84 +961,50 @@
           `;
           
           gearsCard.innerHTML = gearsContent;
-          mobilityInfo.appendChild(gearsCard);
+          mobilityContainer.appendChild(gearsCard);
         }
         
-        // Create a card for general mobility stats
-        const mobilityCard = document.createElement('div');
-        mobilityCard.className = 'card';
+        // Add track details if available
+        const trackProps = groupedProps['Tracks & Wheels'] || [];
         
-        let content = `
-          <div class="card-header">Mobility Characteristics</div>
-          <div class="card-body">
-            <div class="attribute-grid">
-        `;
-        
-        // Mobility-related attributes
-        const mobilityAttrs = [
-          'TurnSpeed', 'Acceleration', 'Torque', 'HullWeight', 
-          'WheelFriction', 'MaxSteerAngle', 'NeutralSteer'
-        ];
-        
-        mobilityAttrs.forEach(attr => {
-          if (hull.metadata.config[attr] !== undefined) {
-            content += `
-              <div class="attribute-item">
-                <div class="stat-label">${formatLabel(attr)}</div>
-                <div class="stat-value">${hull.metadata.config[attr]}</div>
+        if (trackProps.length > 0) {
+          const trackCard = document.createElement('div');
+          trackCard.className = 'card mb-3';
+          
+          trackCard.innerHTML = `
+            <div class="card-header">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-gear-wide me-2"></i>
+                <h5 class="mb-0">Tracks & Wheels</h5>
               </div>
-            `;
-          }
-        });
-        
-        content += `
             </div>
-          </div>
-        `;
-        
-        mobilityCard.innerHTML = content;
-        mobilityInfo.appendChild(mobilityCard);
-        
-        mobilityContainer.appendChild(mobilityInfo);
+            <div class="card-body">
+              <div class="attribute-grid"></div>
+            </div>
+          `;
+          
+          const gridElement = trackCard.querySelector('.attribute-grid');
+          
+          trackProps.forEach(({ key, value }) => {
+            const attrElement = document.createElement('div');
+            attrElement.className = 'attribute-item';
+            
+            attrElement.innerHTML = `
+              <div class="stat-label">${formatLabel(key)}</div>
+              <div class="stat-value">${value}</div>
+            `;
+            
+            gridElement.appendChild(attrElement);
+          });
+          
+          mobilityContainer.appendChild(trackCard);
+        }
       } else {
         mobilityContainer.innerHTML = '<p class="text-muted">No mobility data available</p>';
       }
       
       // Set raw JSON
       template.getElementById('hullRawJson').textContent = JSON.stringify(hull, null, 2);
-    }
-    
-    // Populate an attribute grid with data
-    function populateAttributeGrid(container, data, exclusions = []) {
-      container.innerHTML = '';
-      
-      if (!data || Object.keys(data).length === 0) {
-        container.innerHTML = '<p class="text-muted">No data available</p>';
-        return;
-      }
-      
-      // Filter and sort attributes
-      const attributes = Object.entries(data)
-        .filter(([key]) => !exclusions.includes(key))
-        .sort((a, b) => a[0].localeCompare(b[0]));
-      
-      attributes.forEach(([key, value]) => {
-        const attrElement = document.createElement('div');
-        attrElement.className = 'attribute-item';
-        
-        // Format the display value
-        let displayValue = value;
-        if (typeof value === 'object') {
-          displayValue = JSON.stringify(value);
-        }
-        
-        attrElement.innerHTML = `
-          <div class="stat-label">${formatLabel(key)}</div>
-          <div class="stat-value">${displayValue}</div>
-        `;
-        
-        container.appendChild(attrElement);
-      });
     }
     
     // Format a label from camelCase or snake_case to Title Case with spaces
