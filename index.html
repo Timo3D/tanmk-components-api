@@ -287,6 +287,9 @@
             <button class="nav-link" id="hull-mobility-tab" data-bs-toggle="tab" data-bs-target="#hull-mobility" type="button" role="tab" aria-controls="hull-mobility" aria-selected="false">Mobility</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="hull-crew-tab" data-bs-toggle="tab" data-bs-target="#hull-crew" type="button" role="tab" aria-controls="hull-crew" aria-selected="false">Crew</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="hull-json-tab" data-bs-toggle="tab" data-bs-target="#hull-json" type="button" role="tab" aria-controls="hull-json" aria-selected="false">Raw JSON</button>
           </li>
         </ul>
@@ -299,6 +302,10 @@
           <div class="tab-pane fade" id="hull-mobility" role="tabpanel" aria-labelledby="hull-mobility-tab">
             <h5>Mobility Characteristics</h5>
             <div id="hullMobility"></div>
+          </div>
+          <div class="tab-pane fade" id="hull-crew" role="tabpanel" aria-labelledby="hull-crew-tab">
+            <h5>Crew Members</h5>
+            <div id="hullCrew"></div>
           </div>
           <div class="tab-pane fade" id="hull-json" role="tabpanel" aria-labelledby="hull-json-tab">
             <pre id="hullRawJson"></pre>
@@ -1026,6 +1033,23 @@ function clearAllActiveSelections() {
           
           gearsCard.innerHTML = gearsContent;
           mobilityContainer.appendChild(gearsCard);
+        }
+
+        const crewContainer = template.getElementById('hullCrew');
+        if (hull.metadata.crew && hull.metadata.crew.length > 0) {
+          const crewList = document.createElement('ul');
+          crewList.className = 'list-group';
+          
+          hull.metadata.crew.forEach(crewMember => {
+            const item = document.createElement('li');
+            item.className = 'list-group-item';
+            item.textContent = crewMember;
+            crewList.appendChild(item);
+          });
+          
+          crewContainer.appendChild(crewList);
+        } else {
+          crewContainer.innerHTML = '<p class="text-muted">No crew data available</p>';
         }
         
         // Add track details if available
