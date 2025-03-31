@@ -531,9 +531,9 @@
   <script>
     // Global variables
     let componentsData = {
+      guns: {},
       turrets: {},
-      hulls: {},
-      guns: {}
+      hulls: {}
     };
     let currentComponentType = 'guns';
     
@@ -553,50 +553,45 @@
       setupEventListeners();
     });
     
-    // Fetch components data from appropriate JSON files
+    // Fetch the components data from multiple JSON files
     async function fetchComponentsData() {
       try {
-        // Fetch combined components.json
-        const componentsResponse = await fetch('data/components.json');
-        if (componentsResponse.ok) {
-          const combinedData = await componentsResponse.json();
-          componentsData.turrets = combinedData.turrets || {};
-          componentsData.hulls = combinedData.hulls || {};
-          
-          // Update turrets/hulls count
-          document.getElementById('turrets-count').textContent = combinedData.count?.turrets || Object.keys(componentsData.turrets).length;
-          document.getElementById('hulls-count').textContent = combinedData.count?.hulls || Object.keys(componentsData.hulls).length;
-          
-          // Populate filters for turrets and hulls
-          populateFilters('turrets');
-          populateFilters('hulls');
-          
-          // Render turrets and hulls
-          renderComponents('turrets');
-          renderComponents('hulls');
-        } else {
-          console.warn('Could not load combined components data');
+        // Load guns from guns.json
+        try {
+          const gunsResponse = await fetch('data/guns.json');
+          if (gunsResponse.ok) {
+            const gunsData = await gunsResponse.json();
+            componentsData.guns = gunsData.items || {};
+            document.getElementById('guns-count').textContent = Object.keys(componentsData.guns).length;
+          }
+        } catch (gunsError) {
+          console.warn('Failed to load guns data:', gunsError);
         }
         
-        // Fetch guns.json (original data)
-        const gunsResponse = await fetch('data/guns.json');
-        if (gunsResponse.ok) {
-          const gunsData = await gunsResponse.json();
-          componentsData.guns = gunsData.items || {};
-          
-          // Update guns count
-          document.getElementById('guns-count').textContent = gunsData.count || Object.keys(componentsData.guns).length;
-          
-          // Populate filters for guns
-          populateFilters('guns');
-          
-          // Render guns
-          renderComponents('guns');
-        } else {
-          console.warn('Could not load guns data');
+        // Load all components from components.json
+        try {
+          const componentsResponse = await fetch('data/components.json');
+          if (componentsResponse.ok) {
+            const componentsData2 = await componentsResponse.json();
+            
+            // Update turrets and hulls data
+            componentsData.turrets = componentsData2.turrets || {};
+            componentsData.hulls = componentsData2.hulls || {};
+            
+            // Update counts
+            document.getElementById('turrets-count').textContent = componentsData2.count?.turrets || Object.keys(componentsData.turrets).length;
+            document.getElementById('hulls-count').textContent = componentsData2.count?.hulls || Object.keys(componentsData.hulls).length;
+            
+            // Update last updated date
+            if (componentsData2.lastUpdated) {
+              document.getElementById('last-updated').textContent = new Date(componentsData2.lastUpdated).toLocaleString();
+            }
+          }
+        } catch (componentsError) {
+          console.warn('Failed to load components data:', componentsError);
         }
         
-        // Update total count and last updated
+        // Calculate total count
         const totalCount = 
           Object.keys(componentsData.guns).length + 
           Object.keys(componentsData.turrets).length + 
@@ -604,12 +599,19 @@
         
         document.getElementById('total-count').textContent = totalCount;
         
-        // Use the most recent last updated date
-        const lastUpdated = new Date().toISOString();
-        document.getElementById('last-updated').textContent = new Date(lastUpdated).toLocaleString();
+        // Populate filters
+        populateFilters('guns');
+        populateFilters('turrets');
+        populateFilters('hulls');
+        
+        // Render components
+        renderComponents('guns');
+        renderComponents('turrets');
+        renderComponents('hulls');
         
       } catch (error) {
-        showError(`Error loading component data: ${error.message}`);
+        showError('Failed to fetch component data. Please try again later.');
+        console.error(error);
       }
     }
     
@@ -628,12 +630,20 @@
       document.getElementById('turrets-search').addEventListener('input', () => filterComponents('turrets'));
       document.getElementById('hulls-search').addEventListener('input', () => filterComponents('hulls'));
       
-      // Filters
-      ['guns', 'turrets', 'hulls'].forEach(type => {
-        document.getElementById(`${type}-nation`).addEventListener('change', () => filterComponents(type));
-        document.getElementById(`${type}-era`).addEventListener('change', () => filterComponents(type));
-        document.getElementById(`${type}-rarity`).addEventListener('change', () => filterComponents(type));
-      });
+      // Filters for guns
+      document.getElementById('guns-nation').addEventListener('change', () => filterComponents('guns'));
+      document.getElementById('guns-era').addEventListener('change', () => filterComponents('guns'));
+      document.getElementById('guns-rarity').addEventListener('change', () => filterComponents('guns'));
+      
+      // Filters for turrets
+      document.getElementById('turrets-nation').addEventListener('change', () => filterComponents('turrets'));
+      document.getElementById('turrets-era').addEventListener('change', () => filterComponents('turrets'));
+      document.getElementById('turrets-rarity').addEventListener('change', () => filterComponents('turrets'));
+      
+      // Filters for hulls
+      document.getElementById('hulls-nation').addEventListener('change', () => filterComponents('hulls'));
+      document.getElementById('hulls-era').addEventListener('change', () => filterComponents('hulls'));
+      document.getElementById('hulls-rarity').addEventListener('change', () => filterComponents('hulls'));
       
       // Modal
       modalClose.addEventListener('click', closeModal);
@@ -683,12 +693,7 @@
       const rarities = new Set();
       
       Object.values(components).forEach(component => {
-        // Handle the different data structures between guns and components
-        const attrs = componentType === 'guns' 
-          ? component.metadata?.attributes 
-          : component.metadata?.attributes;
-        
-        if (!attrs) return;
+        const attrs = component.metadata?.attributes || {};
         
         if (attrs.Nation) nations.add(attrs.Nation);
         if (attrs.Era) eras.add(attrs.Era);
@@ -697,7 +702,11 @@
       
       // Populate nation dropdown
       const nationSelect = document.getElementById(`${componentType}-nation`);
-      nationSelect.innerHTML = '<option value="">All Nations</option>';
+      // Clear existing options except the first one
+      while (nationSelect.options.length > 1) {
+        nationSelect.remove(1);
+      }
+      
       Array.from(nations).sort().forEach(nation => {
         const option = document.createElement('option');
         option.value = nation;
@@ -707,7 +716,11 @@
       
       // Populate era dropdown
       const eraSelect = document.getElementById(`${componentType}-era`);
-      eraSelect.innerHTML = '<option value="">All Eras</option>';
+      // Clear existing options except the first one
+      while (eraSelect.options.length > 1) {
+        eraSelect.remove(1);
+      }
+      
       Array.from(eras).sort().forEach(era => {
         const option = document.createElement('option');
         option.value = era;
@@ -717,7 +730,11 @@
       
       // Populate rarity dropdown
       const raritySelect = document.getElementById(`${componentType}-rarity`);
-      raritySelect.innerHTML = '<option value="">All Rarities</option>';
+      // Clear existing options except the first one
+      while (raritySelect.options.length > 1) {
+        raritySelect.remove(1);
+      }
+      
       const rarityOrder = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythical'];
       
       rarityOrder.forEach(rarity => {
@@ -749,7 +766,6 @@
       
       // Create component cards
       sortedComponents.forEach(([name, data]) => {
-        // Handle different data structures for guns vs components
         const attrs = data.metadata?.attributes || {};
         
         // Create card
@@ -838,8 +854,8 @@
       cards.forEach(card => {
         const name = card.dataset.name;
         const component = components[name];
+        if (!component) return;
         
-        // Handle different data structures for guns vs components
         const attrs = component.metadata?.attributes || {};
         
         // Check if component matches all filters
@@ -862,10 +878,8 @@
       const component = componentsData[componentType][componentName];
       if (!component) return;
       
-      // Standardize access to metadata based on component type
-      const metadata = component.metadata || component;
-      const attrs = metadata.attributes || {};
-      const config = metadata.config || {};
+      const attrs = component.metadata?.attributes || {};
+      const config = component.metadata?.config || {};
       
       // Reset active tab
       switchTab('basic');
@@ -924,10 +938,10 @@
       }
       
       // Crew
-      if (metadata.crew && metadata.crew.length > 0) {
+      if (component.metadata?.crew && component.metadata.crew.length > 0) {
         const crew = document.createElement('div');
         crew.style.marginTop = '15px';
-        crew.innerHTML = `<strong>Crew:</strong> ${metadata.crew.join(', ')}`;
+        crew.innerHTML = `<strong>Crew:</strong> ${component.metadata.crew.join(', ')}`;
         basicContent.appendChild(crew);
       }
       
@@ -938,40 +952,10 @@
       attrsList.innerHTML = '';
       
       // Add all attributes
-      Object.entries(attrs).sort((a, b) => a[0].localeCompare(b[0])).forEach(([key, value]) => {
-        if (key === 'CF') return; // Skip CFrame
-        
-        const li = document.createElement('li');
-        const nameSpan = document.createElement('span');
-        nameSpan.className = 'attribute-name';
-        nameSpan.textContent = key;
-        
-        const valueSpan = document.createElement('span');
-        valueSpan.className = 'attribute-value';
-        
-        // Format the value based on its type
-        if (typeof value === 'object' && value.type && value.type.startsWith('Vector')) {
-          valueSpan.textContent = `${value.type}(${value.values.join(', ')})`;
-        } else if (typeof value === 'object') {
-          valueSpan.textContent = JSON.stringify(value);
-        } else {
-          valueSpan.textContent = value;
-        }
-        
-        li.appendChild(nameSpan);
-        li.appendChild(valueSpan);
-        attrsList.appendChild(li);
-      });
-      
-      // Config tab
-      const configList = document.getElementById('modal-config');
-      configList.innerHTML = '';
-      
-      // Add all config properties except shells
-      Object.entries(config)
-        .filter(([key]) => key !== 'Shells')
-        .sort((a, b) => a[0].localeCompare(b[0]))
-        .forEach(([key, value]) => {
+      if (attrs) {
+        Object.entries(attrs).sort((a, b) => a[0].localeCompare(b[0])).forEach(([key, value]) => {
+          if (key === 'CF') return; // Skip CFrame
+          
           const li = document.createElement('li');
           const nameSpan = document.createElement('span');
           nameSpan.className = 'attribute-name';
@@ -981,27 +965,61 @@
           valueSpan.className = 'attribute-value';
           
           // Format the value based on its type
-          if (typeof value === 'object' && value.type) {
-            if (value.type === 'Vector3') {
-              valueSpan.textContent = `Vector3(${value.values.join(', ')})`;
-            } else if (value.type === 'Color3') {
-              valueSpan.textContent = `Color3(${value.values.join(', ')})`;
-            } else {
-              valueSpan.textContent = JSON.stringify(value);
-            }
-          } else if (typeof value === 'boolean') {
-            valueSpan.textContent = value ? 'true' : 'false';
+          if (typeof value === 'object' && value.type && value.type.startsWith('Vector')) {
+            valueSpan.textContent = `${value.type}(${value.values.join(', ')})`;
+          } else if (typeof value === 'object') {
+            valueSpan.textContent = JSON.stringify(value);
           } else {
             valueSpan.textContent = value;
           }
           
           li.appendChild(nameSpan);
           li.appendChild(valueSpan);
-          configList.appendChild(li);
+          attrsList.appendChild(li);
         });
+      }
       
-      // Shells tab
-      const hasShells = config.Shells && Object.keys(config.Shells).length > 0;
+      // Config tab
+      const configList = document.getElementById('modal-config');
+      configList.innerHTML = '';
+      
+      // Add all config properties except shells
+      if (config) {
+        Object.entries(config)
+          .filter(([key]) => key !== 'Shells')
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .forEach(([key, value]) => {
+            const li = document.createElement('li');
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'attribute-name';
+            nameSpan.textContent = key;
+            
+            const valueSpan = document.createElement('span');
+            valueSpan.className = 'attribute-value';
+            
+            // Format the value based on its type
+            if (typeof value === 'object' && value.type) {
+              if (value.type === 'Vector3') {
+                valueSpan.textContent = `Vector3(${value.values.join(', ')})`;
+              } else if (value.type === 'Color3') {
+                valueSpan.textContent = `Color3(${value.values.join(', ')})`;
+              } else {
+                valueSpan.textContent = JSON.stringify(value);
+              }
+            } else if (typeof value === 'boolean') {
+              valueSpan.textContent = value ? 'true' : 'false';
+            } else {
+              valueSpan.textContent = value;
+            }
+            
+            li.appendChild(nameSpan);
+            li.appendChild(valueSpan);
+            configList.appendChild(li);
+          });
+      }
+      
+      // Shells tab (for turrets and guns)
+      const hasShells = config && config.Shells && Object.keys(config.Shells).length > 0;
       shellsTab.style.display = hasShells ? 'block' : 'none';
       
       if (hasShells) {
