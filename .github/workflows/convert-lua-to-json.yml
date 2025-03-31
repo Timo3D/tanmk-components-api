@@ -29,7 +29,7 @@ jobs:
       
       - name: Run improved conversion script for guns
         if: hashFiles('src/guns.lua') != ''
-        run: node scripts/improved-lua-to-json.js src/guns.lua data/guns.json
+        run: node scripts/lua-to-json.js src/guns.lua data/guns.json
       
       - name: Run conversion script for turrets (if needed)
         if: hashFiles('src/turrets.lua') != '' && false  # Disabled until we have improved converter
