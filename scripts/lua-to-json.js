@@ -1,11 +1,11 @@
-// robust-lua-parser.js
 const fs = require('fs');
 const path = require('path');
+const glob = require('glob');
 
 /**
- * A brute force parser specifically designed for your Lua format
+ * A brute force parser specifically designed for Lua format with turrets and hulls
  * @param {string} luaContent - Content of the Lua file
- * @returns {Object} Parsed data
+ * @returns {Object} Parsed data with turrets and hulls identified
  */
 function parseLuaFile(luaContent) {
   console.log("Starting robust parsing of Lua data...");
@@ -15,7 +15,11 @@ function parseLuaFile(luaContent) {
   luaContent = luaContent.replace(/};$/, '}');
   
   // Split the content by components (each component is a line starting with ['ComponentName'])
-  const result = {};
+  const result = {
+    turrets: {},
+    hulls: {}
+  };
+  
   let currentPosition = 0;
   
   // Process each component
@@ -40,7 +44,7 @@ function parseLuaFile(luaContent) {
     currentPosition = nextComponentIndex;
     
     // Create component entry
-    result[componentName] = {
+    const componentData = {
       id: componentId,
       metadata: {
         attributes: {},
@@ -57,7 +61,7 @@ function parseLuaFile(luaContent) {
       const cfMatch = attributesContent.match(/CF\s*=\s*CFrame\.new\(([^)]+)\)/);
       if (cfMatch) {
         const cfValues = cfMatch[1].split(',').map(v => parseFloat(v.trim()));
-        result[componentName].metadata.attributes.CF = {
+        componentData.metadata.attributes.CF = {
           position: [cfValues[0], cfValues[1], cfValues[2]],
           orientation: [
             cfValues[3] || 1, cfValues[4] || 0, cfValues[5] || 0,
@@ -70,14 +74,79 @@ function parseLuaFile(luaContent) {
       // Process string attributes
       const stringMatches = attributesContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
       for (const match of stringMatches) {
-        result[componentName].metadata.attributes[match[1]] = match[2];
+        componentData.metadata.attributes[match[1]] = match[2];
       }
       
       // Process numeric attributes
       const numericMatches = attributesContent.matchAll(/(\w+)\s*=\s*(\d+)/g);
       for (const match of numericMatches) {
-        if (!result[componentName].metadata.attributes[match[1]]) {
-          result[componentName].metadata.attributes[match[1]] = parseInt(match[2]);
+        if (!componentData.metadata.attributes[match[1]]) {
+          componentData.metadata.attributes[match[1]] = parseInt(match[2]);
+        }
+      }
+      
+      // Process Vector2 and Vector3
+      const vectorMatches = attributesContent.matchAll(/(\w+)\s*=\s*Vector(\d)\.new\(([^)]+)\)/g);
+      for (const match of vectorMatches) {
+        const values = match[3].split(',').map(v => parseFloat(v.trim()));
+        componentData.metadata.attributes[match[1]] = {
+          type: `Vector${match[2]}`,
+          values: values
+        };
+      }
+    }
+    
+    // Extract tdAttributes section if present
+    const tdAttributesMatch = componentContent.match(/tdAttributes\s*=\s*{([^}]+)}/);
+    if (tdAttributesMatch) {
+      componentData.metadata.tdAttributes = {};
+      const tdAttributesContent = tdAttributesMatch[1];
+      
+      // Process string attributes
+      const stringMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
+      for (const match of stringMatches) {
+        componentData.metadata.tdAttributes[match[1]] = match[2];
+      }
+      
+      // Process numeric attributes
+      const numericMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*(\d+)/g);
+      for (const match of numericMatches) {
+        componentData.metadata.tdAttributes[match[1]] = parseInt(match[2]);
+      }
+      
+      // Process Vector2 and Vector3
+      const vectorMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*Vector(\d)\.new\(([^)]+)\)/g);
+      for (const match of vectorMatches) {
+        const values = match[3].split(',').map(v => parseFloat(v.trim()));
+        componentData.metadata.tdAttributes[match[1]] = {
+          type: `Vector${match[2]}`,
+          values: values
+        };
+      }
+      
+      // Process boolean attributes
+      const booleanMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
+      for (const match of booleanMatches) {
+        componentData.metadata.tdAttributes[match[1]] = match[2] === 'true';
+      }
+    }
+    
+    // Extract ammoMass if present
+    const ammoMassMatch = componentContent.match(/ammoMass\s*=\s*([\d\.]+)/);
+    if (ammoMassMatch) {
+      componentData.metadata.ammoMass = parseFloat(ammoMassMatch[1]);
+    }
+    
+    // Extract crew if present
+    const crewMatch = componentContent.match(/crew\s*=\s*{([^}]+)}/);
+    if (crewMatch) {
+      const crewContent = crewMatch[1];
+      componentData.metadata.crew = [];
+      
+      const crewMembers = crewContent.match(/"([^"]+)"/g);
+      if (crewMembers) {
+        for (const crewMember of crewMembers) {
+          componentData.metadata.crew.push(crewMember.replace(/"/g, ''));
         }
       }
     }
@@ -104,20 +173,53 @@ function parseLuaFile(luaContent) {
       
       const configContent = componentContent.substring(configContentStart, configEnd);
       
-      // Extract basic config properties
-      const basicProps = configContent.split(',');
-      for (const prop of basicProps) {
-        const propMatch = prop.match(/(\w+)\s*=\s*([\d\.]+)/);
-        if (propMatch && propMatch[1] !== "Shells") {
-          result[componentName].metadata.config[propMatch[1]] = parseFloat(propMatch[2]);
+      // Process each config property
+      // Vector3 properties
+      const vectorMatches = configContent.matchAll(/(\w+)\s*=\s*Vector3\.new\(([^)]+)\)/g);
+      for (const match of vectorMatches) {
+        const values = match[2].split(',').map(v => parseFloat(v.trim()));
+        componentData.metadata.config[match[1]] = {
+          type: 'Vector3',
+          values: values
+        };
+      }
+      
+      // String properties in quotes
+      const stringMatches = configContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
+      for (const match of stringMatches) {
+        componentData.metadata.config[match[1]] = match[2];
+      }
+      
+      // Boolean properties
+      const booleanMatches = configContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
+      for (const match of booleanMatches) {
+        componentData.metadata.config[match[1]] = match[2] === 'true';
+      }
+      
+      // Color3 properties
+      const colorMatches = configContent.matchAll(/(\w+)\s*=\s*Color3\.new\(([^)]+)\)/g);
+      for (const match of colorMatches) {
+        const values = match[2].split(',').map(v => parseFloat(v.trim()));
+        componentData.metadata.config[match[1]] = {
+          type: 'Color3',
+          values: values
+        };
+      }
+      
+      // Numeric properties
+      const numericMatches = configContent.matchAll(/(\w+)\s*=\s*([\d\.]+)/g);
+      for (const match of numericMatches) {
+        // Only set if not already set by a more specific pattern
+        if (!componentData.metadata.config[match[1]]) {
+          componentData.metadata.config[match[1]] = parseFloat(match[2]);
         }
       }
       
-      // Extract Shells section
+      // Extract Shells section if present (for turrets)
       const shellsStart = configContent.indexOf("Shells = {");
       if (shellsStart !== -1) {
         // Initialize Shells object
-        result[componentName].metadata.config.Shells = {};
+        componentData.metadata.config.Shells = {};
         
         // Find the end of the Shells section
         const shellsContentStart = shellsStart + "Shells = {".length;
@@ -137,7 +239,6 @@ function parseLuaFile(luaContent) {
         const shellsContent = configContent.substring(shellsContentStart, shellsEnd);
         
         // Process each shell type
-        // This is a key part - we'll look for patterns like "TYPE = { ... }"
         let currentShellIndex = 0;
         
         while (true) {
@@ -169,26 +270,64 @@ function parseLuaFile(luaContent) {
           currentShellIndex = shellEnd + 1;
           
           // Create shell type entry
-          result[componentName].metadata.config.Shells[shellType] = {};
+          componentData.metadata.config.Shells[shellType] = {};
           
           // Process shell properties
           // Numeric properties
           const shellNumMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*([\d\.]+)/g);
           for (const match of shellNumMatches) {
-            result[componentName].metadata.config.Shells[shellType][match[1]] = parseFloat(match[2]);
+            componentData.metadata.config.Shells[shellType][match[1]] = parseFloat(match[2]);
           }
           
           // String properties
           const shellStrMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
           for (const match of shellStrMatches) {
-            result[componentName].metadata.config.Shells[shellType][match[1]] = match[2];
+            componentData.metadata.config.Shells[shellType][match[1]] = match[2];
           }
           
           // Boolean properties
-          if (shellPropsContent.includes("HEATFS = true")) {
-            result[componentName].metadata.config.Shells[shellType].HEATFS = true;
+          const shellBoolMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
+          for (const match of shellBoolMatches) {
+            componentData.metadata.config.Shells[shellType][match[1]] = match[2] === 'true';
           }
         }
+      }
+    }
+    
+    // Determine whether this component is a turret or hull
+    let isTurret = false;
+    let isHull = false;
+    
+    // Check for turret-specific config attributes
+    if (componentData.metadata.config.hasOwnProperty('VtPos') || 
+        componentData.metadata.config.hasOwnProperty('HzTraverse') || 
+        componentData.metadata.config.hasOwnProperty('Stabiliser')) {
+      isTurret = true;
+    }
+    
+    // Check for hull-specific config attributes
+    if (componentData.metadata.config.hasOwnProperty('ReverseGears') || 
+        componentData.metadata.config.hasOwnProperty('TrackThickness') || 
+        componentData.metadata.config.hasOwnProperty('SpringStiffness') ||
+        componentData.metadata.config.hasOwnProperty('MaxSteerAngle')) {
+      isHull = true;
+    }
+    
+    // Assign to the appropriate section
+    if (isTurret && !isHull) {
+      result.turrets[componentName] = componentData;
+    } else if (isHull && !isTurret) {
+      result.hulls[componentName] = componentData;
+    } else {
+      // If it's ambiguous or has properties of both, check for more indicators
+      if (componentData.metadata.config.hasOwnProperty('TurretWeight')) {
+        result.turrets[componentName] = componentData;
+      } else if (componentData.metadata.config.hasOwnProperty('HullWeight')) {
+        result.hulls[componentName] = componentData;
+      } else {
+        // Default to turrets if we can't determine
+        console.log(`Warning: Component type ambiguous for ${componentName}, defaulting to turret`);
+        result.turrets[componentName] = componentData;
       }
     }
   }
@@ -197,40 +336,78 @@ function parseLuaFile(luaContent) {
 }
 
 /**
- * Main function to convert Lua file to JSON
+ * Main function to convert multiple Lua files to a single JSON with turrets and hulls
  */
-function convertLuaToJson() {
+function convertMultipleLuaToJson() {
   // Get command line arguments
   const args = process.argv.slice(2);
   
   if (args.length < 2) {
-    console.error('Usage: node robust-lua-parser.js <input_lua_file> <output_json_file>');
+    console.error('Usage: node lua-to-json.js <input_pattern> <output_json_file>');
+    console.error('Example: node lua-to-json.js "src/*.lua" data/combined.json');
     process.exit(1);
   }
   
-  const inputFile = args[0];
+  const inputPattern = args[0];
   const outputFile = args[1];
   
-  console.log(`Converting ${inputFile} to ${outputFile}...`);
+  console.log(`Looking for Lua files matching pattern: ${inputPattern}`);
   
   try {
-    // Read the input file
-    if (!fs.existsSync(inputFile)) {
-      console.error(`Input file not found: ${inputFile}`);
+    // Find all matching Lua files
+    const files = glob.sync(inputPattern);
+    
+    if (files.length === 0) {
+      console.error(`No files found matching pattern: ${inputPattern}`);
       process.exit(1);
     }
     
-    const luaContent = fs.readFileSync(inputFile, 'utf8');
+    console.log(`Found ${files.length} Lua files to process:`);
+    files.forEach(file => console.log(`- ${file}`));
     
-    // Parse the Lua content
-    const parsedData = parseLuaFile(luaContent);
-    
-    // Create the output JSON
-    const outputData = {
-      items: parsedData,
-      count: Object.keys(parsedData).length,
-      lastUpdated: new Date().toISOString()
+    // Initialize the combined data
+    const combinedData = {
+      turrets: {},
+      hulls: {},
+      count: {
+        turrets: 0,
+        hulls: 0,
+        total: 0
+      }
     };
+    
+    // Process each file
+    for (const file of files) {
+      console.log(`\nProcessing file: ${file}`);
+      
+      if (!fs.existsSync(file)) {
+        console.error(`File not found: ${file}`);
+        continue;
+      }
+      
+      // Read and parse the file
+      const luaContent = fs.readFileSync(file, 'utf8');
+      const parsedData = parseLuaFile(luaContent);
+      
+      // Count components
+      const turretCount = Object.keys(parsedData.turrets).length;
+      const hullCount = Object.keys(parsedData.hulls).length;
+      
+      console.log(`Found ${turretCount} turrets and ${hullCount} hulls in ${file}`);
+      
+      // Merge with combined data
+      Object.assign(combinedData.turrets, parsedData.turrets);
+      Object.assign(combinedData.hulls, parsedData.hulls);
+      
+      // Update counts
+      combinedData.count.turrets += turretCount;
+      combinedData.count.hulls += hullCount;
+      combinedData.count.total += turretCount + hullCount;
+    }
+    
+    // Add metadata
+    combinedData.sourceFiles = files;
+    combinedData.lastUpdated = new Date().toISOString();
     
     // Create directories if they don't exist
     const outputDir = path.dirname(outputFile);
@@ -239,15 +416,16 @@ function convertLuaToJson() {
     }
     
     // Write the output file
-    fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf8');
+    fs.writeFileSync(outputFile, JSON.stringify(combinedData, null, 2), 'utf8');
     
     // Also write a debug version with extra spacing for readability
     const debugOutputFile = outputFile.replace('.json', '-debug.json');
-    fs.writeFileSync(debugOutputFile, JSON.stringify(outputData, null, 4), 'utf8');
+    fs.writeFileSync(debugOutputFile, JSON.stringify(combinedData, null, 4), 'utf8');
     
-    console.log(`Successfully converted ${inputFile} to ${outputFile}`);
+    console.log(`\nSuccessfully processed ${files.length} files`);
+    console.log(`Combined data written to ${outputFile}`);
     console.log(`Debug version saved as ${debugOutputFile}`);
-    console.log(`Total items: ${outputData.count}`);
+    console.log(`Total components: ${combinedData.count.total} (${combinedData.count.turrets} turrets, ${combinedData.count.hulls} hulls)`);
     
   } catch (error) {
     console.error('Error:', error);
@@ -256,4 +434,4 @@ function convertLuaToJson() {
 }
 
 // Run the conversion
-convertLuaToJson();
+convertMultipleLuaToJson();
