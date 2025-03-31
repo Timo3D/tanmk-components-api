@@ -102,6 +102,10 @@
     .prop-group-title {
       font-size: 1.1rem;
     }
+    .counts-badge {
+      font-size: 0.8rem;
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body>
@@ -123,7 +127,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header bg-primary text-white">
-              <h5 class="mb-0">Guns</h5>
+              <h5 class="mb-0">Guns <span id="gunsCount" class="badge bg-light text-primary counts-badge">0</span></h5>
             </div>
             <div class="card-body p-0">
               <div class="search-box p-2">
@@ -138,7 +142,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header bg-success text-white">
-              <h5 class="mb-0">Turrets</h5>
+              <h5 class="mb-0">Turrets <span id="turretsCount" class="badge bg-light text-success counts-badge">0</span></h5>
             </div>
             <div class="card-body p-0">
               <div class="search-box p-2">
@@ -153,7 +157,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header bg-info text-white">
-              <h5 class="mb-0">Hulls</h5>
+              <h5 class="mb-0">Hulls <span id="hullsCount" class="badge bg-light text-info counts-badge">0</span></h5>
             </div>
             <div class="card-body p-0">
               <div class="search-box p-2">
@@ -175,6 +179,10 @@
           <h4 class="mt-3 text-muted">Select a component from above to view details</h4>
         </div>
       </div>
+    </div>
+
+    <div class="last-updated mt-3 text-muted small">
+      <p id="lastUpdated">Last updated: Loading...</p>
     </div>
 
     <footer class="mt-5 text-center text-muted">
@@ -332,6 +340,12 @@
     const hullsListElement = document.getElementById('hullsList');
     const componentDetailsElement = document.getElementById('componentDetails');
     const loadingSpinner = document.getElementById('loadingSpinner');
+    const lastUpdatedElement = document.getElementById('lastUpdated');
+
+    // Counter elements
+    const gunsCountElement = document.getElementById('gunsCount');
+    const turretsCountElement = document.getElementById('turretsCount');
+    const hullsCountElement = document.getElementById('hullsCount');
     
     // Search inputs
     const searchGunsInput = document.getElementById('searchGuns');
@@ -469,49 +483,74 @@
       return { groupedProps, groups };
     }
     
-    // Load all component data
+    // Load component data from combined JSON file
     async function loadComponentData() {
       loadingSpinner.style.display = 'block';
       
       try {
-        // Load guns data
-        const gunsResponse = await fetch(`${DATA_BASE_URL}/guns.json`);
-        if (gunsResponse.ok) {
-          componentData.guns = await gunsResponse.json();
+        // Load combined components data
+        const componentsResponse = await fetch(`${DATA_BASE_URL}/components.json`);
+        if (componentsResponse.ok) {
+          const data = await componentsResponse.json();
+          
+          // Store the component data in our structure
+          componentData.turrets = data.turrets || {};
+          componentData.hulls = data.hulls || {};
+          
+          // Try to load guns separately if available
+          try {
+            const gunsResponse = await fetch(`${DATA_BASE_URL}/guns.json`);
+            if (gunsResponse.ok) {
+              const gunsData = await gunsResponse.json();
+              componentData.guns = gunsData.items || {};
+            } else {
+              setPlaceholder(gunsListElement, 'No guns data available');
+              componentData.guns = {};
+            }
+          } catch (error) {
+            console.error('Error loading guns data:', error);
+            setPlaceholder(gunsListElement, 'No guns data available');
+            componentData.guns = {};
+          }
+          
+          // Populate component lists
           populateComponentList('guns', componentData.guns);
-        }
-        
-        // Load turrets data
-        try {
-          const turretsResponse = await fetch(`${DATA_BASE_URL}/turrets.json`);
-          if (turretsResponse.ok) {
-            componentData.turrets = await turretsResponse.json();
-            populateComponentList('turrets', componentData.turrets);
-          } else {
-            setPlaceholder(turretsListElement, 'No turrets data available');
+          populateComponentList('turrets', componentData.turrets);
+          populateComponentList('hulls', componentData.hulls);
+          
+          // Update counters
+          updateCounters();
+          
+          // Update last updated timestamp
+          if (data.lastUpdated) {
+            const date = new Date(data.lastUpdated);
+            lastUpdatedElement.textContent = `Last updated: ${date.toLocaleString()}`;
           }
-        } catch (error) {
-          setPlaceholder(turretsListElement, 'No turrets data available');
-        }
-        
-        // Load hulls data
-        try {
-          const hullsResponse = await fetch(`${DATA_BASE_URL}/hulls.json`);
-          if (hullsResponse.ok) {
-            componentData.hulls = await hullsResponse.json();
-            populateComponentList('hulls', componentData.hulls);
-          } else {
-            setPlaceholder(hullsListElement, 'No hulls data available');
-          }
-        } catch (error) {
-          setPlaceholder(hullsListElement, 'No hulls data available');
+        } else {
+          throw new Error('Failed to load components data');
         }
       } catch (error) {
         console.error('Error loading component data:', error);
         alert('Error loading component data. Please check the console for details.');
+        
+        // Set placeholders for all lists
+        setPlaceholder(gunsListElement, 'No guns data available');
+        setPlaceholder(turretsListElement, 'No turrets data available');
+        setPlaceholder(hullsListElement, 'No hulls data available');
       } finally {
         loadingSpinner.style.display = 'none';
       }
+    }
+    
+    // Update component counters
+    function updateCounters() {
+      const gunsCount = Object.keys(componentData.guns || {}).length;
+      const turretsCount = Object.keys(componentData.turrets || {}).length;
+      const hullsCount = Object.keys(componentData.hulls || {}).length;
+      
+      gunsCountElement.textContent = gunsCount;
+      turretsCountElement.textContent = turretsCount;
+      hullsCountElement.textContent = hullsCount;
     }
     
     // Populate component list with data
@@ -519,22 +558,22 @@
       const listElement = document.getElementById(`${type}List`);
       listElement.innerHTML = '';
       
-      if (!data || !data.items || Object.keys(data.items).length === 0) {
+      if (!data || Object.keys(data).length === 0) {
         setPlaceholder(listElement, `No ${type} data available`);
         return;
       }
       
       // Sort components by name
-      const sortedNames = Object.keys(data.items).sort();
+      const sortedNames = Object.keys(data).sort();
       
       sortedNames.forEach(name => {
-        const component = data.items[name];
+        const component = data[name];
         const item = document.createElement('a');
         item.href = '#';
         item.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center';
         
         // For guns, show caliber
-        if (type === 'guns' && component.metadata.config && component.metadata.config.GunCaliber) {
+        if (type === 'guns' && component.metadata && component.metadata.config && component.metadata.config.GunCaliber) {
           item.innerHTML = `
             ${name}
             <span class="badge bg-secondary rounded-pill">${component.metadata.config.GunCaliber}mm</span>
@@ -601,12 +640,12 @@
       // Set name and tier
       template.getElementById('gunName').textContent = name;
       
-      const tier = gun.metadata.attributes.Tier || 'Unknown';
+      const tier = gun.metadata.attributes?.Tier || 'Unknown';
       template.getElementById('gunTier').textContent = `Tier ${tier}`;
       
       // Set basic info
-      const nation = gun.metadata.attributes.Nation || 'Unknown Nation';
-      const era = gun.metadata.attributes.Era || 'Unknown Era';
+      const nation = gun.metadata.attributes?.Nation || 'Unknown Nation';
+      const era = gun.metadata.attributes?.Era || 'Unknown Era';
       template.getElementById('gunBasicInfo').textContent = `${nation} • ${era} • ID: ${gun.id}`;
       
       // Group properties by category
@@ -641,10 +680,7 @@
           attrElement.className = 'attribute-item';
           
           // Format the display value
-          let displayValue = value;
-          if (typeof value === 'object') {
-            displayValue = JSON.stringify(value);
-          }
+          let displayValue = formatValue(value);
           
           attrElement.innerHTML = `
             <div class="stat-label">${formatLabel(key)}</div>
@@ -710,7 +746,7 @@
               shellContent += `
                 <div class="attribute-item">
                   <div class="stat-label">${formatLabel(key)}</div>
-                  <div class="stat-value">${value}</div>
+                  <div class="stat-value">${formatValue(value)}</div>
                 </div>
               `;
             });
@@ -774,10 +810,7 @@
           attrElement.className = 'attribute-item';
           
           // Format the display value
-          let displayValue = value;
-          if (typeof value === 'object') {
-            displayValue = JSON.stringify(value);
-          }
+          let displayValue = formatValue(value);
           
           attrElement.innerHTML = `
             <div class="stat-label">${formatLabel(key)}</div>
@@ -861,10 +894,7 @@
           attrElement.className = 'attribute-item';
           
           // Format the display value
-          let displayValue = value;
-          if (typeof value === 'object') {
-            displayValue = JSON.stringify(value);
-          }
+          let displayValue = formatValue(value);
           
           attrElement.innerHTML = `
             <div class="stat-label">${formatLabel(key)}</div>
@@ -912,7 +942,7 @@
             
             attrElement.innerHTML = `
               <div class="stat-label">${formatLabel(key)}</div>
-              <div class="stat-value">${value}</div>
+              <div class="stat-value">${formatValue(value)}</div>
             `;
             
             gridElement.appendChild(attrElement);
@@ -991,7 +1021,7 @@
             
             attrElement.innerHTML = `
               <div class="stat-label">${formatLabel(key)}</div>
-              <div class="stat-value">${value}</div>
+              <div class="stat-value">${formatValue(value)}</div>
             `;
             
             gridElement.appendChild(attrElement);
@@ -1005,6 +1035,43 @@
       
       // Set raw JSON
       template.getElementById('hullRawJson').textContent = JSON.stringify(hull, null, 2);
+    }
+    
+    // Format a value based on its type
+    function formatValue(value) {
+      if (value === null || value === undefined) {
+        return '-';
+      }
+      
+      if (typeof value === 'boolean') {
+        return value ? 'Yes' : 'No';
+      }
+      
+      if (typeof value === 'object') {
+        // Handle special object types like Vector3, Vector2, Color3
+        if (value.type === 'Vector3' || value.type === 'Vector2') {
+          return value.values.map(v => v.toFixed(2)).join(', ');
+        }
+        
+        if (value.type === 'Color3') {
+          return `RGB(${value.values.map(v => Math.round(v * 255)).join(', ')})`;
+        }
+        
+        // For position/orientation arrays
+        if (Array.isArray(value)) {
+          return value.map(v => typeof v === 'number' ? v.toFixed(2) : v).join(', ');
+        }
+        
+        // For other objects, stringify
+        return JSON.stringify(value);
+      }
+      
+      // Format numbers
+      if (typeof value === 'number') {
+        return Number.isInteger(value) ? value : value.toFixed(2);
+      }
+      
+      return value;
     }
     
     // Format a label from camelCase or snake_case to Title Case with spaces
