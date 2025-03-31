@@ -1,5 +1,5 @@
 {
-  "turrets": {
+  "guns": {
     "100mm Brochette": {
       "id": "116733224493742",
       "metadata": {
@@ -4995,14 +4995,14 @@
       }
     },
     "TOW": {
-      "id": "120718495359475",
+      "id": "115675540815433",
       "metadata": {
         "attributes": {
           "CF": {
             "position": [
-              -25.034531,
-              5.194552,
-              1.766687
+              -78.742294,
+              6.475395,
+              3.014114
             ],
             "orientation": [
               1,
@@ -5016,57 +5016,60 @@
               1
             ]
           },
-          "Armour": "Faux",
-          "Nation": "Italy",
-          "ImageId": "17194660672",
-          "Desc": "She's stronger now! What's she so worried about though?",
-          "Era": "Cold War",
           "Rarity": "Legendary",
-          "Dealer": "Developer",
-          "ReloadMultiplier": 1,
-          "Yen": 3045000,
-          "Thermals": 2,
-          "Tier": 8,
-          "RangefinderType": 0,
-          "SightZoom": {
-            "type": "Vector2",
-            "values": [
-              4,
-              24
-            ]
-          }
+          "Nation": "United States",
+          "ImageId": "9804099173",
+          "Desc": "Your bog standard anti tank guided missile. Try not to hit ERA!",
+          "Tier": "10",
+          "Era": "Cold War",
+          "Dealer": "Joe's Shack",
+          "Yen": 3045000
         },
         "config": {
-          "VtPos": {
+          "PID": {
             "type": "Vector3",
             "values": [
-              1.293,
-              1.229,
-              -0.766
-            ]
-          },
-          "GunPos": {
-            "type": "Vector3",
-            "values": [
+              6,
               0,
-              -0.051,
-              -2.013
+              3
             ]
           },
-          "HzSound": "13203344353",
-          "HzLimits": "-180,180",
-          "VtSound": "13203344525",
-          "VtLimits": "-15,14",
-          "Stabiliser": false,
-          "Responsiveness": 50,
-          "HzTraverse": 0.785,
-          "TurretWeight": 1,
-          "VtTraverse": 0.3490658503988659
-        },
-        "ammoMass": 0.07752169389277697,
-        "crew": [
-          "Gunner"
-        ]
+          "ShellName": "BGM-71E TOW-2A",
+          "ATGMType": "TOW",
+          "Tandem": true,
+          "GunWeight": 0.0188,
+          "Accuracy": 80,
+          "RecoilZoom": 0,
+          "RecoilForce": 0,
+          "OverheatMult": 1,
+          "DamageMult": 12,
+          "RecoilLength": 0.1,
+          "ReloadTime": 9,
+          "GunCaliber": 152,
+          "ExplosiveMult": 24,
+          "BulletGravity": 0,
+          "ShellSpeed": 400,
+          "MaxRange": 4,
+          "Penetration": 870,
+          "LaunchVelocity": 180,
+          "RicochetAngle": 80,
+          "ActivationTime": 0.2,
+          "Shells": {
+            "ATGM": {
+              "ExplosiveMult": 24,
+              "BulletGravity": 0,
+              "ShellSpeed": 400,
+              "MaxRange": 4,
+              "Penetration": 870,
+              "LaunchVelocity": 180,
+              "RicochetAngle": 80,
+              "ActivationTime": 0.2,
+              "ShellName": "BGM-71E TOW-2A",
+              "ATGMType": "TOW",
+              "Tandem": true
+            }
+          }
+        }
       }
     },
     "100mm Molotok": {
@@ -11375,14 +11378,14 @@
       }
     },
     "A-10 Thunderbolt": {
-      "id": "134772037048050",
+      "id": "125208849905885",
       "metadata": {
         "attributes": {
           "CF": {
             "position": [
-              1.415775,
-              5.261158,
-              94.686768
+              11.257706,
+              6.475395,
+              43.014114
             ],
             "orientation": [
               1,
@@ -11396,69 +11399,63 @@
               1
             ]
           },
-          "Armour": "None",
-          "Weapon": "A-10 Thunderbolt",
+          "Era": "Cold War",
           "Nation": "United States",
-          "ImageId": "9803887175",
-          "Desc": "Annihilation",
-          "Era": "Contemporary",
-          "Rarity": "Mythical",
-          "Dealer": "Developer",
-          "ReloadMultiplier": 1,
-          "Thermals": 3,
-          "Tier": 10,
-          "RangefinderType": 2,
-          "SightZoom": {
-            "type": "Vector2",
-            "values": [
-              1,
-              48
-            ]
-          }
+          "Dealer": "WS"
         },
         "config": {
-          "VtPos": {
+          "PID": {
             "type": "Vector3",
             "values": [
-              0,
-              0.251,
-              0
-            ]
-          },
-          "GunPos": {
-            "type": "Vector3",
-            "values": [
-              0,
+              6,
               0,
               0
             ]
           },
-          "HzSound": "13203344353",
-          "HzLimits": "-1,1",
-          "VtSound": "13203344525",
-          "VtLimits": "8,-8",
-          "Stabiliser": true,
-          "Responsiveness": 50,
-          "HzTraverse": 1,
-          "TurretWeight": 0.01,
-          "VtTraverse": 1
-        },
-        "tdAttributes": {
-          "Traverse": "8,-8",
-          "ReloadMultiplier": 1,
-          "RangefinderType": 2,
-          "Thermals": 3,
-          "SightZoom": {
-            "type": "Vector2",
-            "values": [
-              1,
-              48
-            ]
-          },
-          "Stabiliser": true
-        },
-        "ammoMass": 0,
-        "crew": []
+          "ShellName": "AGM-65B",
+          "ATGMType": "Brimstone",
+          "Tandem": false,
+          "Homing": true,
+          "GunWeight": 0.001,
+          "Accuracy": 80,
+          "RecoilZoom": 0,
+          "RecoilForce": 0,
+          "OverheatMult": 0.1,
+          "DamageMult": 12,
+          "RecoilLength": 0.1,
+          "ReloadTime": 0.5,
+          "GunCaliber": 145,
+          "ExplosiveMult": 76,
+          "LaunchVelocity": 10,
+          "BulletGravity": 0,
+          "FuseRadius": 5,
+          "ShellSpeed": 400,
+          "MaxRange": 20,
+          "Penetration": 870,
+          "ArmDistance": 0,
+          "RicochetAngle": 80,
+          "ActivationTime": 0,
+          "LoftHeight": 0,
+          "Shells": {
+            "ATGM": {
+              "ExplosiveMult": 76,
+              "LaunchVelocity": 10,
+              "BulletGravity": 0,
+              "FuseRadius": 5,
+              "ShellSpeed": 400,
+              "MaxRange": 20,
+              "Penetration": 870,
+              "ArmDistance": 0,
+              "RicochetAngle": 80,
+              "ActivationTime": 0,
+              "LoftHeight": 0,
+              "ShellName": "AGM-65B",
+              "ATGMType": "Brimstone",
+              "Tandem": false,
+              "Homing": true
+            }
+          }
+        }
       }
     },
     "12.7mm M2": {
@@ -15781,7 +15778,9 @@
           }
         }
       }
-    },
+    }
+  },
+  "turrets": {
     "QTank Super": {
       "id": "80802025117203",
       "metadata": {
@@ -34761,6 +34760,81 @@
         "crew": []
       }
     },
+    "TOW": {
+      "id": "120718495359475",
+      "metadata": {
+        "attributes": {
+          "CF": {
+            "position": [
+              -25.034531,
+              5.194552,
+              1.766687
+            ],
+            "orientation": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "Armour": "Faux",
+          "Nation": "Italy",
+          "ImageId": "17194660672",
+          "Desc": "She's stronger now! What's she so worried about though?",
+          "Era": "Cold War",
+          "Rarity": "Legendary",
+          "Dealer": "Developer",
+          "ReloadMultiplier": 1,
+          "Yen": 3045000,
+          "Thermals": 2,
+          "Tier": 8,
+          "RangefinderType": 0,
+          "SightZoom": {
+            "type": "Vector2",
+            "values": [
+              4,
+              24
+            ]
+          }
+        },
+        "config": {
+          "VtPos": {
+            "type": "Vector3",
+            "values": [
+              1.293,
+              1.229,
+              -0.766
+            ]
+          },
+          "GunPos": {
+            "type": "Vector3",
+            "values": [
+              0,
+              -0.051,
+              -2.013
+            ]
+          },
+          "HzSound": "13203344353",
+          "HzLimits": "-180,180",
+          "VtSound": "13203344525",
+          "VtLimits": "-15,14",
+          "Stabiliser": false,
+          "Responsiveness": 50,
+          "HzTraverse": 0.785,
+          "TurretWeight": 1,
+          "VtTraverse": 0.3490658503988659
+        },
+        "ammoMass": 0.07752169389277697,
+        "crew": [
+          "Gunner"
+        ]
+      }
+    },
     "LT-SE": {
       "id": "88719896288691",
       "metadata": {
@@ -37681,6 +37755,93 @@
           "Commander",
           "Gunner"
         ]
+      }
+    },
+    "A-10 Thunderbolt": {
+      "id": "134772037048050",
+      "metadata": {
+        "attributes": {
+          "CF": {
+            "position": [
+              1.415775,
+              5.261158,
+              94.686768
+            ],
+            "orientation": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "Armour": "None",
+          "Weapon": "A-10 Thunderbolt",
+          "Nation": "United States",
+          "ImageId": "9803887175",
+          "Desc": "Annihilation",
+          "Era": "Contemporary",
+          "Rarity": "Mythical",
+          "Dealer": "Developer",
+          "ReloadMultiplier": 1,
+          "Thermals": 3,
+          "Tier": 10,
+          "RangefinderType": 2,
+          "SightZoom": {
+            "type": "Vector2",
+            "values": [
+              1,
+              48
+            ]
+          }
+        },
+        "config": {
+          "VtPos": {
+            "type": "Vector3",
+            "values": [
+              0,
+              0.251,
+              0
+            ]
+          },
+          "GunPos": {
+            "type": "Vector3",
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "HzSound": "13203344353",
+          "HzLimits": "-1,1",
+          "VtSound": "13203344525",
+          "VtLimits": "8,-8",
+          "Stabiliser": true,
+          "Responsiveness": 50,
+          "HzTraverse": 1,
+          "TurretWeight": 0.01,
+          "VtTraverse": 1
+        },
+        "tdAttributes": {
+          "Traverse": "8,-8",
+          "ReloadMultiplier": 1,
+          "RangefinderType": 2,
+          "Thermals": 3,
+          "SightZoom": {
+            "type": "Vector2",
+            "values": [
+              1,
+              48
+            ]
+          },
+          "Stabiliser": true
+        },
+        "ammoMass": 0,
+        "crew": []
       }
     },
     "FCM F1": {
@@ -65454,7 +65615,8 @@
     }
   },
   "count": {
-    "turrets": 524,
+    "guns": 216,
+    "turrets": 308,
     "hulls": 302,
     "total": 826
   },
@@ -65468,5 +65630,5 @@
     "src/turrets3.lua",
     "src/turrets4.lua"
   ],
-  "lastUpdated": "2025-03-31T07:40:27.427Z"
+  "lastUpdated": "2025-03-31T07:44:26.309Z"
 }
