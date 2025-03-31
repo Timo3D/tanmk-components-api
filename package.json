@@ -1,31 +1,33 @@
 {
-    "name": "tank-components-api",
-    "version": "1.0.0",
-    "description": "API for accessing tank component data",
-    "main": "src/server.js",
-    "scripts": {
-      "start": "node src/server.js",
-      "dev": "nodemon src/server.js",
-      "test": "jest",
-      "convert": "node src/utils/dataLoader.js"
-    },
-    "keywords": [
-      "api",
-      "tanks",
-      "components",
-      "data"
-    ],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-      "cors": "^2.8.5",
-      "express": "^4.18.2"
-    },
-    "devDependencies": {
-      "jest": "^29.5.0",
-      "nodemon": "^2.0.22"
-    },
-    "engines": {
-      "node": ">=14.0.0"
-    }
+  "name": "tank-components-api",
+  "version": "1.0.0",
+  "description": "API for accessing tank component data",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "convert": "node src/utils/dataLoader.js",
+    "parse-lua": "node scripts/lua-to-json.js \"src/*.lua\" data/components.json"
+  },
+  "keywords": [
+    "api",
+    "tanks",
+    "components",
+    "data"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "glob": "^8.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
+}
