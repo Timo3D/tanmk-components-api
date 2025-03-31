@@ -81,8 +81,8 @@ function convertGunsToJson(luaContent) {
       console.log(`No attributes found for ${gunName}`);
     }
     
-    // Extract config section
-    const configRegex = /config\s*=\s*{([\s\S]*?)}\s*}/;
+    // Extract config section with modified regex to better capture all content
+    const configRegex = /config\s*=\s*{([\s\S]*)}(?=\s*}$)/;
     const configMatch = metadataContent.match(configRegex);
     
     if (configMatch) {
@@ -90,7 +90,7 @@ function convertGunsToJson(luaContent) {
       console.log(`Found config for ${gunName}`);
       
       // Process simple numeric properties in config
-      const configNumRegex = /(\w+)\s*=\s*([\d\.]+)/g;
+      const configNumRegex = /(\w+)\s*=\s*([\d\.]+),/g;
       let configNumMatch;
       while ((configNumMatch = configNumRegex.exec(configContent)) !== null) {
         const propName = configNumMatch[1];
@@ -100,39 +100,77 @@ function convertGunsToJson(luaContent) {
         }
       }
       
-      // Process Shells section
-      const shellsRegex = /Shells\s*=\s*{([\s\S]*?)}\s*}/;
-      const shellsMatch = configContent.match(shellsRegex);
-      
-      if (shellsMatch) {
-        const shellsContent = shellsMatch[1];
+      // Process Shells section - new improved approach
+      if (configContent.includes("Shells = {")) {
         result[gunName].metadata.config.Shells = {};
         
-        // Find all shell types
-        const shellTypeRegex = /(\w+)\s*=\s*{([\s\S]*?)}/g;
-        let shellTypeMatch;
-        while ((shellTypeMatch = shellTypeRegex.exec(shellsContent)) !== null) {
-          const shellType = shellTypeMatch[1];
-          const shellProps = shellTypeMatch[2];
+        // Find the Shells section start and end
+        const shellsStart = configContent.indexOf("Shells = {") + "Shells = {".length;
+        let bracketCount = 1;
+        let shellsEnd = shellsStart;
+        
+        for (let i = shellsStart; i < configContent.length; i++) {
+          if (configContent[i] === '{') bracketCount++;
+          if (configContent[i] === '}') bracketCount--;
           
+          if (bracketCount === 0) {
+            shellsEnd = i;
+            break;
+          }
+        }
+        
+        // Extract the complete Shells content
+        const shellsContent = configContent.substring(shellsStart, shellsEnd);
+        console.log(`Found shells content for ${gunName}`);
+        
+        // Process each shell type
+        let currentIndex = 0;
+        
+        while (currentIndex < shellsContent.length) {
+          // Find the next shell type
+          const shellTypeMatch = shellsContent.substring(currentIndex).match(/^\s*(\w+)\s*=\s*{/);
+          
+          if (!shellTypeMatch) break;
+          
+          const shellType = shellTypeMatch[1];
+          currentIndex += shellTypeMatch[0].length;
+          
+          // Find the end of this shell's properties
+          let shellPropBracketCount = 1;
+          let shellPropsEnd = currentIndex;
+          
+          for (let i = currentIndex; i < shellsContent.length; i++) {
+            if (shellsContent[i] === '{') shellPropBracketCount++;
+            if (shellsContent[i] === '}') shellPropBracketCount--;
+            
+            if (shellPropBracketCount === 0) {
+              shellPropsEnd = i;
+              break;
+            }
+          }
+          
+          // Extract shell properties
+          const shellProps = shellsContent.substring(currentIndex, shellPropsEnd);
+          currentIndex = shellPropsEnd + 1;
+          
+          // Initialize shell
           result[gunName].metadata.config.Shells[shellType] = {};
           
-          // Process shell properties
-          // Numeric properties
+          // Process numeric shell properties
           const shellNumRegex = /(\w+)\s*=\s*([\d\.]+)/g;
           let shellNumMatch;
           while ((shellNumMatch = shellNumRegex.exec(shellProps)) !== null) {
             result[gunName].metadata.config.Shells[shellType][shellNumMatch[1]] = parseFloat(shellNumMatch[2]);
           }
           
-          // String properties
+          // Process string shell properties
           const shellStrRegex = /(\w+)\s*=\s*"([^"]+)"/g;
           let shellStrMatch;
           while ((shellStrMatch = shellStrRegex.exec(shellProps)) !== null) {
             result[gunName].metadata.config.Shells[shellType][shellStrMatch[1]] = shellStrMatch[2];
           }
           
-          // Boolean properties
+          // Process boolean shell properties
           if (shellProps.includes("HEATFS = true")) {
             result[gunName].metadata.config.Shells[shellType].HEATFS = true;
           }
