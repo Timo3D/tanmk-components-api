@@ -1,4 +1,3 @@
-# .github/workflows/convert-lua-to-json.yml
 name: Convert Lua to JSON
 
 on:
@@ -24,20 +23,14 @@ jobs:
         with:
           node-version: '16'
       
+      - name: Install dependencies
+        run: npm install glob
+      
       - name: Create data directory if it doesn't exist
         run: mkdir -p data
       
-      - name: Run conversion script for guns
-        if: hashFiles('src/guns.lua') != ''
-        run: node scripts/lua-to-json.js src/guns.lua data/guns.json
-      
-      - name: Run conversion script for turrets (if needed)
-        if: hashFiles('src/turrets.lua') != '' && false  # Disabled until we have improved converter
-        run: node scripts/lua-to-json.js src/turrets.lua data/turrets.json
-      
-      - name: Run conversion script for hulls (if needed)
-        if: hashFiles('src/hulls.lua') != '' && false  # Disabled until we have improved converter
-        run: node scripts/lua-to-json.js src/hulls.lua data/hulls.json
+      - name: Run conversion script for all components
+        run: node scripts/lua-to-json.js "src/*.lua" data/components.json
       
       - name: List generated files
         run: ls -la data/
