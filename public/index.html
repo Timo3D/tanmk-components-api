@@ -125,7 +125,7 @@
 
   <script>
     // Base URL for API requests
-    const API_BASE_URL = 'https://your-username.github.io/tank-components-api/api';
+    const API_BASE_URL = 'https://timo3d.github.io/tanmk-components-api/data';
     
     // Elements
     const searchForm = document.getElementById('searchForm');
@@ -230,7 +230,7 @@
         searchResults.innerHTML = '<div class="alert alert-info">Loading...</div>';
         componentGrid.innerHTML = '';
         
-        const response = await fetch(`${API_BASE_URL}/${type}`);
+        const response = await fetch(`${API_BASE_URL}/${type}.json`);
         const data = await response.json();
         
         displayComponentList(type, data);
@@ -288,8 +288,12 @@
         dataDisplay.textContent = 'Loading...';
         
         const encodedName = encodeURIComponent(name);
-        const response = await fetch(`${API_BASE_URL}/${type}/${encodedName}`);
-        const data = await response.json();
+        const response = await fetch(`${API_BASE_URL}/${type}.json`);
+        const allData = await response.json();
+        const data = {
+          name: name,
+          ...allData.items[name]
+        };
         
         dataDisplay.textContent = JSON.stringify(data, null, 2);
       } catch (error) {
