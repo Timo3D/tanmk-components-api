@@ -27,7 +27,7 @@ jobs:
       - name: Create data directory if it doesn't exist
         run: mkdir -p data
       
-      - name: Run improved conversion script for guns
+      - name: Run conversion script for guns
         if: hashFiles('src/guns.lua') != ''
         run: node scripts/lua-to-json.js src/guns.lua data/guns.json
       

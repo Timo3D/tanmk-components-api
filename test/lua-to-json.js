@@ -1,4 +1,4 @@
-// improved-lua-to-json.js
+// lua-to-json.js
 const fs = require('fs');
 const path = require('path');
 
@@ -154,7 +154,7 @@ function convertLuaToJson() {
   const args = process.argv.slice(2);
   
   if (args.length < 2) {
-    console.error('Usage: node improved-lua-to-json.js <input_lua_file> <output_json_file>');
+    console.error('Usage: node lua-to-json.js <input_lua_file> <output_json_file>');
     process.exit(1);
   }
   
