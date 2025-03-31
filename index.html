@@ -376,11 +376,12 @@
 <body>
   <header>
     <h1>Tank Components API</h1>
-    <p>Browse all available tank turrets and hulls</p>
+    <p>Browse all available tank components</p>
   </header>
   
   <nav>
-    <button id="nav-turrets" class="nav-button active">Turrets</button>
+    <button id="nav-guns" class="nav-button active">Guns</button>
+    <button id="nav-turrets" class="nav-button">Turrets</button>
     <button id="nav-hulls" class="nav-button">Hulls</button>
   </nav>
   
@@ -388,6 +389,7 @@
     <div id="stats">
       <h2>Component Statistics</h2>
       <p>Total Components: <span id="total-count">0</span></p>
+      <p>Guns: <span id="guns-count">0</span></p>
       <p>Turrets: <span id="turrets-count">0</span></p>
       <p>Hulls: <span id="hulls-count">0</span></p>
       <p>Last Updated: <span id="last-updated">Unknown</span></p>
@@ -395,8 +397,40 @@
     
     <div id="error-container"></div>
     
+    <!-- Guns Section -->
+    <section id="guns-section" class="components-section active">
+      <h2>Guns</h2>
+      
+      <div class="controls">
+        <div class="search-box">
+          <input type="text" id="guns-search" placeholder="Search guns by name...">
+        </div>
+        
+        <div class="filter-box">
+          <label for="guns-nation">Nation:</label>
+          <select id="guns-nation">
+            <option value="">All Nations</option>
+          </select>
+          
+          <label for="guns-era">Era:</label>
+          <select id="guns-era">
+            <option value="">All Eras</option>
+          </select>
+          
+          <label for="guns-rarity">Rarity:</label>
+          <select id="guns-rarity">
+            <option value="">All Rarities</option>
+          </select>
+        </div>
+      </div>
+      
+      <div id="guns-grid" class="component-grid">
+        <div class="loading-indicator">Loading guns...</div>
+      </div>
+    </section>
+    
     <!-- Turrets Section -->
-    <section id="turrets-section" class="components-section active">
+    <section id="turrets-section" class="components-section">
       <h2>Turrets</h2>
       
       <div class="controls">
@@ -498,9 +532,10 @@
     // Global variables
     let componentsData = {
       turrets: {},
-      hulls: {}
+      hulls: {},
+      guns: {}
     };
-    let currentComponentType = 'turrets';
+    let currentComponentType = 'guns';
     
     // DOM Elements
     const navButtons = document.querySelectorAll('.nav-button');
@@ -518,32 +553,63 @@
       setupEventListeners();
     });
     
-    // Fetch the components data from the JSON file
+    // Fetch components data from appropriate JSON files
     async function fetchComponentsData() {
       try {
-        const response = await fetch('data/components.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch components data');
+        // Fetch combined components.json
+        const componentsResponse = await fetch('data/components.json');
+        if (componentsResponse.ok) {
+          const combinedData = await componentsResponse.json();
+          componentsData.turrets = combinedData.turrets || {};
+          componentsData.hulls = combinedData.hulls || {};
+          
+          // Update turrets/hulls count
+          document.getElementById('turrets-count').textContent = combinedData.count?.turrets || Object.keys(componentsData.turrets).length;
+          document.getElementById('hulls-count').textContent = combinedData.count?.hulls || Object.keys(componentsData.hulls).length;
+          
+          // Populate filters for turrets and hulls
+          populateFilters('turrets');
+          populateFilters('hulls');
+          
+          // Render turrets and hulls
+          renderComponents('turrets');
+          renderComponents('hulls');
+        } else {
+          console.warn('Could not load combined components data');
         }
         
-        componentsData = await response.json();
+        // Fetch guns.json (original data)
+        const gunsResponse = await fetch('data/guns.json');
+        if (gunsResponse.ok) {
+          const gunsData = await gunsResponse.json();
+          componentsData.guns = gunsData.items || {};
+          
+          // Update guns count
+          document.getElementById('guns-count').textContent = gunsData.count || Object.keys(componentsData.guns).length;
+          
+          // Populate filters for guns
+          populateFilters('guns');
+          
+          // Render guns
+          renderComponents('guns');
+        } else {
+          console.warn('Could not load guns data');
+        }
         
-        // Update stats
-        document.getElementById('total-count').textContent = componentsData.count.total || 0;
-        document.getElementById('turrets-count').textContent = componentsData.count.turrets || 0;
-        document.getElementById('hulls-count').textContent = componentsData.count.hulls || 0;
-        document.getElementById('last-updated').textContent = new Date(componentsData.lastUpdated).toLocaleString();
+        // Update total count and last updated
+        const totalCount = 
+          Object.keys(componentsData.guns).length + 
+          Object.keys(componentsData.turrets).length + 
+          Object.keys(componentsData.hulls).length;
         
-        // Populate filters
-        populateFilters('turrets');
-        populateFilters('hulls');
+        document.getElementById('total-count').textContent = totalCount;
         
-        // Render components
-        renderComponents('turrets');
-        renderComponents('hulls');
+        // Use the most recent last updated date
+        const lastUpdated = new Date().toISOString();
+        document.getElementById('last-updated').textContent = new Date(lastUpdated).toLocaleString();
         
       } catch (error) {
-        showError(error.message);
+        showError(`Error loading component data: ${error.message}`);
       }
     }
     
@@ -558,17 +624,16 @@
       });
       
       // Search inputs
+      document.getElementById('guns-search').addEventListener('input', () => filterComponents('guns'));
       document.getElementById('turrets-search').addEventListener('input', () => filterComponents('turrets'));
       document.getElementById('hulls-search').addEventListener('input', () => filterComponents('hulls'));
       
       // Filters
-      document.getElementById('turrets-nation').addEventListener('change', () => filterComponents('turrets'));
-      document.getElementById('turrets-era').addEventListener('change', () => filterComponents('turrets'));
-      document.getElementById('turrets-rarity').addEventListener('change', () => filterComponents('turrets'));
-      
-      document.getElementById('hulls-nation').addEventListener('change', () => filterComponents('hulls'));
-      document.getElementById('hulls-era').addEventListener('change', () => filterComponents('hulls'));
-      document.getElementById('hulls-rarity').addEventListener('change', () => filterComponents('hulls'));
+      ['guns', 'turrets', 'hulls'].forEach(type => {
+        document.getElementById(`${type}-nation`).addEventListener('change', () => filterComponents(type));
+        document.getElementById(`${type}-era`).addEventListener('change', () => filterComponents(type));
+        document.getElementById(`${type}-rarity`).addEventListener('change', () => filterComponents(type));
+      });
       
       // Modal
       modalClose.addEventListener('click', closeModal);
@@ -587,7 +652,7 @@
       });
     }
     
-    // Switch between turrets and hulls sections
+    // Switch between component sections
     function switchSection(sectionType) {
       currentComponentType = sectionType;
       
@@ -618,7 +683,12 @@
       const rarities = new Set();
       
       Object.values(components).forEach(component => {
-        const attrs = component.metadata.attributes || {};
+        // Handle the different data structures between guns and components
+        const attrs = componentType === 'guns' 
+          ? component.metadata?.attributes 
+          : component.metadata?.attributes;
+        
+        if (!attrs) return;
         
         if (attrs.Nation) nations.add(attrs.Nation);
         if (attrs.Era) eras.add(attrs.Era);
@@ -627,6 +697,7 @@
       
       // Populate nation dropdown
       const nationSelect = document.getElementById(`${componentType}-nation`);
+      nationSelect.innerHTML = '<option value="">All Nations</option>';
       Array.from(nations).sort().forEach(nation => {
         const option = document.createElement('option');
         option.value = nation;
@@ -636,6 +707,7 @@
       
       // Populate era dropdown
       const eraSelect = document.getElementById(`${componentType}-era`);
+      eraSelect.innerHTML = '<option value="">All Eras</option>';
       Array.from(eras).sort().forEach(era => {
         const option = document.createElement('option');
         option.value = era;
@@ -645,6 +717,7 @@
       
       // Populate rarity dropdown
       const raritySelect = document.getElementById(`${componentType}-rarity`);
+      raritySelect.innerHTML = '<option value="">All Rarities</option>';
       const rarityOrder = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythical'];
       
       rarityOrder.forEach(rarity => {
@@ -676,7 +749,8 @@
       
       // Create component cards
       sortedComponents.forEach(([name, data]) => {
-        const attrs = data.metadata.attributes || {};
+        // Handle different data structures for guns vs components
+        const attrs = data.metadata?.attributes || {};
         
         // Create card
         const card = document.createElement('div');
@@ -764,7 +838,9 @@
       cards.forEach(card => {
         const name = card.dataset.name;
         const component = components[name];
-        const attrs = component.metadata.attributes || {};
+        
+        // Handle different data structures for guns vs components
+        const attrs = component.metadata?.attributes || {};
         
         // Check if component matches all filters
         const matchesSearch = name.toLowerCase().includes(searchInput);
@@ -786,8 +862,10 @@
       const component = componentsData[componentType][componentName];
       if (!component) return;
       
-      const attrs = component.metadata.attributes || {};
-      const config = component.metadata.config || {};
+      // Standardize access to metadata based on component type
+      const metadata = component.metadata || component;
+      const attrs = metadata.attributes || {};
+      const config = metadata.config || {};
       
       // Reset active tab
       switchTab('basic');
@@ -846,10 +924,10 @@
       }
       
       // Crew
-      if (component.metadata.crew && component.metadata.crew.length > 0) {
+      if (metadata.crew && metadata.crew.length > 0) {
         const crew = document.createElement('div');
         crew.style.marginTop = '15px';
-        crew.innerHTML = `<strong>Crew:</strong> ${component.metadata.crew.join(', ')}`;
+        crew.innerHTML = `<strong>Crew:</strong> ${metadata.crew.join(', ')}`;
         basicContent.appendChild(crew);
       }
       
@@ -922,7 +1000,7 @@
           configList.appendChild(li);
         });
       
-      // Shells tab (for turrets only)
+      // Shells tab
       const hasShells = config.Shells && Object.keys(config.Shells).length > 0;
       shellsTab.style.display = hasShells ? 'block' : 'none';
       
