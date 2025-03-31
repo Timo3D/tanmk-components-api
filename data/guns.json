@@ -31,22 +31,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 1.05,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 10.5,
-          "GunCaliber": 100,
-          "RicochetAngle": 71,
-          "Penetration": 237,
-          "ExplosiveMult": 1.4463,
-          "BulletGravity": 35,
-          "ShellSpeed": 980
-        }
+        "config": {}
       }
     },
     "122mm D-25T": {
@@ -80,24 +65,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 1.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 1.6,
-          "ReloadTime": 18.5,
-          "GunCaliber": 122,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.6,
-          "Penetration": 37,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 700
-        }
+        "config": {}
       }
     },
     "105mm F2 48 Calibre": {
@@ -131,23 +99,7 @@
           "Yen": 3045000,
           "Tier": 10
         },
-        "config": {
-          "GunWeight": 0.982,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 7.6,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 27,
-          "Penetration60": 190,
-          "BulletGravity": 35,
-          "ShellSpeed": 982,
-          "ExplosiveMult": 1.4463
-        }
+        "config": {}
       }
     },
     "105mm GT-7": {
@@ -185,23 +137,7 @@
           "Aluminium": 74,
           "Chromium": 35
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 1.9,
-          "RecoilLength": 1.2,
-          "ReloadTime": 6.4,
-          "GunCaliber": 105,
-          "RicochetAngle": 77,
-          "Penetration": 500,
-          "Penetration60": 259,
-          "BulletGravity": 35,
-          "ShellSpeed": 1173,
-          "ExplosiveMult": 3.4
-        }
+        "config": {}
       }
     },
     "105mm HEAT Launcher": {
@@ -235,22 +171,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 62,
-          "RecoilZoom": 1,
-          "RecoilForce": 160000,
-          "OverheatMult": 1,
-          "DamageMult": 5,
-          "RecoilLength": 1,
-          "ReloadTime": 12,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 27,
-          "ExplosiveMult": 1.4463,
-          "BulletGravity": 35,
-          "ShellSpeed": 300
-        }
+        "config": {}
       }
     },
     "105mm High Pressure CV": {
@@ -284,23 +205,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 16376000
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 3,
-          "DamageMult": 0.7,
-          "RecoilLength": 1.3,
-          "ReloadTime": 6.5,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 500,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1625,
-          "Penetration60": 240
-        }
+        "config": {}
       }
     },
     "120mm XM-291": {
@@ -330,23 +235,7 @@
           "DisplayName": "140mm XM-291",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 4,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.6,
-          "ReloadTime": 13.5,
-          "GunCaliber": 140,
-          "RicochetAngle": 70,
-          "Penetration": 480,
-          "Penetration60": 320,
-          "BulletGravity": 35,
-          "ShellSpeed": 1600,
-          "ExplosiveMult": 5
-        }
+        "config": {}
       }
     },
     "50mm KwK 39 II": {
@@ -382,24 +271,7 @@
           "Steel": 10,
           "Yen": 18000
         },
-        "config": {
-          "GunWeight": 0.28,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 4,
-          "RecoilLength": 1,
-          "ReloadTime": 5,
-          "GunCaliber": 50,
-          "RicochetAngle": 68,
-          "ExplosiveMult": 2.227,
-          "Penetration": 102,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 685
-        }
+        "config": {}
       }
     },
     "25mm Bushmaster": {
@@ -433,23 +305,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 0.3,
-          "Clip": 40,
-          "RecoilForce": 1000,
-          "OverheatMult": 1.2,
-          "DamageMult": 1,
-          "RecoilLength": 0.5,
-          "ReloadTime": 0.2,
-          "GunCaliber": 25,
-          "RicochetAngle": 62,
-          "Penetration": 81,
-          "BulletGravity": 35,
-          "ShellSpeed": 1345
-        }
+        "config": {}
       }
     },
     "114mm Finnisher": {
@@ -486,22 +342,7 @@
           "Aluminium": 16,
           "Steel": 8
         },
-        "config": {
-          "GunWeight": 0.47,
-          "Accuracy": 52,
-          "RecoilZoom": 1,
-          "RecoilForce": 90000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 12,
-          "GunCaliber": 114,
-          "ShellSpeed": 200,
-          "Penetration": 95,
-          "ExplosiveMult": 20,
-          "BulletGravity": 35,
-          "RicochetAngle": 79
-        }
+        "config": {}
       }
     },
     "helicopter": {
@@ -533,21 +374,7 @@
           "Yen": 1000,
           "Tier": 1
         },
-        "config": {
-          "GunWeight": 0,
-          "Accuracy": 60,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 100,
-          "OverheatMult": 1.2,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.132,
-          "GunCaliber": 12.7,
-          "RicochetAngle": 65,
-          "Penetration": 26,
-          "BulletGravity": 35,
-          "ShellSpeed": 929
-        }
+        "config": {}
       }
     },
     "85mm Strela AK": {
@@ -581,24 +408,7 @@
           "Dealer": "Developer",
           "Yen": 9999999999
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 85,
-          "RicochetAngle": 82,
-          "ExplosiveMult": 2.6,
-          "Penetration": 422,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 1980
-        }
+        "config": {}
       }
     },
     "100mm 2A70": {
@@ -636,27 +446,7 @@
           "Aluminium": 86,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 80000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 4,
-          "ReloadTime": 6,
-          "GunCaliber": 100,
-          "RicochetAngle": 90,
-          "BulletGravity": 0,
-          "ShellSpeed": 460,
-          "Penetration": 1000,
-          "ArmDistance": 100,
-          "FuseRadius": 3,
-          "ExplosiveMult": 1,
-          "MaxRange": 8,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "BM-1": {
@@ -686,22 +476,7 @@
           "Dealer": "Developer",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 2,
-          "RecoilZoom": 0,
-          "RecoilForce": 1000,
-          "OverheatMult": 0,
-          "DamageMult": 1,
-          "RecoilLength": 0.1,
-          "ReloadTime": 0.4,
-          "GunCaliber": 220,
-          "RicochetAngle": 80,
-          "Penetration": 400,
-          "ExplosiveMult": 8,
-          "BulletGravity": 35,
-          "ShellSpeed": 130
-        }
+        "config": {}
       }
     },
     "90mm CSE": {
@@ -735,22 +510,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 5,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 90,
-          "RicochetAngle": 71,
-          "Penetration": 102,
-          "ExplosiveMult": 1.8225,
-          "BulletGravity": 35,
-          "ShellSpeed": 800
-        }
+        "config": {}
       }
     },
     "84mm 20pdr Type B": {
@@ -784,21 +544,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 1.284,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 2.8,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 84,
-          "RicochetAngle": 71,
-          "Penetration": 216,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "75mm AT43": {
@@ -834,24 +580,7 @@
           "Steel": 13,
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 70000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.5,
-          "ReloadTime": 7.4,
-          "GunCaliber": 75,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.2124,
-          "Penetration": 20,
-          "FuseDelay": 0.7,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 390
-        }
+        "config": {}
       }
     },
     "75mm Empire": {
@@ -885,21 +614,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 5.5,
-          "GunCaliber": 75,
-          "RicochetAngle": 68,
-          "Penetration": 90,
-          "BulletGravity": 35,
-          "ShellSpeed": 620
-        }
+        "config": {}
       }
     },
     "105mm Howitzer": {
@@ -935,22 +650,7 @@
           "Steel": 22,
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.352,
-          "Accuracy": 65,
-          "RecoilZoom": 1.5,
-          "RecoilForce": 90000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 10,
-          "GunCaliber": 105,
-          "RicochetAngle": 72,
-          "Penetration": 230,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 540
-        }
+        "config": {}
       }
     },
     "155mm Heavy Hitter": {
@@ -984,24 +684,7 @@
           "Yen": 510400,
           "Tier": 7
         },
-        "config": {
-          "GunWeight": 2.9,
-          "Accuracy": 80,
-          "RecoilZoom": 4,
-          "RecoilForce": 350000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.5,
-          "ReloadTime": 20,
-          "GunCaliber": 155,
-          "RicochetAngle": 81,
-          "Penetration": 61,
-          "ExplosiveMult": 1.885,
-          "BulletGravity": 35,
-          "ShellSpeed": 820,
-          "FuseRadius": 3,
-          "ArmDistance": 300
-        }
+        "config": {}
       }
     },
     "15mm ZB-53": {
@@ -1033,21 +716,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.057,
-          "Accuracy": 15,
-          "RecoilZoom": 1,
-          "RecoilForce": 100,
-          "OverheatMult": 2,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.13,
-          "GunCaliber": 15,
-          "RicochetAngle": 65,
-          "Penetration": 29,
-          "BulletGravity": 35,
-          "ShellSpeed": 883
-        }
+        "config": {}
       }
     },
     "57mm Crusader": {
@@ -1081,21 +750,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 18000
         },
-        "config": {
-          "GunWeight": 0.28,
-          "Accuracy": 80,
-          "RecoilZoom": 0.6,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 0.6,
-          "ReloadTime": 5.5,
-          "GunCaliber": 57,
-          "RicochetAngle": 71,
-          "Penetration": 122,
-          "BulletGravity": 35,
-          "ShellSpeed": 820
-        }
+        "config": {}
       }
     },
     "75mm Ikonisch": {
@@ -1129,24 +784,7 @@
           "Yen": 27000,
           "Tier": 4
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 80000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 75,
-          "RicochetAngle": 71,
-          "Penetration": 98,
-          "ExplosiveMult": 0.8,
-          "BulletGravity": 35,
-          "ShellSpeed": 740,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14
-        }
+        "config": {}
       }
     },
     "57mm ASU": {
@@ -1180,24 +818,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 0.24,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 70000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 1,
-          "ReloadTime": 7.9,
-          "GunCaliber": 57,
-          "RicochetAngle": 68,
-          "ExplosiveMult": 1.03,
-          "Penetration": 115,
-          "FuseDelay": 0.4,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 1020
-        }
+        "config": {}
       }
     },
     "40mm Pom Pom": {
@@ -1231,23 +852,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 3000
         },
-        "config": {
-          "GunWeight": 0.4,
-          "Accuracy": 52,
-          "RecoilZoom": 0.5,
-          "ClipReload": 0.34,
-          "Clip": 12,
-          "RecoilForce": 2000,
-          "OverheatMult": 1.2,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.4,
-          "ReloadTime": 0.34,
-          "GunCaliber": 40,
-          "RicochetAngle": 68,
-          "Penetration": 31,
-          "BulletGravity": 35,
-          "ShellSpeed": 792
-        }
+        "config": {}
       }
     },
     "75mm SA50": {
@@ -1281,21 +886,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 9.2,
-          "GunCaliber": 75,
-          "RicochetAngle": 71,
-          "Penetration": 158,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "75mm TG2": {
@@ -1332,24 +923,7 @@
           "Aluminium": 50,
           "Steel": 35
         },
-        "config": {
-          "GunWeight": 0.657,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 75,
-          "RicochetAngle": 75,
-          "ExplosiveMult": 1,
-          "Penetration": 156,
-          "FuseDelay": 0.35,
-          "FuseSensitivity": 15,
-          "BulletGravity": 35,
-          "ShellSpeed": 950
-        }
+        "config": {}
       }
     },
     "75mm KwK44": {
@@ -1383,24 +957,7 @@
           "Yen": 3000,
           "Tier": 2
         },
-        "config": {
-          "GunWeight": 0.4,
-          "Accuracy": 54,
-          "RecoilZoom": 1,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 3,
-          "RecoilLength": 1.3,
-          "ReloadTime": 7,
-          "GunCaliber": 75,
-          "RicochetAngle": 71,
-          "Penetration": 62,
-          "ExplosiveMult": 1.2,
-          "BulletGravity": 35,
-          "ShellSpeed": 700,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14
-        }
+        "config": {}
       }
     },
     "75mm Tea Dumper": {
@@ -1434,24 +991,7 @@
           "Yen": 3000,
           "Tier": 2
         },
-        "config": {
-          "GunWeight": 0.24,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 4000,
-          "OverheatMult": 1,
-          "DamageMult": 4,
-          "RecoilLength": 1,
-          "ReloadTime": 5.5,
-          "GunCaliber": 75,
-          "RicochetAngle": 60,
-          "Penetration": 62,
-          "ExplosiveMult": 1.7,
-          "BulletGravity": 35,
-          "ShellSpeed": 500,
-          "FuseDelay": 0.4,
-          "FuseSensitivity": 9
-        }
+        "config": {}
       }
     },
     "15 cm/50 41st Year Type": {
@@ -1483,24 +1023,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 5.7,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 1.6,
-          "ReloadTime": 14.8,
-          "GunCaliber": 152,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.375,
-          "Penetration": 56,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 580
-        }
+        "config": {}
       }
     },
     "40mm QF-2": {
@@ -1534,24 +1057,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.28,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 20000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.8,
-          "ReloadTime": 4.224,
-          "GunCaliber": 40,
-          "RicochetAngle": 70,
-          "ExplosiveMult": 3,
-          "Penetration": 54,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 792
-        }
+        "config": {}
       }
     },
     "120mm M256": {
@@ -1590,27 +1096,7 @@
           "Aluminium": 95,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.5,
-          "GunCaliber": 120,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 3.4,
-          "Penetration": 589,
-          "FuseDelay": 0.6,
-          "FuseSensitivity": 15,
-          "BulletGravity": 35,
-          "ShellSpeed": 1630,
-          "ArmDistance": 50,
-          "FuseRadius": 2,
-          "Penetration60": 298
-        }
+        "config": {}
       }
     },
     "8.8cm Ikonisch": {
@@ -1644,24 +1130,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 0.8,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 150000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 11,
-          "GunCaliber": 88,
-          "RicochetAngle": 72,
-          "ExplosiveMult": 1.53,
-          "Penetration": 166,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 16,
-          "BulletGravity": 35,
-          "ShellSpeed": 810
-        }
+        "config": {}
       }
     },
     "125mm 2A46M": {
@@ -1699,26 +1168,7 @@
           "Aluminium": 86,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "ReloadTime": 7.7,
-          "RecoilLength": 1.4,
-          "GunCaliber": 125,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1800,
-          "MaxRange": 8,
-          "Penetration": 460,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "Penetration60": 242
-        }
+        "config": {}
       }
     },
     "8.8cm Ikonisch II": {
@@ -1752,24 +1202,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 0.9,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 3,
-          "ReloadTime": 9,
-          "GunCaliber": 88,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 2,
-          "Penetration": 220,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "20mm M61 Vulcan": {
@@ -1808,21 +1241,7 @@
           "Aluminium": 1240,
           "Chromium": 1500
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 30,
-          "RecoilZoom": 0,
-          "RecoilForce": 2000,
-          "OverheatMult": 0.725,
-          "DamageMult": 0.2,
-          "RecoilLength": 0,
-          "ReloadTime": 0.026,
-          "GunCaliber": 20,
-          "RicochetAngle": 68,
-          "Penetration": 54,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "62.7mm Fusiler II": {
@@ -1860,27 +1279,7 @@
           "Aluminium": 74,
           "Chromium": 35
         },
-        "config": {
-          "GunWeight": 1.87,
-          "Accuracy": 40,
-          "RecoilZoom": 0.5,
-          "ClipReload": 0.3,
-          "Clip": 6,
-          "RecoilForce": 30000,
-          "OverheatMult": 1.3,
-          "DamageMult": 0.1,
-          "RecoilLength": 0.7,
-          "ReloadTime": 0.7,
-          "GunCaliber": 62.7,
-          "RicochetAngle": 71,
-          "Penetration": 210,
-          "ExplosiveMult": 0.2,
-          "BulletGravity": 35,
-          "ShellSpeed": 1400,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 10,
-          "Penetration60": 57
-        }
+        "config": {}
       }
     },
     "60mm 2077": {
@@ -1920,24 +1319,7 @@
           "Aluminium": 44,
           "Chromium": 30
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 4,
-          "Clip": 3,
-          "RecoilForce": 60000,
-          "OverheatMult": 6,
-          "ReloadTime": 5,
-          "RecoilLength": 0,
-          "DamageMult": 0.3,
-          "GunCaliber": 60,
-          "RicochetAngle": 80,
-          "Penetration": 470,
-          "Penetration60": 230,
-          "BulletGravity": 35,
-          "ShellSpeed": 2000
-        }
+        "config": {}
       }
     },
     "60mm 2077 Mk.1": {
@@ -1977,21 +1359,7 @@
           "Aluminium": 30,
           "Chromium": 20
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 0.56,
-          "RecoilLength": 0,
-          "ReloadTime": 4,
-          "GunCaliber": 60,
-          "RicochetAngle": 54,
-          "Penetration": 700,
-          "BulletGravity": 35,
-          "ShellSpeed": 2000
-        }
+        "config": {}
       }
     },
     "183mm  QF L4A1": {
@@ -2025,22 +1393,7 @@
           "Yen": 243000,
           "Tier": 6
         },
-        "config": {
-          "GunWeight": 3.7,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 540000,
-          "OverheatMult": 1,
-          "DamageMult": 3,
-          "RecoilLength": 1.3,
-          "ReloadTime": 38,
-          "GunCaliber": 183,
-          "RicochetAngle": 80,
-          "Penetration": 340,
-          "ExplosiveMult": 2.625,
-          "BulletGravity": 35,
-          "ShellSpeed": 716
-        }
+        "config": {}
       }
     },
     "76mm Freedom": {
@@ -2074,24 +1427,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 0.51,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 1,
-          "ReloadTime": 8.2,
-          "GunCaliber": 76,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 2.733634641,
-          "Penetration": 120,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 815
-        }
+        "config": {}
       }
     },
     "50mm KwK 39": {
@@ -2127,24 +1463,7 @@
           "Steel": 10,
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.28,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 7.3,
-          "GunCaliber": 50,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 2.227,
-          "Penetration": 76,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 685
-        }
+        "config": {}
       }
     },
     "57mm Pom Pom Mk. X": {
@@ -2182,26 +1501,7 @@
           "Aluminium": 70,
           "Chromium": 15
         },
-        "config": {
-          "GunWeight": 1.6,
-          "Accuracy": 40,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 10000,
-          "OverheatMult": 1.3,
-          "DamageMult": 0.05,
-          "RecoilLength": 0.7,
-          "ReloadTime": 0.34,
-          "GunCaliber": 57,
-          "RicochetAngle": 71,
-          "FuseRadius": 6,
-          "Penetration": 137,
-          "ArmDistance": 500,
-          "ExplosiveMult": 0.2,
-          "BulletGravity": 35,
-          "ShellSpeed": 950,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9
-        }
+        "config": {}
       }
     },
     "57mm Scimitar": {
@@ -2235,24 +1535,7 @@
           "Yen": 27000,
           "Tier": 4
         },
-        "config": {
-          "GunWeight": 0.45,
-          "Accuracy": 80,
-          "RecoilZoom": 0.7,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.6,
-          "ReloadTime": 5.3,
-          "GunCaliber": 57,
-          "RicochetAngle": 75,
-          "ExplosiveMult": 1.5,
-          "Penetration": 85,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 1201
-        }
+        "config": {}
       }
     },
     "57mm Ue": {
@@ -2286,24 +1569,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 4.2,
-          "GunCaliber": 57,
-          "RicochetAngle": 68,
-          "ExplosiveMult": 1.5,
-          "Penetration": 92,
-          "FuseDelay": 2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 620
-        }
+        "config": {}
       }
     },
     "58mm Fusiler": {
@@ -2341,23 +1607,7 @@
           "Aluminium": 150,
           "Chromium": 8
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "ClipReload": 0.35,
-          "Clip": 10,
-          "RecoilForce": 10000,
-          "OverheatMult": 1.5,
-          "DamageMult": 0.34,
-          "RecoilLength": 0.4,
-          "ReloadTime": 0.35,
-          "GunCaliber": 58,
-          "RicochetAngle": 72,
-          "Penetration": 107,
-          "BulletGravity": 35,
-          "ShellSpeed": 930
-        }
+        "config": {}
       }
     },
     "60mm SPAGAT": {
@@ -2394,24 +1644,7 @@
           "Aluminium": 44,
           "Steel": 26
         },
-        "config": {
-          "GunWeight": 0.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 3.7,
-          "DamageMult": 0.8,
-          "RecoilLength": 0.7,
-          "ReloadTime": 4.8,
-          "GunCaliber": 60,
-          "RicochetAngle": 86,
-          "ExplosiveMult": 1.5,
-          "Penetration": 160,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 1300
-        }
+        "config": {}
       }
     },
     "75mm QOLOP": {
@@ -2448,24 +1681,7 @@
           "Steel": 32,
           "Chromium": 29
         },
-        "config": {
-          "GunWeight": 0.9,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 480000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 0,
-          "ReloadTime": 11,
-          "GunCaliber": 75,
-          "RicochetAngle": 90,
-          "ExplosiveMult": 2.4,
-          "Penetration": 237,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 35,
-          "BulletGravity": 35,
-          "ShellSpeed": 1672
-        }
+        "config": {}
       }
     },
     "75mm Quack": {
@@ -2497,24 +1713,7 @@
           "ImageId": "11123242724",
           "Dealer": "DR"
         },
-        "config": {
-          "GunWeight": 0.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 4000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 75,
-          "RicochetAngle": 70,
-          "Penetration": 78,
-          "ExplosiveMult": 1.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 614,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9
-        }
+        "config": {}
       }
     },
     "122mm SM-30": {
@@ -2546,22 +1745,7 @@
           "ImageId": "18968164434",
           "Dealer": "DR"
         },
-        "config": {
-          "GunWeight": 1.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 1.6,
-          "ReloadTime": 15,
-          "GunCaliber": 122,
-          "RicochetAngle": 80,
-          "Penetration": 37,
-          "ExplosiveMult": 1.6,
-          "BulletGravity": 35,
-          "ShellSpeed": 710
-        }
+        "config": {}
       }
     },
     "77mm HV": {
@@ -2595,21 +1779,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 3,
-          "RecoilLength": 1,
-          "ReloadTime": 7.1,
-          "GunCaliber": 76.2,
-          "RicochetAngle": 71,
-          "Penetration": 220,
-          "BulletGravity": 35,
-          "ShellSpeed": 1200
-        }
+        "config": {}
       }
     },
     "105mm L74": {
@@ -2643,22 +1813,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 1.8,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 3,
-          "DamageMult": 1,
-          "RecoilLength": 1.3,
-          "ReloadTime": 5,
-          "GunCaliber": 105,
-          "RicochetAngle": 77,
-          "Penetration": 230,
-          "ExplosiveMult": 1.4463,
-          "BulletGravity": 35,
-          "ShellSpeed": 1478
-        }
+        "config": {}
       }
     },
     "75mm XM274": {
@@ -2697,22 +1852,7 @@
           "Aluminium": 74,
           "Chromium": 35
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 0.6,
-          "RecoilForce": 50000,
-          "OverheatMult": 3,
-          "DamageMult": 0.23,
-          "RecoilLength": 0.6,
-          "ReloadTime": 2.2,
-          "GunCaliber": 75,
-          "RicochetAngle": 80,
-          "Penetration": 276,
-          "Penetration60": 160,
-          "BulletGravity": 35,
-          "ShellSpeed": 1463
-        }
+        "config": {}
       }
     },
     "120mm L/88": {
@@ -2749,23 +1889,7 @@
           "Aluminium": 120,
           "Chromium": 200
         },
-        "config": {
-          "GunWeight": 2.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 600000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 1.2,
-          "ReloadTime": 9,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 650,
-          "Penetration60": 450,
-          "BulletGravity": 35,
-          "ShellSpeed": 1030,
-          "ExplosiveMult": 3.4
-        }
+        "config": {}
       }
     },
     "152mm 2A73": {
@@ -2803,23 +1927,7 @@
           "Dealer": "Crafting",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 520000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 19,
-          "GunCaliber": 152,
-          "RicochetAngle": 80,
-          "Penetration": 120,
-          "Penetration60": 320,
-          "BulletGravity": 35,
-          "ShellSpeed": 1200,
-          "ExplosiveMult": 2
-        }
+        "config": {}
       }
     },
     "105mm Freedom IV": {
@@ -2853,24 +1961,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 1.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 12,
-          "GunCaliber": 105,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 1.5,
-          "Penetration": 256,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 914
-        }
+        "config": {}
       }
     },
     "106.5mm XL2K": {
@@ -2904,28 +1995,7 @@
           "Dealer": "Dev",
           "Yen": 1200000
         },
-        "config": {
-          "GunWeight": 1.4,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 54000,
-          "ReloadTime": 10,
-          "OverheatMult": 1,
-          "RecoilLength": 1.3,
-          "GunCaliber": 106.5,
-          "DamageMult": 3,
-          "ExplosiveMult": 2.625,
-          "LaunchVelocity": 512,
-          "BulletGravity": 35,
-          "FuseRadius": 5,
-          "ShellSpeed": 1042,
-          "MaxRange": 15,
-          "Penetration": 127,
-          "ArmDistance": 100,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "LoftHeight": 0
-        }
+        "config": {}
       }
     },
     "125mm Spud-B": {
@@ -2963,24 +2033,7 @@
           "Aluminium": 73,
           "Chromium": 35
         },
-        "config": {
-          "GunWeight": 3.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 9,
-          "GunCaliber": 125,
-          "RicochetAngle": 77,
-          "ExplosiveMult": 1.4746,
-          "Penetration": 360,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1220
-        }
+        "config": {}
       }
     },
     "10.5cm Ikonisch": {
@@ -3018,24 +2071,7 @@
           "Steel": 30,
           "Chromium": 15
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 1.3,
-          "ReloadTime": 13,
-          "GunCaliber": 105,
-          "RicochetAngle": 67,
-          "ExplosiveMult": 1.1,
-          "Penetration": 250,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "165mm Demolition Charge Projector": {
@@ -3068,22 +2104,7 @@
           "Era": "Cold War",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 1.34,
-          "Accuracy": 45,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 20,
-          "GunCaliber": 165,
-          "RicochetAngle": 80,
-          "Penetration": 231,
-          "ExplosiveMult": 2.625,
-          "BulletGravity": 35,
-          "ShellSpeed": 160
-        }
+        "config": {}
       }
     },
     "140mm Japanese glory": {
@@ -3113,24 +2134,7 @@
           "Desc": "See that  dive bomber?",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 10,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.3,
-          "ReloadTime": 18.5,
-          "GunCaliber": 140,
-          "RicochetAngle": 70,
-          "Penetration": 250,
-          "ExplosiveMult": 1.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12
-        }
+        "config": {}
       }
     },
     "152mm QOLOP": {
@@ -3170,27 +2174,7 @@
           "Aluminium": 86,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 3,
-          "RecoilForce": 400000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.3,
-          "ReloadTime": 12,
-          "GunCaliber": 152,
-          "RicochetAngle": 78,
-          "FuseRadius": 3,
-          "Penetration": 342,
-          "ArmDistance": 300,
-          "ExplosiveMult": 13.258,
-          "BulletGravity": 35,
-          "ShellSpeed": 1420,
-          "Penetration60": 195,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12
-        }
+        "config": {}
       }
     },
     "152mm M81 Gun Launcher": {
@@ -3226,25 +2210,7 @@
           "Steel": 27,
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.5,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 150000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 19,
-          "GunCaliber": 152,
-          "ShellSpeed": 682,
-          "Penetration": 310,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "RicochetAngle": 73,
-          "MaxRange": 3,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "152mm Devastator": {
@@ -3278,24 +2244,7 @@
           "Yen": 27000,
           "Tier": 4
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "RecoilLength": 0.7,
-          "ReloadTime": 25,
-          "DamageMult": 1,
-          "GunCaliber": 152,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.275,
-          "Penetration": 41,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 530
-        }
+        "config": {}
       }
     },
     "145mm XL1K": {
@@ -3334,27 +2283,7 @@
           "Aluminium": 45,
           "Chromium": 24
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 2,
-          "DamageMult": 7,
-          "RecoilLength": 1.3,
-          "ReloadTime": 10,
-          "GunCaliber": 145,
-          "ExplosiveMult": 2.267,
-          "LaunchVelocity": 180,
-          "BulletGravity": 35,
-          "FuseRadius": 3,
-          "ShellSpeed": 1051,
-          "MaxRange": 2.2,
-          "Penetration": 152,
-          "ArmDistance": 100,
-          "RicochetAngle": 77,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "130mm S-70": {
@@ -3392,24 +2321,7 @@
           "Aluminium": 61,
           "Chromium": 24
         },
-        "config": {
-          "GunWeight": 2.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 350000,
-          "OverheatMult": 1,
-          "DamageMult": 1.7,
-          "RecoilLength": 1,
-          "ReloadTime": 16,
-          "GunCaliber": 130,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.67,
-          "Penetration": 57,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 27,
-          "BulletGravity": 35,
-          "ShellSpeed": 700
-        }
+        "config": {}
       }
     },
     "128mm German Punch": {
@@ -3443,24 +2355,7 @@
           "Yen": 1530900,
           "Tier": 8
         },
-        "config": {
-          "GunWeight": 5.7,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 1.3,
-          "ReloadTime": 15,
-          "GunCaliber": 128,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 0.685,
-          "Penetration": 280,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1230
-        }
+        "config": {}
       }
     },
     "128mm Festive Punch": {
@@ -3494,24 +2389,7 @@
           "Yen": 1530900,
           "Tier": 8
         },
-        "config": {
-          "GunWeight": 5.7,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 1.3,
-          "ReloadTime": 15,
-          "GunCaliber": 128,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 0.685,
-          "Penetration": 280,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1230
-        }
+        "config": {}
       }
     },
     "130mm TG50": {
@@ -3545,25 +2423,7 @@
           "Yen": 1,
           "Tier": 11
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 270000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.3,
-          "ReloadTime": 11,
-          "GunCaliber": 130,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 3.4,
-          "Penetration": 550,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1550,
-          "Penetration60": 300
-        }
+        "config": {}
       }
     },
     "75mm Type 2": {
@@ -3597,22 +2457,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 0.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "GunCaliber": 75,
-          "RecoilLength": 1,
-          "ReloadTime": 7.9,
-          "FuseSensitivity": 15,
-          "BulletGravity": 35,
-          "Penetration": 151,
-          "ShellSpeed": 668,
-          "ExplosiveMult": 2,
-          "FuseDelay": 1.3,
-          "RicochetAngle": 71
-        }
+        "config": {}
       }
     },
     "TOW": {
@@ -3646,25 +2491,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 0.0188,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 9,
-          "GunCaliber": 152,
-          "ExplosiveMult": 24,
-          "BulletGravity": 0,
-          "ShellSpeed": 400,
-          "MaxRange": 4,
-          "Penetration": 870,
-          "LaunchVelocity": 180,
-          "RicochetAngle": 80,
-          "ActivationTime": 0.2
-        }
+        "config": {}
       }
     },
     "100mm Molotok": {
@@ -3698,24 +2525,7 @@
           "Yen": 1530900,
           "Tier": 8
         },
-        "config": {
-          "GunWeight": 1.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 90000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 100,
-          "RicochetAngle": 78,
-          "Penetration": 230,
-          "ExplosiveMult": 0.9024,
-          "BulletGravity": 35,
-          "ShellSpeed": 1415,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19
-        }
+        "config": {}
       }
     },
     "30mm KBA-1": {
@@ -3744,22 +2554,7 @@
           "Nation": "Soviet Union",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.085,
-          "Accuracy": 20,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 6000,
-          "OverheatMult": 2,
-          "DamageMult": 0.17,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.26,
-          "GunCaliber": 30,
-          "RicochetAngle": 79,
-          "Penetration": 120,
-          "Penetration60": 90,
-          "BulletGravity": 35,
-          "ShellSpeed": 1200
-        }
+        "config": {}
       }
     },
     "90mm Freedom II": {
@@ -3796,24 +2591,7 @@
           "Aluminium": 40,
           "Steel": 23
         },
-        "config": {
-          "GunWeight": 0.9,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 150000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 1,
-          "ReloadTime": 8.5,
-          "GunCaliber": 90,
-          "RicochetAngle": 65,
-          "ExplosiveMult": 0.8,
-          "Penetration": 175,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 853
-        }
+        "config": {}
       }
     },
     "90mm M41": {
@@ -3847,24 +2625,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 0.65,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 4,
-          "RecoilLength": 1.3,
-          "ReloadTime": 7.5,
-          "GunCaliber": 90,
-          "RicochetAngle": 71,
-          "Penetration": 185,
-          "ExplosiveMult": 1.807,
-          "BulletGravity": 35,
-          "ShellSpeed": 853,
-          "FuseDelay": 0.4,
-          "FuseSensitivity": 16
-        }
+        "config": {}
       }
     },
     "90mm Marteau": {
@@ -3898,24 +2659,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 0.41,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 2.1,
-          "RecoilLength": 1,
-          "ReloadTime": 8.3,
-          "GunCaliber": 90,
-          "RicochetAngle": 60,
-          "ExplosiveMult": 1.807,
-          "Penetration": 154,
-          "FuseDelay": 0.4,
-          "FuseSensitivity": 16,
-          "BulletGravity": 35,
-          "ShellSpeed": 865
-        }
+        "config": {}
       }
     },
     "90mm Needle": {
@@ -3948,26 +2692,7 @@
           "ImageId": "10729726985",
           "Dealer": "DR"
         },
-        "config": {
-          "GunWeight": 0.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 5,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 90,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 865,
-          "MaxRange": 1.8,
-          "Penetration": 260,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 71,
-          "ActivationTime": 0,
-          "Penetration60": 98
-        }
+        "config": {}
       }
     },
     "94mm 28 Pdr": {
@@ -4005,21 +2730,7 @@
           "Aluminium": 32,
           "Chromium": 55
         },
-        "config": {
-          "GunWeight": 0.9,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 3,
-          "RecoilLength": 1,
-          "ReloadTime": 8,
-          "GunCaliber": 94,
-          "RicochetAngle": 70,
-          "Penetration": 192,
-          "BulletGravity": 35,
-          "ShellSpeed": 929
-        }
+        "config": {}
       }
     },
     "40mm Bofors L/70": {
@@ -4057,27 +2768,7 @@
           "Aluminium": 60,
           "Chromium": 20
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "ClipReload": 0.2,
-          "Clip": 20,
-          "RecoilForce": 10000,
-          "OverheatMult": 1.04,
-          "DamageMult": 0.3,
-          "RecoilLength": 0.5,
-          "ReloadTime": 0.2,
-          "GunCaliber": 40,
-          "RicochetAngle": 81,
-          "Penetration": 5,
-          "Penetration60": 62,
-          "BulletGravity": 35,
-          "ShellSpeed": 988,
-          "FuseRadius": 4,
-          "ArmDistance": 500,
-          "ExplosiveMult": 2.292
-        }
+        "config": {}
       }
     },
     "30mm CRAD": {
@@ -4112,27 +2803,7 @@
           "Dealer": "Developer",
           "Yen": 16376000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 25,
-          "RecoilZoom": 0.3,
-          "ClipReload": 0.3,
-          "Clip": 60,
-          "RecoilForce": 10000,
-          "OverheatMult": 1,
-          "DamageMult": 0.1,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.1,
-          "GunCaliber": 30,
-          "RicochetAngle": 81,
-          "Penetration": 35,
-          "Penetration60": 90,
-          "BulletGravity": 35,
-          "ShellSpeed": 1120,
-          "FuseRadius": 6,
-          "ArmDistance": 250,
-          "ExplosiveMult": 0.5
-        }
+        "config": {}
       }
     },
     "40mm Pom Pom Mini": {
@@ -4165,21 +2836,7 @@
           "Era": "Cold War",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.1,
-          "Accuracy": 52,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 100,
-          "OverheatMult": 1,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.4,
-          "ReloadTime": 0.4,
-          "GunCaliber": 12.7,
-          "RicochetAngle": 68,
-          "Penetration": 42,
-          "BulletGravity": 35,
-          "ShellSpeed": 792
-        }
+        "config": {}
       }
     },
     "45mm 20-K": {
@@ -4215,24 +2872,7 @@
           "Steel": 6,
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.23,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 40000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 3.96,
-          "GunCaliber": 45,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 3.0551,
-          "Penetration": 65,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 760
-        }
+        "config": {}
       }
     },
     "45mm EGG": {
@@ -4267,24 +2907,7 @@
           "Steel": 6,
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.23,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 40000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 3.96,
-          "GunCaliber": 45,
-          "RicochetAngle": 65,
-          "ExplosiveMult": 3.0551,
-          "Penetration": 65,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 757
-        }
+        "config": {}
       }
     },
     "45mm Poopenfartenkanone": {
@@ -4318,24 +2941,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 30000,
-          "OverheatMult": 1,
-          "DamageMult": 3.7,
-          "RecoilLength": 0.5,
-          "ReloadTime": 4.6,
-          "GunCaliber": 45,
-          "RicochetAngle": 60,
-          "ExplosiveMult": 2,
-          "Penetration": 65,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 760
-        }
+        "config": {}
       }
     },
     "125mm 2A26": {
@@ -4371,23 +2977,7 @@
           "Aluminium": 86,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.4,
-          "ReloadTime": 7.8,
-          "GunCaliber": 125,
-          "ShellSpeed": 1800,
-          "Penetration": 321,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "RicochetAngle": 76,
-          "Penetration60": 182
-        }
+        "config": {}
       }
     },
     "Scud": {
@@ -4419,28 +3009,7 @@
           "Dealer": "Developer",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 0.01,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 0,
-          "DamageMult": 4,
-          "RecoilLength": 0.1,
-          "ReloadTime": 20,
-          "GunCaliber": 400,
-          "ExplosiveMult": 150,
-          "LaunchVelocity": 5,
-          "BulletGravity": 0,
-          "FuseRadius": 10,
-          "ShellSpeed": 150,
-          "MaxRange": 300,
-          "Penetration": 10000,
-          "ArmDistance": 300,
-          "RicochetAngle": 90,
-          "ActivationTime": 0,
-          "LoftHeight": 1000
-        }
+        "config": {}
       }
     },
     "90mm CN90 F4": {
@@ -4474,22 +3043,7 @@
           "Yen": 510400,
           "Tier": 7
         },
-        "config": {
-          "GunWeight": 0.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 50000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 7.75,
-          "GunCaliber": 90,
-          "RicochetAngle": 80,
-          "Penetration": 13,
-          "ExplosiveMult": 1.667,
-          "BulletGravity": 35,
-          "ShellSpeed": 750
-        }
+        "config": {}
       }
     },
     "152mm ML-20S": {
@@ -4525,24 +3079,7 @@
           "Steel": 20,
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 1.3,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 20,
-          "DamageMult": 1,
-          "GunCaliber": 152,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.29,
-          "Penetration": 49,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 530
-        }
+        "config": {}
       }
     },
     "20mm M139": {
@@ -4576,23 +3113,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 0.08,
-          "Accuracy": 50,
-          "RecoilZoom": 0.2,
-          "ClipReload": 0.12,
-          "Clip": 125,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 0.05,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.12,
-          "GunCaliber": 20,
-          "RicochetAngle": 63,
-          "Penetration": 47,
-          "BulletGravity": 35,
-          "ShellSpeed": 1100
-        }
+        "config": {}
       }
     },
     "28mm Mosquito": {
@@ -4626,23 +3147,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.08,
-          "Accuracy": 20,
-          "RecoilZoom": 0,
-          "Clip": 30,
-          "ClipReload": 0.12,
-          "RecoilForce": 100,
-          "OverheatMult": 1.04,
-          "DamageMult": 0.4,
-          "RecoilLength": 0.2,
-          "ReloadTime": 0.2,
-          "GunCaliber": 28,
-          "RicochetAngle": 67,
-          "Penetration": 37,
-          "BulletGravity": 35,
-          "ShellSpeed": 820
-        }
+        "config": {}
       }
     },
     "20mm TN": {
@@ -4676,24 +3181,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.24,
-          "Accuracy": 80,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 150,
-          "OverheatMult": 1,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.21516000000000002,
-          "GunCaliber": 20,
-          "RicochetAngle": 60,
-          "ExplosiveMult": 1,
-          "Penetration": 32,
-          "FuseDelay": 1,
-          "FuseSensitivity": 5,
-          "BulletGravity": 35,
-          "ShellSpeed": 800
-        }
+        "config": {}
       }
     },
     "20mm Oerlikon (REAL AND FIXED)": {
@@ -4730,21 +3218,7 @@
           "Aluminium": 10,
           "Steel": 30
         },
-        "config": {
-          "GunWeight": 0.15,
-          "Accuracy": 80,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 6000,
-          "OverheatMult": 1.8,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.1,
-          "DamageMult": 0.17,
-          "GunCaliber": 20,
-          "RicochetAngle": 68,
-          "Penetration": 49,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "20mm Oerlikon": {
@@ -4781,21 +3255,7 @@
           "Aluminium": 10,
           "Steel": 30
         },
-        "config": {
-          "GunWeight": 0.15,
-          "Accuracy": 20,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 6000,
-          "OverheatMult": 1.8,
-          "DamageMult": 0.17,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.09,
-          "GunCaliber": 20,
-          "RicochetAngle": 68,
-          "Penetration": 57,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "Canon de 120mm": {
@@ -4829,21 +3289,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 2.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 2.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 12,
-          "GunCaliber": 120.01,
-          "RicochetAngle": 71,
-          "Penetration": 300,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "17.3cm Jericho": {
@@ -4877,22 +3323,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 5.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 330000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.5,
-          "ReloadTime": 30,
-          "GunCaliber": 173,
-          "ShellSpeed": 690,
-          "Penetration": 286,
-          "ExplosiveMult": 2.1,
-          "BulletGravity": 35,
-          "RicochetAngle": 79
-        }
+        "config": {}
       }
     },
     "ZU-23 (Twin)": {
@@ -4929,21 +3360,7 @@
           "Aluminium": 57,
           "Steel": 29
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 23,
-          "RecoilZoom": 1,
-          "RecoilForce": 5000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.1,
-          "ReloadTime": 0.132,
-          "GunCaliber": 23,
-          "RicochetAngle": 68,
-          "Penetration": 51,
-          "BulletGravity": 35,
-          "ShellSpeed": 970
-        }
+        "config": {}
       }
     },
     "38cm Doomsday": {
@@ -4977,22 +3394,7 @@
           "Yen": 1000,
           "Tier": 5
         },
-        "config": {
-          "GunWeight": 0.1,
-          "Accuracy": 80,
-          "RecoilZoom": 8,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 0,
-          "ReloadTime": 39.6,
-          "GunCaliber": 380,
-          "RicochetAngle": 87,
-          "Penetration": 230,
-          "ExplosiveMult": 24,
-          "BulletGravity": 12,
-          "ShellSpeed": 91
-        }
+        "config": {}
       }
     },
     "320mm Punisher": {
@@ -5026,29 +3428,7 @@
           "Dealer": "Developer",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 15,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 1500000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 30,
-          "GunCaliber": 320,
-          "ExplosiveMult": 80,
-          "Nav": 4,
-          "BulletGravity": 450,
-          "ShellSpeed": 450,
-          "MaxRange": 6,
-          "Penetration": 1450,
-          "LaunchVelocity": 300,
-          "RicochetAngle": 90,
-          "ActivationTime": 4,
-          "LoftHeight": 450,
-          "FuseRadius": 10,
-          "ArmDistance": 150
-        }
+        "config": {}
       }
     },
     "76mm OTO old": {
@@ -5082,27 +3462,7 @@
           "Dealer": "Developer",
           "Yen": 16376000
         },
-        "config": {
-          "GunWeight": 2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "OverheatMult": 1.5,
-          "RecoilForce": 40000,
-          "DamageMult": 0.256,
-          "ReloadTime": 2,
-          "RecoilLength": 1,
-          "GunCaliber": 76,
-          "RicochetAngle": 80,
-          "FuseRadius": 8,
-          "Penetration": 60,
-          "ArmDistance": 500,
-          "ExplosiveMult": 14.477,
-          "BulletGravity": 35,
-          "ShellSpeed": 1232,
-          "Penetration60": 171,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14
-        }
+        "config": {}
       }
     },
     "185mm UHistory Mk.1": {
@@ -5141,25 +3501,7 @@
           "Steel": 75,
           "Chromium": 53
         },
-        "config": {
-          "GunWeight": 4.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 960000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 30,
-          "GunCaliber": 185,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 19.258,
-          "Penetration": 1364,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 25,
-          "ShellSpeed": 1542,
-          "Penetration60": 682
-        }
+        "config": {}
       }
     },
     "185mm UHistory": {
@@ -5193,25 +3535,7 @@
           "Yen": 22824000,
           "Tier": 12
         },
-        "config": {
-          "GunWeight": 4.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 960000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 23,
-          "GunCaliber": 185,
-          "RicochetAngle": 80,
-          "Penetration": 1392,
-          "ExplosiveMult": 19.258,
-          "BulletGravity": 35,
-          "ShellSpeed": 1700,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "Penetration60": 751
-        }
+        "config": {}
       }
     },
     "160mm Rigatoni II": {
@@ -5244,22 +3568,7 @@
           "Dealer": "DR",
           "Yen": 2180000
         },
-        "config": {
-          "GunWeight": 2.6,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 700000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 14.7,
-          "GunCaliber": 160,
-          "ShellSpeed": 434,
-          "Penetration": 260,
-          "ExplosiveMult": 2.625,
-          "BulletGravity": 35,
-          "RicochetAngle": 80
-        }
+        "config": {}
       }
     },
     "160mm Rigatoni": {
@@ -5295,27 +3604,7 @@
           "Steel": 60,
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.7,
-          "ReloadTime": 13,
-          "GunCaliber": 160,
-          "ExplosiveMult": 1.77,
-          "BulletGravity": 35,
-          "ShellSpeed": 430,
-          "MaxRange": 0.46,
-          "Penetration": 54,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "FuseDelay": 1.4,
-          "FuseSensitivity": 19
-        }
+        "config": {}
       }
     },
     "9M37M": {
@@ -5345,28 +3634,7 @@
           "Tier": "6",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 1,
-          "GunCaliber": 140,
-          "ExplosiveMult": 15,
-          "LaunchVelocity": 0,
-          "BulletGravity": 0,
-          "FuseRadius": 20,
-          "ShellSpeed": 700,
-          "MaxRange": 5,
-          "Penetration": 600,
-          "ArmDistance": 300,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "LoftHeight": 0
-        }
+        "config": {}
       }
     },
     "Among Cannon": {
@@ -5398,28 +3666,7 @@
           "Dealer": "Developer",
           "Yen": 4
         },
-        "config": {
-          "GunWeight": 0.02,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 0,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 0.15,
-          "GunCaliber": 84,
-          "RicochetAngle": 90,
-          "Penetration": 1000000000,
-          "ExplosiveMult": 12,
-          "BulletGravity": 0,
-          "ShellSpeed": 180,
-          "Penetration60": 190,
-          "FuseRadius": 10,
-          "LaunchVelocity": 0,
-          "MaxRange": 1,
-          "ArmDistance": 10,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "Basskanone": {
@@ -5456,22 +3703,7 @@
           "Steel": 33,
           "Chromium": 10
         },
-        "config": {
-          "GunWeight": 0.8,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 12,
-          "GunCaliber": 75,
-          "RicochetAngle": 90,
-          "Penetration": 152,
-          "ExplosiveMult": 6,
-          "BulletGravity": 0,
-          "ShellSpeed": 343
-        }
+        "config": {}
       }
     },
     "Bomb": {
@@ -5507,25 +3739,7 @@
           "Steel": 77,
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 5,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 100,
-          "RecoilLength": 0,
-          "ReloadTime": 60,
-          "GunCaliber": 100,
-          "RicochetAngle": 80,
-          "Penetration": 340,
-          "ExplosiveMult": 1,
-          "BulletGravity": 0,
-          "ShellSpeed": 300,
-          "MaxRange": 0.4,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "Pan": {
@@ -5559,27 +3773,7 @@
           "Yen": 99999999999999,
           "Tier": 10
         },
-        "config": {
-          "GunWeight": 0.002,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 4,
-          "RecoilLength": 0,
-          "ReloadTime": 14,
-          "GunCaliber": 1000,
-          "RicochetAngle": 80,
-          "Penetration": 870,
-          "ExplosiveMult": 12,
-          "BulletGravity": 0,
-          "ShellSpeed": 230,
-          "LaunchVelocity": 0,
-          "FuseRadius": 3,
-          "MaxRange": 4,
-          "ArmDistance": 10,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "Fusiler Mini": {
@@ -5613,25 +3807,7 @@
           "Yen": 1,
           "Tier": 7
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 500,
-          "OverheatMult": 1,
-          "DamageMult": 0.15,
-          "RecoilLength": 0.7,
-          "ReloadTime": 0.3,
-          "GunCaliber": 20,
-          "RicochetAngle": 80,
-          "Penetration": 240,
-          "ExplosiveMult": 0.2,
-          "BulletGravity": 35,
-          "ShellSpeed": 1400,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 10,
-          "Penetration60": 65
-        }
+        "config": {}
       }
     },
     "30mm Havoc": {
@@ -5663,24 +3839,7 @@
           "Dealer": "Developer",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0,
-          "Accuracy": 80,
-          "RecoilZoom": 0.3,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.8,
-          "ReloadTime": 0.264,
-          "GunCaliber": 30,
-          "RicochetAngle": 78,
-          "ExplosiveMult": 1,
-          "Penetration": 82,
-          "FuseDelay": 1.4,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 1120
-        }
+        "config": {}
       }
     },
     "30mm Rarden": {
@@ -5718,26 +3877,7 @@
           "Aluminium": 70,
           "Chromium": 47
         },
-        "config": {
-          "GunWeight": 0.113,
-          "Accuracy": 80,
-          "RecoilZoom": 0.4,
-          "ClipReload": 0.6,
-          "Clip": 6,
-          "RecoilForce": 5000,
-          "OverheatMult": 2.4,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.2,
-          "GunCaliber": 30,
-          "RicochetAngle": 75,
-          "ExplosiveMult": 1,
-          "Penetration": 87,
-          "FuseDelay": 0.23,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 1050
-        }
+        "config": {}
       }
     },
     "30mm 2A42": {
@@ -5771,23 +3911,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 40,
-          "RecoilZoom": 0.3,
-          "ClipReload": 0.12,
-          "Clip": 40,
-          "RecoilForce": 10000,
-          "OverheatMult": 1,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.10560000000000001,
-          "GunCaliber": 30,
-          "RicochetAngle": 78,
-          "Penetration": 82,
-          "BulletGravity": 35,
-          "ShellSpeed": 1120
-        }
+        "config": {}
       }
     },
     "TOW - HE": {
@@ -5824,25 +3948,7 @@
           "Steel": 30,
           "Chromium": 8
         },
-        "config": {
-          "GunWeight": 0.0188,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 12,
-          "GunCaliber": 152,
-          "ExplosiveMult": 12,
-          "BulletGravity": 0,
-          "ShellSpeed": 170,
-          "MaxRange": 2,
-          "Penetration": 380,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "30mm 2A38": {
@@ -5871,23 +3977,7 @@
           "Nation": "Soviet Union",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 10,
-          "RecoilZoom": 1,
-          "ClipReload": 0.04,
-          "Clip": 120,
-          "RecoilForce": 5000,
-          "OverheatMult": 0.6,
-          "DamageMult": 0.025,
-          "RecoilLength": 0.1,
-          "ReloadTime": 0.05,
-          "GunCaliber": 30,
-          "RicochetAngle": 72,
-          "Penetration": 51,
-          "ShellSpeed": 970,
-          "BulletGravity": 35
-        }
+        "config": {}
       }
     },
     "120mm L11A1": {
@@ -5925,22 +4015,7 @@
           "Aluminium": 64,
           "Chromium": 29
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.2,
-          "ReloadTime": 9.3,
-          "GunCaliber": 120,
-          "RicochetAngle": 77,
-          "Penetration": 250,
-          "ExplosiveMult": 2.9155555555,
-          "BulletGravity": 35,
-          "ShellSpeed": 1445
-        }
+        "config": {}
       }
     },
     "DRQ50": {
@@ -5974,24 +4049,7 @@
           "Dealer": "DR",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "ClipReload": 0.5,
-          "Clip": 2,
-          "RecoilForce": 0,
-          "OverheatMult": 5,
-          "DamageMult": 0.3,
-          "RecoilLength": 0,
-          "ReloadTime": 4.5,
-          "GunCaliber": 50,
-          "RicochetAngle": 80,
-          "Penetration": 374,
-          "Penetration60": 182,
-          "BulletGravity": 35,
-          "ShellSpeed": 3132
-        }
+        "config": {}
       }
     },
     "TOS M2 Browning": {
@@ -6018,21 +4076,7 @@
           },
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.12,
-          "Accuracy": 60,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 100,
-          "OverheatMult": 1.2,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.132,
-          "GunCaliber": 12.7,
-          "RicochetAngle": 65,
-          "Penetration": 5,
-          "BulletGravity": 35,
-          "ShellSpeed": 130
-        }
+        "config": {}
       }
     },
     "DRQ100": {
@@ -6067,22 +4111,7 @@
           "Yen": 243000,
           "Lightning": 0
         },
-        "config": {
-          "GunWeight": 3.65,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 3.4,
-          "DamageMult": 3.4,
-          "RecoilLength": 0,
-          "ReloadTime": 12.5,
-          "GunCaliber": 100,
-          "RicochetAngle": 80,
-          "Penetration": 757,
-          "Penetration60": 351,
-          "BulletGravity": 35,
-          "ShellSpeed": 4213
-        }
+        "config": {}
       }
     },
     "106mm Recoilless": {
@@ -6120,22 +4149,7 @@
           "Aluminium": 53,
           "Chromium": 24
         },
-        "config": {
-          "GunWeight": 0.21,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 0,
-          "ReloadTime": 12,
-          "GunCaliber": 105,
-          "RicochetAngle": 77,
-          "Penetration": 102,
-          "ExplosiveMult": 3.25,
-          "BulletGravity": 35,
-          "ShellSpeed": 498
-        }
+        "config": {}
       }
     },
     "130mm B-13": {
@@ -6169,24 +4183,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 2.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 400000,
-          "OverheatMult": 1,
-          "DamageMult": 1.7,
-          "RecoilLength": 1,
-          "ReloadTime": 19.2,
-          "GunCaliber": 130,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.25,
-          "Penetration": 36,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 700
-        }
+        "config": {}
       }
     },
     "DRQ100R": {
@@ -6221,24 +4218,7 @@
           "Yen": 243000,
           "Lightning": 0
         },
-        "config": {
-          "GunWeight": 4.1,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "Clip": 3,
-          "ClipReload": 3,
-          "RecoilForce": 0,
-          "OverheatMult": 2.5,
-          "DamageMult": 0.9,
-          "RecoilLength": 0,
-          "ReloadTime": 12.5,
-          "GunCaliber": 100,
-          "RicochetAngle": 81,
-          "Penetration": 475,
-          "Penetration60": 233,
-          "BulletGravity": 35,
-          "ShellSpeed": 4157
-        }
+        "config": {}
       }
     },
     "105mm Type 92": {
@@ -6272,22 +4252,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.3,
-          "ReloadTime": 9,
-          "GunCaliber": 105,
-          "RicochetAngle": 65,
-          "Penetration": 155,
-          "ExplosiveMult": 1.4463,
-          "BulletGravity": 35,
-          "ShellSpeed": 772
-        }
+        "config": {}
       }
     },
     "150mm Type 96 Howitzer": {
@@ -6321,22 +4286,7 @@
           "Yen": 27000,
           "Tier": 4
         },
-        "config": {
-          "GunWeight": 4,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "RecoilLength": 0.7,
-          "ReloadTime": 28,
-          "DamageMult": 1,
-          "GunCaliber": 150,
-          "ShellSpeed": 1000,
-          "Penetration": 90,
-          "ExplosiveMult": 1.6,
-          "BulletGravity": 35,
-          "RicochetAngle": 68
-        }
+        "config": {}
       }
     },
     "105mm Royal": {
@@ -6370,23 +4320,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 8687000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 3,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.3,
-          "ReloadTime": 5,
-          "GunCaliber": 105,
-          "RicochetAngle": 90,
-          "Penetration": 152,
-          "ShellSpeed": 730,
-          "Penetration60": 185,
-          "BulletGravity": 35,
-          "ExplosiveMult": 2.859
-        }
+        "config": {}
       }
     },
     "75mm Freedom": {
@@ -6420,24 +4354,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 4.5,
-          "GunCaliber": 75,
-          "RicochetAngle": 68,
-          "ExplosiveMult": 0.54931640625,
-          "Penetration": 92,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 620
-        }
+        "config": {}
       }
     },
     "122mm 2A18": {
@@ -6474,22 +4391,7 @@
           "Yen": 243000,
           "Steel": 47
         },
-        "config": {
-          "GunWeight": 1.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 2,
-          "DamageMult": 1,
-          "RecoilLength": 1.4,
-          "ReloadTime": 16,
-          "GunCaliber": 122,
-          "ShellSpeed": 682,
-          "Penetration": 320,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "RicochetAngle": 87
-        }
+        "config": {}
       }
     },
     "30mm Mk. 30-2/ABM": {
@@ -6528,27 +4430,7 @@
           "Carbon_Fibre": 50,
           "Chromium": 25
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 0.4,
-          "Clip": 80,
-          "RecoilForce": 7000,
-          "OverheatMult": 3,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 0.4,
-          "GunCaliber": 30,
-          "RicochetAngle": 80,
-          "Penetration": 12,
-          "Penetration60": 46,
-          "BulletGravity": 35,
-          "ShellSpeed": 1100,
-          "FuseRadius": 3,
-          "ArmDistance": 100,
-          "ExplosiveMult": 0.5
-        }
+        "config": {}
       }
     },
     "90mm CN90 F3": {
@@ -6582,23 +4464,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 180000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6.8,
-          "GunCaliber": 90,
-          "ShellSpeed": 1200,
-          "Penetration": 226,
-          "ExplosiveMult": 1.667,
-          "BulletGravity": 35,
-          "RicochetAngle": 71,
-          "Penetration60": 120
-        }
+        "config": {}
       }
     },
     "AT4": {
@@ -6632,22 +4498,7 @@
           "Dealer": "DR",
           "Yen": 81000
         },
-        "config": {
-          "GunWeight": 0.02,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 18.084,
-          "GunCaliber": 84,
-          "RicochetAngle": 77,
-          "Penetration": 95,
-          "ExplosiveMult": 2.859,
-          "BulletGravity": 2,
-          "ShellSpeed": 220
-        }
+        "config": {}
       }
     },
     "30mm Terminator": {
@@ -6687,24 +4538,7 @@
           "Dealer": "Crafting",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 20,
-          "RecoilZoom": 0.3,
-          "ClipReload": 0.12,
-          "Clip": 100,
-          "RecoilForce": 10000,
-          "OverheatMult": 1,
-          "DamageMult": 0.1,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.10560000000000001,
-          "GunCaliber": 30,
-          "RicochetAngle": 81,
-          "Penetration": 99,
-          "Penetration60": 75,
-          "BulletGravity": 35,
-          "ShellSpeed": 1260
-        }
+        "config": {}
       }
     },
     "49.7mm DbGPAC": {
@@ -6738,24 +4572,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 16376000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 14,
-          "RecoilZoom": 1,
-          "RecoilForce": 5000,
-          "OverheatMult": 2,
-          "DamageMult": 0.25,
-          "RecoilLength": 2,
-          "ReloadTime": 0.8,
-          "GunCaliber": 49.7,
-          "RicochetAngle": 80,
-          "Penetration": 55,
-          "ExplosiveMult": 2,
-          "BulletGravity": 30,
-          "ShellSpeed": 460,
-          "FuseRadius": 4,
-          "ArmDistance": 500
-        }
+        "config": {}
       }
     },
     "25mm Oerlikon": {
@@ -6784,24 +4601,7 @@
           "Nation": "Switzerland",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.5,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "Clip": 55,
-          "ClipReload": 0.2,
-          "RecoilForce": 1000,
-          "OverheatMult": 1.6,
-          "DamageMult": 0.65,
-          "RecoilLength": 0.25,
-          "ReloadTime": 0.145,
-          "GunCaliber": 25,
-          "RicochetAngle": 81,
-          "Penetration": 92,
-          "Penetration60": 53,
-          "BulletGravity": 35,
-          "ShellSpeed": 1385
-        }
+        "config": {}
       }
     },
     "H-2 Ares Jupiter": {
@@ -6835,22 +4635,7 @@
           "Dealer": "Crate",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 2.5,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 4.4,
-          "DamageMult": 0.55,
-          "RecoilLength": 0,
-          "ReloadTime": 13,
-          "GunCaliber": 120,
-          "RicochetAngle": 80,
-          "Penetration": 750,
-          "Penetration60": 300,
-          "BulletGravity": 35,
-          "ShellSpeed": 2700
-        }
+        "config": {}
       }
     },
     "112mm  HATG": {
@@ -6884,24 +4669,7 @@
           "Dealer": "DR",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.64,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 7,
-          "GunCaliber": 112,
-          "RicochetAngle": 71,
-          "Penetration": 227,
-          "ExplosiveMult": 1,
-          "BulletGravity": 35,
-          "ShellSpeed": 895,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19
-        }
+        "config": {}
       }
     },
     "120mm KBM-2": {
@@ -6930,26 +4698,7 @@
           "Nation": "Ukraine",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.4,
-          "ReloadTime": 8,
-          "GunCaliber": 120,
-          "ShellSpeed": 1509,
-          "Penetration": 510,
-          "ExplosiveMult": 1,
-          "BulletGravity": 35,
-          "RicochetAngle": 80,
-          "MaxRange": 8,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0,
-          "Penetration60": 255
-        }
+        "config": {}
       }
     },
     "35mm GA-35": {
@@ -6978,23 +4727,7 @@
           "Nation": "South Africa",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.23,
-          "Accuracy": 10,
-          "RecoilZoom": 1,
-          "ClipReload": 0.1,
-          "Clip": 120,
-          "RecoilForce": 3000,
-          "OverheatMult": 0.5,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.04,
-          "GunCaliber": 35,
-          "RicochetAngle": 72,
-          "Penetration": 63,
-          "BulletGravity": 35,
-          "ShellSpeed": 1175
-        }
+        "config": {}
       }
     },
     "20mm sdkfzG": {
@@ -7028,21 +4761,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 13,
-          "RecoilZoom": 0,
-          "RecoilForce": 2000,
-          "OverheatMult": 2,
-          "DamageMult": 0.2,
-          "RecoilLength": 0,
-          "ReloadTime": 0.17,
-          "GunCaliber": 20,
-          "RicochetAngle": 67,
-          "Penetration": 46,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "120mm L15": {
@@ -7081,23 +4800,7 @@
           "Aluminium": 86,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.8,
-          "GunCaliber": 120,
-          "RicochetAngle": 77,
-          "Penetration": 152,
-          "Penetration60": 225,
-          "BulletGravity": 35,
-          "ShellSpeed": 623,
-          "ExplosiveMult": 2.9155555555
-        }
+        "config": {}
       }
     },
     "38cm SK": {
@@ -7128,24 +4831,7 @@
           "Era": "WWII",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 3,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 4,
-          "ReloadTime": 1,
-          "GunCaliber": 380,
-          "RicochetAngle": 64,
-          "Penetration": 630,
-          "ExplosiveMult": 5,
-          "BulletGravity": 35,
-          "ShellSpeed": 800,
-          "FuseDelay": 1.4,
-          "FuseSensitivity": 19
-        }
+        "config": {}
       }
     },
     "125mm 2A821M": {
@@ -7184,23 +4870,7 @@
           "Aluminium": 302,
           "Chromium": 60
         },
-        "config": {
-          "GunWeight": 1.86,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 400000,
-          "OverheatMult": 1,
-          "DamageMult": 0.8,
-          "RecoilLength": 2,
-          "ReloadTime": 7.8,
-          "GunCaliber": 125,
-          "ShellSpeed": 1700,
-          "Penetration": 560,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "RicochetAngle": 80,
-          "Penetration60": 280
-        }
+        "config": {}
       }
     },
     "40mm Flak": {
@@ -7234,21 +4904,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 18000
         },
-        "config": {
-          "GunWeight": 0.4,
-          "Accuracy": 52,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 2000,
-          "OverheatMult": 2.3,
-          "DamageMult": 0.2,
-          "RecoilLength": 0.4,
-          "ReloadTime": 0.6864,
-          "GunCaliber": 40,
-          "RicochetAngle": 65,
-          "Penetration": 71,
-          "BulletGravity": 35,
-          "ShellSpeed": 792
-        }
+        "config": {}
       }
     },
     "120mm TCB L/60": {
@@ -7283,21 +4939,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 2.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 2.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 12,
-          "GunCaliber": 120,
-          "RicochetAngle": 75,
-          "Penetration": 335,
-          "BulletGravity": 35,
-          "ShellSpeed": 1100
-        }
+        "config": {}
       }
     },
     "120mm L/44": {
@@ -7335,25 +4977,7 @@
           "Aluminium": 95,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.4,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 650,
-          "Penetration60": 237,
-          "BulletGravity": 35,
-          "ShellSpeed": 1030,
-          "ExplosiveMult": 3.4,
-          "ArmDistance": 200,
-          "FuseRadius": 2
-        }
+        "config": {}
       }
     },
     "105mm German Slap": {
@@ -7387,23 +5011,7 @@
           "Yen": 27000,
           "Tier": 4
         },
-        "config": {
-          "GunWeight": 0.685,
-          "Accuracy": 68,
-          "RecoilZoom": 1.5,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 13,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.175,
-          "Penetration": 22,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 472
-        }
+        "config": {}
       }
     },
     "20mm FS": {
@@ -7432,21 +5040,7 @@
           "Nation": "Fictional",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.1,
-          "Accuracy": 20,
-          "RecoilZoom": 1,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 0.35,
-          "RecoilLength": 0.2,
-          "ReloadTime": 0.1,
-          "GunCaliber": 20,
-          "RicochetAngle": 68,
-          "Penetration": 70,
-          "BulletGravity": 35,
-          "ShellSpeed": 1125
-        }
+        "config": {}
       }
     },
     "99.7mm Fusiler LARP": {
@@ -7480,25 +5074,7 @@
           "Dealer": "DR",
           "Yen": 9
         },
-        "config": {
-          "GunWeight": 0.52,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 1,
-          "Clip": 4,
-          "RecoilForce": 60000,
-          "OverheatMult": 1.5,
-          "DamageMult": 0.9,
-          "RecoilLength": 1,
-          "ReloadTime": 4,
-          "GunCaliber": 99.7,
-          "RicochetAngle": 80,
-          "Penetration": 150,
-          "ExplosiveMult": 1,
-          "BulletGravity": 35,
-          "ShellSpeed": 1200,
-          "Penetration60": 142
-        }
+        "config": {}
       }
     },
     "190mm Bruh": {
@@ -7534,24 +5110,7 @@
           "Steel": 77,
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 5,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 20,
-          "GunCaliber": 190,
-          "ExplosiveMult": 6,
-          "BulletGravity": 35,
-          "ShellSpeed": 157,
-          "Penetration": 500,
-          "ArmDistance": 100,
-          "RicochetAngle": 87,
-          "FuseRadius": 3
-        }
+        "config": {}
       }
     },
     "8.8 cm Kw.K. L/100": {
@@ -7587,24 +5146,7 @@
           "Steel": 32,
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 180000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 9,
-          "GunCaliber": 88,
-          "RicochetAngle": 72,
-          "ExplosiveMult": 2.4,
-          "Penetration": 225,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 1270
-        }
+        "config": {}
       }
     },
     "256mm German Kick": {
@@ -7638,27 +5180,7 @@
           "Yen": 1530900,
           "Tier": 8
         },
-        "config": {
-          "GunWeight": 10,
-          "Accuracy": 80,
-          "RecoilZoom": 2,
-          "RecoilForce": 800000,
-          "OverheatMult": 0.4,
-          "DamageMult": 7,
-          "RecoilLength": 4,
-          "ReloadTime": 120,
-          "GunCaliber": 256,
-          "RicochetAngle": 90,
-          "Penetration": 456,
-          "ExplosiveMult": 1000,
-          "BulletGravity": 35,
-          "ShellSpeed": 1427,
-          "MaxRange": 2.2,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0,
-          "FuseDelay": 2,
-          "FuseSensitivity": 20
-        }
+        "config": {}
       }
     },
     "90mm BK90": {
@@ -7696,22 +5218,7 @@
           "Aluminium": 47,
           "Chromium": 60
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 80000,
-          "OverheatMult": 1,
-          "DamageMult": 1.46,
-          "RecoilLength": 1,
-          "ReloadTime": 7,
-          "GunCaliber": 90,
-          "RicochetAngle": 80,
-          "Penetration": 102,
-          "ExplosiveMult": 2,
-          "BulletGravity": 35,
-          "ShellSpeed": 853
-        }
+        "config": {}
       }
     },
     "120mm IMI": {
@@ -7750,29 +5257,7 @@
           "Aluminium": 100,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.7,
-          "GunCaliber": 120,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1700,
-          "MaxRange": 10,
-          "Penetration": 550,
-          "LaunchVelocity": 10,
-          "RicochetAngle": 80,
-          "ActivationTime": 0.01,
-          "LoftHeight": 5,
-          "ArmDistance": 200,
-          "FuseRadius": 2,
-          "Penetration60": 275
-        }
+        "config": {}
       }
     },
     "75mm Ikonisch II": {
@@ -7806,24 +5291,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 90000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 3,
-          "ReloadTime": 10.2,
-          "GunCaliber": 75,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 2,
-          "Penetration": 192,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 935
-        }
+        "config": {}
       }
     },
     "105mm CN 105 F1": {
@@ -7857,23 +5325,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 3,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.3,
-          "ReloadTime": 7,
-          "GunCaliber": 105,
-          "RicochetAngle": 73,
-          "Penetration": 230,
-          "Penetration60": 126,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000,
-          "ExplosiveMult": 1
-        }
+        "config": {}
       }
     },
     "9mm QLABS  Mk II": {
@@ -7906,21 +5358,7 @@
           "Dealer": "DR",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.12,
-          "Accuracy": 60,
-          "RecoilZoom": 0.2,
-          "RecoilForce": 100,
-          "OverheatMult": 1.2,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.2,
-          "GunCaliber": 9,
-          "RicochetAngle": 65,
-          "Penetration": 8,
-          "BulletGravity": 35,
-          "ShellSpeed": 929
-        }
+        "config": {}
       }
     },
     "107mm ZiS-6": {
@@ -7954,24 +5392,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.7,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 2,
-          "ReloadTime": 12,
-          "GunCaliber": 107,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 0.7,
-          "Penetration": 20,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 600
-        }
+        "config": {}
       }
     },
     "130mm M-65": {
@@ -8005,24 +5426,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 2.3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 350000,
-          "OverheatMult": 1,
-          "DamageMult": 1.7,
-          "RecoilLength": 1,
-          "ReloadTime": 13,
-          "GunCaliber": 130,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 1.67,
-          "Penetration": 37,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 900
-        }
+        "config": {}
       }
     },
     "DRQ140R": {
@@ -8057,22 +5461,7 @@
           "Yen": 243000,
           "Lightning": 0
         },
-        "config": {
-          "GunWeight": 4.5,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 85000,
-          "OverheatMult": 3,
-          "DamageMult": 5,
-          "RecoilLength": 0.5,
-          "ReloadTime": 35,
-          "GunCaliber": 140,
-          "RicochetAngle": 81,
-          "Penetration": 1859,
-          "Penetration60": 849,
-          "BulletGravity": 35,
-          "ShellSpeed": 4523
-        }
+        "config": {}
       }
     },
     "160mm Annihilator": {
@@ -8111,27 +5500,7 @@
           "Dealer": "Developer",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 4.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 1,
-          "Clip": 6,
-          "RecoilForce": 960000,
-          "OverheatMult": 0.7,
-          "DamageMult": 1.4,
-          "RecoilLength": 2,
-          "ReloadTime": 20,
-          "GunCaliber": 160,
-          "RicochetAngle": 81,
-          "Penetration": 100,
-          "Penetration60": 452,
-          "BulletGravity": 35,
-          "ShellSpeed": 1350,
-          "FuseRadius": 5,
-          "ArmDistance": 300,
-          "ExplosiveMult": 2.6
-        }
+        "config": {}
       }
     },
     "A-10 Thunderbolt": {
@@ -8160,28 +5529,7 @@
           "Nation": "United States",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.001,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 0.1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 0.5,
-          "GunCaliber": 145,
-          "ExplosiveMult": 76,
-          "LaunchVelocity": 10,
-          "BulletGravity": 0,
-          "FuseRadius": 5,
-          "ShellSpeed": 400,
-          "MaxRange": 20,
-          "Penetration": 870,
-          "ArmDistance": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "LoftHeight": 0
-        }
+        "config": {}
       }
     },
     "12.7mm M2": {
@@ -8215,23 +5563,7 @@
           "Yen": 1000,
           "Tier": 1
         },
-        "config": {
-          "GunWeight": 0.12,
-          "Accuracy": 60,
-          "RecoilZoom": 0.2,
-          "ClipReload": 0.132,
-          "Clip": 120,
-          "RecoilForce": 100,
-          "OverheatMult": 0.8,
-          "DamageMult": 0.5,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.11,
-          "GunCaliber": 12.7,
-          "RicochetAngle": 70,
-          "Penetration": 26,
-          "BulletGravity": 35,
-          "ShellSpeed": 929
-        }
+        "config": {}
       }
     },
     "73mm 2A28": {
@@ -8265,22 +5597,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 0.78,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 40000,
-          "OverheatMult": 1,
-          "DamageMult": 0.6,
-          "RecoilLength": 1,
-          "ReloadTime": 6.5,
-          "GunCaliber": 73,
-          "RicochetAngle": 80,
-          "Penetration": 11,
-          "ExplosiveMult": 1,
-          "BulletGravity": 12,
-          "ShellSpeed": 290
-        }
+        "config": {}
       }
     },
     "75mm Cannon Model 1897": {
@@ -8314,24 +5631,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.75,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.1,
-          "ReloadTime": 6.5,
-          "GunCaliber": 75,
-          "RicochetAngle": 72,
-          "ExplosiveMult": 2.9,
-          "Penetration": 73,
-          "FuseDelay": 0.7,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 600
-        }
+        "config": {}
       }
     },
     "21cm Jericho": {
@@ -8367,22 +5667,7 @@
           "Steel": 0,
           "Yen": 510400
         },
-        "config": {
-          "GunWeight": 4,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 360000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.5,
-          "ReloadTime": 37,
-          "GunCaliber": 210,
-          "ShellSpeed": 230,
-          "Penetration": 230,
-          "ExplosiveMult": 3,
-          "BulletGravity": 35,
-          "RicochetAngle": 89
-        }
+        "config": {}
       }
     },
     "120mm GIAT F1": {
@@ -8421,23 +5706,7 @@
           "Aluminium": 100,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.7,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.5,
-          "GunCaliber": 120,
-          "RicochetAngle": 77,
-          "Penetration": 480,
-          "Penetration60": 275,
-          "BulletGravity": 35,
-          "ShellSpeed": 1078,
-          "ExplosiveMult": 3.4
-        }
+        "config": {}
       }
     },
     "TOW but epic": {
@@ -8471,27 +5740,7 @@
           "Dealer": "Developer",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 0.0188,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 1,
-          "GunCaliber": 152,
-          "ExplosiveMult": 24,
-          "Nav": 6,
-          "BulletGravity": 0,
-          "ShellSpeed": 400,
-          "MaxRange": 4,
-          "Penetration": 870,
-          "LaunchVelocity": 50,
-          "RicochetAngle": 80,
-          "ActivationTime": 0.4,
-          "LoftHeight": 2
-        }
+        "config": {}
       }
     },
     "125mm 2A46M-1": {
@@ -8525,26 +5774,7 @@
           "Yen": 22824000,
           "Tier": 12
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.4,
-          "ReloadTime": 7.2,
-          "GunCaliber": 125,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1720,
-          "MaxRange": 8,
-          "Penetration": 530,
-          "LaunchVelocity": 180,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "Penetration60": 265
-        }
+        "config": {}
       }
     },
     "RPG-7 Bomblet": {
@@ -8578,25 +5808,7 @@
           "Dealer": "developer",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 0,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 0.1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 10,
-          "GunCaliber": 85,
-          "ExplosiveMult": 1,
-          "BulletGravity": 35,
-          "ShellSpeed": 1,
-          "MaxRange": 4,
-          "Penetration": 400,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 100
-        }
+        "config": {}
       }
     },
     "MARS": {
@@ -8630,26 +5842,7 @@
           "Dealer": "WS",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 0.0188,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 1,
-          "OverheatMult": 1,
-          "GunCaliber": 152,
-          "ExplosiveMult": 24,
-          "BulletGravity": 0,
-          "ShellSpeed": 400,
-          "MaxRange": 4,
-          "Penetration": 870,
-          "LaunchVelocity": 20,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "LoftHeight": 100
-        }
+        "config": {}
       }
     },
     "66mm NUCLEAR WEAPON 5000": {
@@ -8677,24 +5870,7 @@
           "DisplayName": "610mm NUCLEAR WEAPON 5000",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 60000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 70,
-          "GunCaliber": 610,
-          "RicochetAngle": 85,
-          "FuseRadius": 30,
-          "Penetration": 600,
-          "ArmDistance": 500,
-          "ExplosiveMult": 3.5,
-          "BulletGravity": 35,
-          "ShellSpeed": 100
-        }
+        "config": {}
       }
     },
     "MistleTOW": {
@@ -8728,25 +5904,7 @@
           "Dealer": "Developer",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 0.0188,
-          "Accuracy": 80,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 12,
-          "RecoilLength": 0.1,
-          "ReloadTime": 9,
-          "GunCaliber": 152,
-          "ExplosiveMult": 24,
-          "BulletGravity": 0,
-          "ShellSpeed": 400,
-          "MaxRange": 4,
-          "Penetration": 870,
-          "LaunchVelocity": 15,
-          "RicochetAngle": 80,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "35mm Bushmaster AGDS": {
@@ -8775,25 +5933,7 @@
           "Nation": "United States",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 0.1,
-          "Clip": 150,
-          "RecoilForce": 3000,
-          "GunCaliber": 35,
-          "RecoilLength": 1,
-          "ReloadTime": 0.1,
-          "ShellSpeed": 1175,
-          "Penetration60": 70,
-          "RicochetAngle": 81,
-          "BulletGravity": 35,
-          "Penetration": 12,
-          "FuseRadius": 4,
-          "ArmDistance": 150,
-          "ExplosiveMult": 0.5
-        }
+        "config": {}
       }
     },
     "Bazooka": {
@@ -8831,22 +5971,7 @@
           "Aluminium": 53,
           "Chromium": 24
         },
-        "config": {
-          "GunWeight": 0.001,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 1000,
-          "OverheatMult": 1.3,
-          "DamageMult": 4,
-          "RecoilLength": 0,
-          "ReloadTime": 13,
-          "GunCaliber": 168,
-          "RicochetAngle": 77,
-          "Penetration": 300,
-          "ExplosiveMult": 3,
-          "BulletGravity": 0,
-          "ShellSpeed": 100
-        }
+        "config": {}
       }
     },
     "Gun Jumper": {
@@ -8880,21 +6005,7 @@
           "Dealer": "Developer",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 2.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 0.05,
-          "GunCaliber": 15,
-          "RicochetAngle": 81,
-          "Penetration": 285,
-          "Penetration60": 165,
-          "BulletGravity": 0,
-          "ShellSpeed": 50
-        }
+        "config": {}
       }
     },
     "140mm ATAC 140": {
@@ -8931,23 +6042,7 @@
           "Dealer": "Crafting",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.6,
-          "ReloadTime": 18,
-          "GunCaliber": 140,
-          "RicochetAngle": 70,
-          "Penetration": 500,
-          "Penetration60": 320,
-          "BulletGravity": 35,
-          "ShellSpeed": 1600,
-          "ExplosiveMult": 5.2
-        }
+        "config": {}
       }
     },
     "85mm ZIS-S": {
@@ -8981,24 +6076,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 27000
         },
-        "config": {
-          "GunWeight": 0.9,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 150000,
-          "OverheatMult": 1,
-          "DamageMult": 4,
-          "RecoilLength": 0.54,
-          "ReloadTime": 9,
-          "GunCaliber": 85,
-          "RicochetAngle": 71,
-          "ExplosiveMult": 2.5636474659068,
-          "Penetration": 110,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14,
-          "BulletGravity": 35,
-          "ShellSpeed": 792
-        }
+        "config": {}
       }
     },
     "203mm 2A44": {
@@ -9037,22 +6115,7 @@
           "Titanium": 10,
           "Chromium": 20
         },
-        "config": {
-          "GunWeight": 4,
-          "Accuracy": 40,
-          "RecoilZoom": 1,
-          "RecoilForce": 400000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 2,
-          "ReloadTime": 22,
-          "GunCaliber": 203,
-          "ShellSpeed": 800,
-          "Penetration": 210,
-          "ExplosiveMult": 2.7,
-          "BulletGravity": 35,
-          "RicochetAngle": 80
-        }
+        "config": {}
       }
     },
     "75mm Type 3": {
@@ -9086,24 +6149,7 @@
           "Yen": 3000,
           "Tier": 2
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 80000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 75,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 1.3,
-          "Penetration": 12,
-          "FuseDelay": 1.3,
-          "FuseSensitivity": 15,
-          "BulletGravity": 35,
-          "ShellSpeed": 522
-        }
+        "config": {}
       }
     },
     "120mm TKG": {
@@ -9141,23 +6187,7 @@
           "Aluminium": 95,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 3.23,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.68,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 650,
-          "Penetration60": 281,
-          "BulletGravity": 35,
-          "ShellSpeed": 720,
-          "ExplosiveMult": 3.4
-        }
+        "config": {}
       }
     },
     "152mm BL-10": {
@@ -9194,24 +6224,7 @@
           "Steel": 66,
           "Chromium": 15
         },
-        "config": {
-          "GunWeight": 1.3,
-          "Accuracy": 80,
-          "RecoilZoom": 2.5,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 20.5,
-          "DamageMult": 1,
-          "GunCaliber": 152,
-          "RicochetAngle": 80,
-          "ExplosiveMult": 1.29,
-          "Penetration": 41,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 35,
-          "ShellSpeed": 700
-        }
+        "config": {}
       }
     },
     "38cm RW61": {
@@ -9240,22 +6253,7 @@
           "Nation": "Germany",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.1,
-          "Accuracy": 80,
-          "RecoilZoom": 8,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1.5,
-          "RecoilLength": 0,
-          "ReloadTime": 39.6,
-          "GunCaliber": 380,
-          "RicochetAngle": 87,
-          "Penetration": 230,
-          "ExplosiveMult": 24,
-          "BulletGravity": 12,
-          "ShellSpeed": 91
-        }
+        "config": {}
       }
     },
     "105mm M68": {
@@ -9289,23 +6287,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 8687000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "OverheatMult": 2.98,
-          "RecoilForce": 200000,
-          "DamageMult": 2,
-          "ReloadTime": 5.3,
-          "RecoilLength": 1.3,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 360,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1509,
-          "Penetration60": 187
-        }
+        "config": {}
       }
     },
     "120mm OTO": {
@@ -9343,25 +6325,7 @@
           "Aluminium": 95,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 650,
-          "Penetration60": 225,
-          "BulletGravity": 35,
-          "ShellSpeed": 1030,
-          "ExplosiveMult": 3.4,
-          "ArmDistance": 200,
-          "FuseRadius": 2
-        }
+        "config": {}
       }
     },
     "120mm L/55A1": {
@@ -9399,25 +6363,7 @@
           "Dealer": "Crafting",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 8.8,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 650,
-          "Penetration60": 295,
-          "BulletGravity": 35,
-          "ShellSpeed": 1030,
-          "ExplosiveMult": 3.4,
-          "ArmDistance": 200,
-          "FuseRadius": 2
-        }
+        "config": {}
       }
     },
     "47mm Type-1": {
@@ -9451,24 +6397,7 @@
           "Dealer": "DR",
           "Yen": 3000
         },
-        "config": {
-          "GunWeight": 0.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 40000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 5.5,
-          "GunCaliber": 47,
-          "RicochetAngle": 65,
-          "ExplosiveMult": 0.2,
-          "Penetration": 77,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 9,
-          "BulletGravity": 35,
-          "ShellSpeed": 808
-        }
+        "config": {}
       }
     },
     "25mm GAU-12U Equalizer": {
@@ -9497,24 +6426,7 @@
           "Nation": "United States",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.2,
-          "Accuracy": 50,
-          "RecoilZoom": 0,
-          "RecoilForce": 2000,
-          "OverheatMult": 0.8,
-          "DamageMult": 0.2,
-          "RecoilLength": 0,
-          "ReloadTime": 0.035,
-          "GunCaliber": 25,
-          "RicochetAngle": 62,
-          "FuseRadius": 5,
-          "Penetration": 81,
-          "ArmDistance": 250,
-          "ExplosiveMult": 2,
-          "BulletGravity": 35,
-          "ShellSpeed": 1345
-        }
+        "config": {}
       }
     },
     "8.8cm Ikonisch Zweimal": {
@@ -9552,28 +6464,7 @@
           "Tier": 9,
           "Aluminium": 102
         },
-        "config": {
-          "GunWeight": 2.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 2,
-          "Clip": 6,
-          "RecoilForce": 110000,
-          "OverheatMult": 2.7,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 88,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 3.172,
-          "Penetration": 15,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 1120,
-          "FuseRadius": 5,
-          "ArmDistance": 250
-        }
+        "config": {}
       }
     },
     "140mm Freedom X": {
@@ -9607,22 +6498,7 @@
           "Dealer": "Developer",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 4,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1.2,
-          "RecoilLength": 1.6,
-          "ReloadTime": 12,
-          "GunCaliber": 140,
-          "RicochetAngle": 80,
-          "Penetration": 800,
-          "Penetration60": 380,
-          "BulletGravity": 35,
-          "ShellSpeed": 1720
-        }
+        "config": {}
       }
     },
     "155mm L/52": {
@@ -9656,25 +6532,7 @@
           "Yen": 1530900,
           "Tier": 8
         },
-        "config": {
-          "GunWeight": 3.2,
-          "Accuracy": 80,
-          "RecoilZoom": 4,
-          "RecoilForce": 100000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1.5,
-          "ReloadTime": 15,
-          "GunCaliber": 155,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 750,
-          "Penetration": 400,
-          "ArmDistance": 100,
-          "FuseRadius": 100,
-          "RicochetAngle": 87,
-          "ArmingDistance": 100
-        }
+        "config": {}
       }
     },
     "135mm Sayonara": {
@@ -9708,23 +6566,7 @@
           "Dealer": "Developer",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 2.35,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 270000,
-          "GunCaliber": 135,
-          "RecoilLength": 1.6,
-          "ReloadTime": 7.2,
-          "ShellSpeed": 2000,
-          "FuseRadius": 10,
-          "Penetration": 680,
-          "ArmDistance": 10,
-          "RicochetAngle": 81,
-          "BulletGravity": 35,
-          "ExplosiveMult": 8,
-          "Penetration60": 512
-        }
+        "config": {}
       }
     },
     "35mm KDE": {
@@ -9753,29 +6595,7 @@
           "Nation": "Japan",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 0.3,
-          "Clip": 36,
-          "RecoilForce": 7000,
-          "OverheatMult": 1.2,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 0.3,
-          "GunCaliber": 35,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 0.5,
-          "Penetration": 127,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 12,
-          "BulletGravity": 35,
-          "ShellSpeed": 1400,
-          "FuseRadius": 3,
-          "ArmDistance": 100,
-          "Penetration60": 46
-        }
+        "config": {}
       }
     },
     "30mm M230LF": {
@@ -9805,29 +6625,7 @@
           "Desc": "??",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "ClipReload": 2,
-          "Clip": 4,
-          "RecoilForce": 1000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 2,
-          "GunCaliber": 76,
-          "ExplosiveMult": 10,
-          "FuseRadius": 10,
-          "BulletGravity": 0,
-          "LaunchVelocity": 0,
-          "ShellSpeed": 670,
-          "MaxRange": 10,
-          "Penetration": 90,
-          "ArmDistance": 100,
-          "RicochetAngle": 90,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "155mm SPAT Phase 1": {
@@ -9864,27 +6662,7 @@
           "Dealer": "Craft",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 2.8,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 4,
-          "ReloadTime": 19,
-          "GunCaliber": 155,
-          "RicochetAngle": 80,
-          "FuseRadius": 3,
-          "Penetration": 450,
-          "ArmDistance": 300,
-          "ExplosiveMult": 18,
-          "BulletGravity": 0,
-          "ShellSpeed": 358,
-          "MaxRange": 22.5,
-          "LaunchVelocity": 0,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "115mm U-5TS": {
@@ -9918,23 +6696,7 @@
           "Dealer": "DR",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 115000,
-          "ReloadTime": 9.2,
-          "OverheatMult": 1,
-          "RecoilLength": 2,
-          "GunCaliber": 115,
-          "DamageMult": 1,
-          "RicochetAngle": 71,
-          "Penetration": 242,
-          "ExplosiveMult": 2,
-          "BulletGravity": 35,
-          "ShellSpeed": 1640,
-          "Penetration60": 110
-        }
+        "config": {}
       }
     },
     "90mm XAC 24": {
@@ -9972,27 +6734,7 @@
           "Aluminium": 80,
           "Chromium": 45
         },
-        "config": {
-          "GunWeight": 0.6,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "Clip": 3,
-          "ClipReload": 2.7,
-          "RecoilForce": 86000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 6,
-          "GunCaliber": 90,
-          "RicochetAngle": 80,
-          "Penetration": 42,
-          "Penetration60": 140,
-          "BulletGravity": 35,
-          "ShellSpeed": 810,
-          "FuseRadius": 3,
-          "ArmDistance": 200,
-          "ExplosiveMult": 1.8
-        }
+        "config": {}
       }
     },
     "37mm M6": {
@@ -10028,21 +6770,7 @@
           "Steel": 3,
           "Yen": 1000
         },
-        "config": {
-          "GunWeight": 0.27,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 12000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 3.96,
-          "GunCaliber": 37,
-          "RicochetAngle": 75,
-          "Penetration": 55,
-          "BulletGravity": 35,
-          "ShellSpeed": 883
-        }
+        "config": {}
       }
     },
     "M29 Davy Crockett": {
@@ -10076,22 +6804,7 @@
           "Dealer": "Developer",
           "Yen": 9000
         },
-        "config": {
-          "GunWeight": 0.27,
-          "Accuracy": 80,
-          "RecoilZoom": 0.5,
-          "RecoilForce": 4000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0.2,
-          "ReloadTime": 3.96,
-          "GunCaliber": 37,
-          "ShellSpeed": 130,
-          "Penetration": 10,
-          "ExplosiveMult": 1,
-          "BulletGravity": 35,
-          "RicochetAngle": 80
-        }
+        "config": {}
       }
     },
     "120mm Eagle": {
@@ -10129,22 +6842,7 @@
           "Aluminium": 95,
           "Chromium": 40
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1.4,
-          "RecoilLength": 1.2,
-          "ReloadTime": 6.7,
-          "GunCaliber": 120,
-          "RicochetAngle": 72,
-          "Penetration": 550,
-          "ExplosiveMult": 32,
-          "BulletGravity": 35,
-          "ShellSpeed": 1030
-        }
+        "config": {}
       }
     },
     "30mm 2A72": {
@@ -10177,24 +6875,7 @@
           "Dealer": "WS",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 25,
-          "RecoilZoom": 0.3,
-          "ClipReload": 0.3,
-          "Clip": 20,
-          "RecoilForce": 10000,
-          "OverheatMult": 1,
-          "DamageMult": 0.1,
-          "RecoilLength": 0.3,
-          "ReloadTime": 0.1,
-          "GunCaliber": 30,
-          "RicochetAngle": 81,
-          "Penetration": 130,
-          "Penetration60": 90,
-          "BulletGravity": 35,
-          "ShellSpeed": 1260
-        }
+        "config": {}
       }
     },
     "40mm MK19 GMG": {
@@ -10228,24 +6909,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 243000
         },
-        "config": {
-          "GunWeight": 0.035,
-          "Accuracy": 10,
-          "RecoilZoom": 0.5,
-          "ClipReload": 0.4,
-          "Clip": 32,
-          "RecoilForce": 150,
-          "OverheatMult": 0,
-          "DamageMult": 0.4,
-          "RecoilLength": 0.1,
-          "ReloadTime": 0.8,
-          "GunCaliber": 40,
-          "RicochetAngle": 80,
-          "Penetration": 60,
-          "ExplosiveMult": 6,
-          "BulletGravity": 35,
-          "ShellSpeed": 230
-        }
+        "config": {}
       }
     },
     "150mm Jolly Gift": {
@@ -10274,26 +6938,7 @@
           "Nation": "North Pole",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 0.33,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 3000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 15,
-          "GunCaliber": 150,
-          "ExplosiveMult": 4,
-          "BulletGravity": 35,
-          "ShellSpeed": 120,
-          "MaxRange": 0.8,
-          "Penetration": 40,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0,
-          "LoftHeight": 200
-        }
+        "config": {}
       }
     },
     "87mm 17-Gauge QLABS": {
@@ -10327,24 +6972,7 @@
           "Dealer": "DR",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.12,
-          "Accuracy": 4,
-          "RecoilZoom": 0.2,
-          "ClipReload": 3,
-          "Clip": 10,
-          "RecoilForce": 15000,
-          "OverheatMult": 2,
-          "DamageMult": 0.6,
-          "RecoilLength": 2,
-          "ReloadTime": 0.25,
-          "GunCaliber": 38,
-          "RicochetAngle": 71,
-          "Penetration": 85,
-          "ExplosiveMult": 2,
-          "BulletGravity": 35,
-          "ShellSpeed": 1000
-        }
+        "config": {}
       }
     },
     "No gun": {
@@ -10378,21 +7006,7 @@
           "Dealer": "Developer",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.01,
-          "Accuracy": 260,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 0.1,
-          "GunCaliber": 75,
-          "RicochetAngle": 1,
-          "Penetration": 2,
-          "BulletGravity": 0,
-          "ShellSpeed": 3500
-        }
+        "config": {}
       }
     },
     "105mm JSW": {
@@ -10430,23 +7044,7 @@
           "Aluminium": 114,
           "Chromium": 35
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.7,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 405,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1455,
-          "Penetration60": 249
-        }
+        "config": {}
       }
     },
     "105mm OTO": {
@@ -10480,23 +7078,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 3045000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 180000,
-          "OverheatMult": 2.8,
-          "DamageMult": 2,
-          "RecoilLength": 1.3,
-          "ReloadTime": 8.4,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 337,
-          "ExplosiveMult": 3.6,
-          "BulletGravity": 35,
-          "ShellSpeed": 1455,
-          "Penetration60": 195
-        }
+        "config": {}
       }
     },
     "127mm Justicar Mk.90/41.5": {
@@ -10535,31 +7117,7 @@
           "Steel": 95,
           "Chromium": 90
         },
-        "config": {
-          "GunWeight": 1.8,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "Clip": 3,
-          "ClipReload": 2,
-          "RecoilForce": 300000,
-          "OverheatMult": 1,
-          "DamageMult": 2,
-          "RecoilLength": 1,
-          "ReloadTime": 19,
-          "GunCaliber": 127,
-          "ExplosiveMult": 10,
-          "BulletGravity": 35,
-          "ShellSpeed": 760,
-          "MaxRange": 6,
-          "Penetration": 297,
-          "LaunchVelocity": 750,
-          "RicochetAngle": 72,
-          "ActivationTime": 0.8,
-          "FuseRadius": 5,
-          "ArmDistance": 350,
-          "FuseDelay": 2,
-          "FuseSensitivity": 20
-        }
+        "config": {}
       }
     },
     "166mm Peacemaker": {
@@ -10598,29 +7156,7 @@
           "Dealer": "Crafting",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 4.5,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 960000,
-          "OverheatMult": 1,
-          "DamageMult": 1.4,
-          "RecoilLength": 2,
-          "ReloadTime": 20,
-          "GunCaliber": 166,
-          "ExplosiveMult": 76,
-          "Nav": 4,
-          "BulletGravity": 25,
-          "ShellSpeed": 1984,
-          "MaxRange": 6,
-          "Penetration": 915,
-          "LaunchVelocity": 300,
-          "RicochetAngle": 79,
-          "ActivationTime": 4,
-          "LoftHeight": 450,
-          "FuseRadius": 5,
-          "ArmDistance": 650
-        }
+        "config": {}
       }
     },
     "95mm MG95": {
@@ -10657,22 +7193,7 @@
           "Steel": 35,
           "Chromium": 12
         },
-        "config": {
-          "GunWeight": 1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 20000,
-          "OverheatMult": 2,
-          "DamageMult": 1.4,
-          "RecoilLength": 1,
-          "ReloadTime": 6.4,
-          "GunCaliber": 95,
-          "RicochetAngle": 77,
-          "Penetration": 250,
-          "ShellSpeed": 1550,
-          "BulletGravity": 35,
-          "ExplosiveMult": 34
-        }
+        "config": {}
       }
     },
     "152mm XM150E6": {
@@ -10706,25 +7227,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 1530900
         },
-        "config": {
-          "GunWeight": 2.1,
-          "Accuracy": 100,
-          "RecoilZoom": 1,
-          "RecoilForce": 120000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 12,
-          "GunCaliber": 152,
-          "ExplosiveMult": 4,
-          "BulletGravity": 35,
-          "ShellSpeed": 754,
-          "MaxRange": 4,
-          "Penetration": 280,
-          "LaunchVelocity": 180,
-          "RicochetAngle": 75,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "117mm Betwixt": {
@@ -10758,22 +7261,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 22824000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 6500,
-          "OverheatMult": 1,
-          "DamageMult": 2.5,
-          "RecoilLength": 1,
-          "ReloadTime": 7.7,
-          "GunCaliber": 117,
-          "ExplosiveMult": 4,
-          "BulletGravity": 120,
-          "ShellSpeed": 266,
-          "Penetration": 150,
-          "RicochetAngle": 80
-        }
+        "config": {}
       }
     },
     "76mm OTO": {
@@ -10811,27 +7299,7 @@
           "Aluminium": 302,
           "Chromium": 137
         },
-        "config": {
-          "GunWeight": 2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 40000,
-          "OverheatMult": 1.5,
-          "DamageMult": 0.256,
-          "RecoilLength": 1,
-          "ReloadTime": 1,
-          "GunCaliber": 76,
-          "RicochetAngle": 80,
-          "FuseRadius": 8,
-          "Penetration": 60,
-          "ArmDistance": 500,
-          "ExplosiveMult": 14.477,
-          "BulletGravity": 35,
-          "ShellSpeed": 1232,
-          "Penetration60": 171,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 14
-        }
+        "config": {}
       }
     },
     "120mm Mk.III Rifled": {
@@ -10860,28 +7328,7 @@
           "Era": "Cold War",
           "Dealer": "WS"
         },
-        "config": {
-          "GunWeight": 1.2,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 100000,
-          "OverheatMult": 1.5,
-          "DamageMult": 1,
-          "RecoilLength": 1.2,
-          "ReloadTime": 7.8,
-          "GunCaliber": 120,
-          "RicochetAngle": 81,
-          "ExplosiveMult": 2.1,
-          "Penetration": 900,
-          "FuseDelay": 1.2,
-          "FuseSensitivity": 19,
-          "BulletGravity": 0,
-          "ShellSpeed": 515,
-          "Penetration60": 225,
-          "MaxRange": 10,
-          "LaunchVelocity": 300,
-          "ActivationTime": 0.01
-        }
+        "config": {}
       }
     },
     "105mm M68A1": {
@@ -10915,23 +7362,7 @@
           "Dealer": "Joe's Shack",
           "Yen": 8687000
         },
-        "config": {
-          "GunWeight": 1.1,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 200000,
-          "OverheatMult": 2.98,
-          "DamageMult": 2,
-          "RecoilLength": 1.3,
-          "ReloadTime": 5.3,
-          "GunCaliber": 105,
-          "RicochetAngle": 80,
-          "Penetration": 500,
-          "ShellSpeed": 1509,
-          "ExplosiveMult": 3.4,
-          "BulletGravity": 35,
-          "Penetration60": 247
-        }
+        "config": {}
       }
     },
     "Audiojungle": {
@@ -10965,25 +7396,7 @@
           "Dealer": "Developer",
           "Yen": 1
         },
-        "config": {
-          "GunWeight": 0.01,
-          "Accuracy": 260,
-          "RecoilZoom": 0,
-          "RecoilForce": 0,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 0,
-          "ReloadTime": 8,
-          "GunCaliber": 150,
-          "ExplosiveMult": 12,
-          "BulletGravity": 0,
-          "ShellSpeed": 200,
-          "MaxRange": 8,
-          "Penetration": 700,
-          "LaunchVelocity": 0,
-          "RicochetAngle": 80,
-          "ActivationTime": 0
-        }
+        "config": {}
       }
     },
     "152mm Nadiya": {
@@ -11017,22 +7430,7 @@
           "Yen": 22824000,
           "Tier": 12
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 1,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 25,
-          "GunCaliber": 152,
-          "RicochetAngle": 75,
-          "Penetration": 600,
-          "Penetration60": 450,
-          "BulletGravity": 35,
-          "ShellSpeed": 2400
-        }
+        "config": {}
       }
     },
     "120mm Coloniser": {
@@ -11070,22 +7468,7 @@
           "Aluminium": 60,
           "Chromium": 20
         },
-        "config": {
-          "GunWeight": 3,
-          "Accuracy": 80,
-          "RecoilZoom": 1,
-          "RecoilForce": 80000,
-          "OverheatMult": 1,
-          "DamageMult": 1,
-          "RecoilLength": 1,
-          "ReloadTime": 15,
-          "GunCaliber": 120,
-          "RicochetAngle": 65,
-          "Penetration": 420,
-          "ExplosiveMult": 4,
-          "BulletGravity": 35,
-          "ShellSpeed": 1493
-        }
+        "config": {}
       }
     },
     "155mm Heavy Hitter BUT EPIC": {
@@ -11119,27 +7502,10 @@
           "Yen": 510400,
           "Tier": 7
         },
-        "config": {
-          "GunWeight": 2.9,
-          "Accuracy": 80,
-          "RecoilZoom": 4,
-          "RecoilForce": 350000,
-          "OverheatMult": 0.2,
-          "DamageMult": 1,
-          "RecoilLength": 1.5,
-          "ReloadTime": 1,
-          "GunCaliber": 155,
-          "RicochetAngle": 81,
-          "Penetration": 61,
-          "ExplosiveMult": 1.885,
-          "BulletGravity": 35,
-          "ShellSpeed": 820,
-          "FuseRadius": 3,
-          "ArmDistance": 0
-        }
+        "config": {}
       }
     }
   },
   "count": 216,
-  "lastUpdated": "2025-03-31T03:04:50.413Z"
+  "lastUpdated": "2025-03-31T05:38:01.422Z"
 }
