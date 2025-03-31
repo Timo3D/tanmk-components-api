@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tank Components API</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+    .header {
+      margin-bottom: 30px;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .component-card {
+      margin-bottom: 20px;
+      height: 100%;
+    }
+    .component-card .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .component-card .card-footer {
+      margin-top: auto;
+    }
+    .search-results {
+      margin-top: 20px;
+    }
+    #dataDisplay {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Tank Components API</h1>
+      <p class="lead">Browse and search tank components data.</p>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5>Search Components</h5>
+          </div>
+          <div class="card-body">
+            <form id="searchForm">
+              <div class="mb-3">
+                <label for="searchQuery" class="form-label">Search Query</label>
+                <input type="text" class="form-control" id="searchQuery" placeholder="Enter search terms...">
+              </div>
+              <div class="mb-3">
+                <label for="componentType" class="form-label">Component Type</label>
+                <select class="form-select" id="componentType">
+                  <option value="">All Components</option>
+                  <option value="guns">Guns</option>
+                  <option value="turrets">Turrets</option>
+                  <option value="hulls">Hulls</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5>Browse Components</h5>
+          </div>
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <button id="loadGunsBtn" class="btn btn-outline-primary">Load All Guns</button>
+              <button id="loadTurretsBtn" class="btn btn-outline-primary">Load All Turrets</button>
+              <button id="loadHullsBtn" class="btn btn-outline-primary">Load All Hulls</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 id="resultsTitle">Results</h5>
+            <div>
+              <button id="clearBtn" class="btn btn-sm btn-outline-secondary">Clear</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="searchResults" class="search-results"></div>
+            <div id="componentGrid" class="row row-cols-1 row-cols-md-3 g-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Component Details</h5>
+          </div>
+          <div class="card-body">
+            <pre id="dataDisplay">Select a component to view details...</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-5 text-center text-muted">
+      <p>Tank Components API - <a href="https://github.com/your-username/tank-components-api">GitHub Repository</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Base URL for API requests
+    const API_BASE_URL = 'https://your-username.github.io/tank-components-api/api';
+    
+    // Elements
+    const searchForm = document.getElementById('searchForm');
+    const searchQuery = document.getElementById('searchQuery');
+    const componentType = document.getElementById('componentType');
+    const searchResults = document.getElementById('searchResults');
+    const componentGrid = document.getElementById('componentGrid');
+    const dataDisplay = document.getElementById('dataDisplay');
+    const resultsTitle = document.getElementById('resultsTitle');
+    const clearBtn = document.getElementById('clearBtn');
+    
+    // Load buttons
+    const loadGunsBtn = document.getElementById('loadGunsBtn');
+    const loadTurretsBtn = document.getElementById('loadTurretsBtn');
+    const loadHullsBtn = document.getElementById('loadHullsBtn');
+    
+    // Event listeners
+    searchForm.addEventListener('submit', handleSearch);
+    loadGunsBtn.addEventListener('click', () => loadAllComponents('guns'));
+    loadTurretsBtn.addEventListener('click', () => loadAllComponents('turrets'));
+    loadHullsBtn.addEventListener('click', () => loadAllComponents('hulls'));
+    clearBtn.addEventListener('click', clearResults);
+    
+    // Handle search
+    async function handleSearch(e) {
+      e.preventDefault();
+      const query = searchQuery.value.trim();
+      const type = componentType.value;
+      
+      if (!query) {
+        alert('Please enter a search query');
+        return;
+      }
+      
+      try {
+        searchResults.innerHTML = '<div class="alert alert-info">Searching...</div>';
+        componentGrid.innerHTML = '';
+        
+        // Build URL
+        let url = `${API_BASE_URL}/search?query=${encodeURIComponent(query)}`;
+        if (type) {
+          url += `&type=${type}`;
+        }
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        displaySearchResults(data);
+      } catch (error) {
+        searchResults.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+      }
+    }
+    
+    // Display search results
+    function displaySearchResults(data) {
+      searchResults.innerHTML = '';
+      componentGrid.innerHTML = '';
+      
+      resultsTitle.textContent = `Search Results (${data.count})`;
+      
+      if (data.count === 0) {
+        searchResults.innerHTML = '<div class="alert alert-warning">No results found</div>';
+        return;
+      }
+      
+      data.results.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'col';
+        card.innerHTML = `
+          <div class="card component-card">
+            <div class="card-body">
+              <h5 class="card-title">${item.name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${item.type}</h6>
+              <p class="card-text">
+                <small>Nation: ${item.nation}</small><br>
+                <small>Era: ${item.era}</small><br>
+                <small>Tier: ${item.tier}</small>
+              </p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-sm btn-primary view-details" data-type="${item.type}" data-name="${item.name}">View Details</button>
+            </div>
+          </div>
+        `;
+        componentGrid.appendChild(card);
+      });
+      
+      // Add event listeners to view detail buttons
+      document.querySelectorAll('.view-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-type');
+          const name = btn.getAttribute('data-name');
+          loadComponentDetails(type, name);
+        });
+      });
+    }
+    
+    // Load all components of a specific type
+    async function loadAllComponents(type) {
+      try {
+        resultsTitle.textContent = `Loading ${type}...`;
+        searchResults.innerHTML = '<div class="alert alert-info">Loading...</div>';
+        componentGrid.innerHTML = '';
+        
+        const response = await fetch(`${API_BASE_URL}/${type}`);
+        const data = await response.json();
+        
+        displayComponentList(type, data);
+      } catch (error) {
+        searchResults.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+      }
+    }
+    
+    // Display component list
+    function displayComponentList(type, data) {
+      searchResults.innerHTML = '';
+      componentGrid.innerHTML = '';
+      
+      resultsTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} (${data.count})`;
+      
+      const components = Object.entries(data.items).map(([name, details]) => ({
+        name,
+        ...details
+      }));
+      
+      components.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'col';
+        card.innerHTML = `
+          <div class="card component-card">
+            <div class="card-body">
+              <h5 class="card-title">${item.name}</h5>
+              <p class="card-text">
+                <small>ID: ${item.id}</small><br>
+                <small>Nation: ${item.metadata?.attributes?.Nation || 'N/A'}</small><br>
+                <small>Era: ${item.metadata?.attributes?.Era || 'N/A'}</small>
+              </p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-sm btn-primary view-details" data-type="${type}" data-name="${item.name}">View Details</button>
+            </div>
+          </div>
+        `;
+        componentGrid.appendChild(card);
+      });
+      
+      // Add event listeners to view detail buttons
+      document.querySelectorAll('.view-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const compType = btn.getAttribute('data-type');
+          const name = btn.getAttribute('data-name');
+          loadComponentDetails(compType, name);
+        });
+      });
+    }
+    
+    // Load component details
+    async function loadComponentDetails(type, name) {
+      try {
+        dataDisplay.textContent = 'Loading...';
+        
+        const encodedName = encodeURIComponent(name);
+        const response = await fetch(`${API_BASE_URL}/${type}/${encodedName}`);
+        const data = await response.json();
+        
+        dataDisplay.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        dataDisplay.textContent = `Error: ${error.message}`;
+      }
+    }
+    
+    // Clear results
+    function clearResults() {
+      resultsTitle.textContent = 'Results';
+      searchResults.innerHTML = '';
+      componentGrid.innerHTML = '';
+      dataDisplay.textContent = 'Select a component to view details...';
+      searchQuery.value = '';
+      componentType.value = '';
+    }
+  </script>
+</body>
+</html>
