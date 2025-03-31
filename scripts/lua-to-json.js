@@ -1,37 +1,47 @@
-// improved-lua-to-json.js
+// robust-lua-parser.js
 const fs = require('fs');
 const path = require('path');
 
 /**
- * Convert Lua gun data to JSON
- * @param {string} luaContent - Lua file content
- * @returns {Object} Parsed object
+ * A brute force parser specifically designed for your Lua format
+ * @param {string} luaContent - Content of the Lua file
+ * @returns {Object} Parsed data
  */
-function convertGunsToJson(luaContent) {
-  console.log("Starting conversion of guns data...");
+function parseLuaFile(luaContent) {
+  console.log("Starting robust parsing of Lua data...");
   
-  // Remove the return statement at the beginning
+  // Remove return and trailing semicolon if present
   luaContent = luaContent.replace(/^return\s*{/, '{');
   luaContent = luaContent.replace(/};$/, '}');
   
-  // Create result object to hold all guns
+  // Split the content by components (each component is a line starting with ['ComponentName'])
   const result = {};
+  let currentPosition = 0;
   
-  // Regular expression for gun entries
-  // Capturing the name, id, and the entire metadata section
-  const gunRegex = /\['([^']+)'\]\s*=\s*{id\s*=\s*(\d+),\s*metadata\s*=\s*{([\s\S]*?)}\}/g;
-  
-  let match;
-  while ((match = gunRegex.exec(luaContent)) !== null) {
-    const gunName = match[1];
-    const gunId = match[2];
-    const metadataContent = match[3];
+  // Process each component
+  while (true) {
+    // Find the next component
+    const componentMatch = luaContent.substring(currentPosition).match(/\['([^']+)'\]\s*=\s*{id\s*=\s*(\d+)/);
+    if (!componentMatch) break;
     
-    console.log(`Found gun: ${gunName}, ID: ${gunId}`);
+    const componentName = componentMatch[1];
+    const componentId = componentMatch[2];
+    console.log(`Found component: ${componentName}`);
     
-    // Initialize the gun object
-    result[gunName] = {
-      id: gunId,
+    // Move past the component name and ID
+    currentPosition += componentMatch.index + componentMatch[0].length;
+    
+    // Find where this component ends (next component starts or end of file)
+    let nextComponentIndex = luaContent.indexOf("[", currentPosition);
+    if (nextComponentIndex === -1) nextComponentIndex = luaContent.length;
+    
+    // Extract the component's content
+    const componentContent = luaContent.substring(currentPosition, nextComponentIndex);
+    currentPosition = nextComponentIndex;
+    
+    // Create component entry
+    result[componentName] = {
+      id: componentId,
       metadata: {
         attributes: {},
         config: {}
@@ -39,19 +49,15 @@ function convertGunsToJson(luaContent) {
     };
     
     // Extract attributes section
-    const attributesRegex = /attributes\s*=\s*{([\s\S]*?)},\s*config/;
-    const attributesMatch = metadataContent.match(attributesRegex);
-    
+    const attributesMatch = componentContent.match(/attributes\s*=\s*{([^}]+)}/);
     if (attributesMatch) {
       const attributesContent = attributesMatch[1];
-      console.log(`Found attributes for ${gunName}`);
       
       // Process CFrame
-      const cfRegex = /CF\s*=\s*CFrame\.new\(([-\d\., ]+)\)/;
-      const cfMatch = attributesContent.match(cfRegex);
+      const cfMatch = attributesContent.match(/CF\s*=\s*CFrame\.new\(([^)]+)\)/);
       if (cfMatch) {
         const cfValues = cfMatch[1].split(',').map(v => parseFloat(v.trim()));
-        result[gunName].metadata.attributes.CF = {
+        result[componentName].metadata.attributes.CF = {
           position: [cfValues[0], cfValues[1], cfValues[2]],
           orientation: [
             cfValues[3] || 1, cfValues[4] || 0, cfValues[5] || 0,
@@ -62,122 +68,128 @@ function convertGunsToJson(luaContent) {
       }
       
       // Process string attributes
-      const stringRegex = /(\w+)\s*=\s*"([^"]+)"/g;
-      let stringMatch;
-      while ((stringMatch = stringRegex.exec(attributesContent)) !== null) {
-        result[gunName].metadata.attributes[stringMatch[1]] = stringMatch[2];
+      const stringMatches = attributesContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
+      for (const match of stringMatches) {
+        result[componentName].metadata.attributes[match[1]] = match[2];
       }
       
       // Process numeric attributes
-      const numericRegex = /(\w+)\s*=\s*(\d+)/g;
-      let numericMatch;
-      while ((numericMatch = numericRegex.exec(attributesContent)) !== null) {
-        // Skip if already processed as a different type
-        if (!result[gunName].metadata.attributes[numericMatch[1]]) {
-          result[gunName].metadata.attributes[numericMatch[1]] = parseInt(numericMatch[2]);
+      const numericMatches = attributesContent.matchAll(/(\w+)\s*=\s*(\d+)/g);
+      for (const match of numericMatches) {
+        if (!result[componentName].metadata.attributes[match[1]]) {
+          result[componentName].metadata.attributes[match[1]] = parseInt(match[2]);
         }
       }
-    } else {
-      console.log(`No attributes found for ${gunName}`);
     }
     
-    // Extract config section with modified regex to better capture all content
-    const configRegex = /config\s*=\s*{([\s\S]*)}(?=\s*}$)/;
-    const configMatch = metadataContent.match(configRegex);
-    
-    if (configMatch) {
-      const configContent = configMatch[1];
-      console.log(`Found config for ${gunName}`);
+    // Extract config section
+    const configStart = componentContent.indexOf("config = {");
+    if (configStart !== -1) {
+      // Find where the config section starts and ends
+      const configContentStart = configStart + "config = {".length;
       
-      // Process simple numeric properties in config
-      const configNumRegex = /(\w+)\s*=\s*([\d\.]+),/g;
-      let configNumMatch;
-      while ((configNumMatch = configNumRegex.exec(configContent)) !== null) {
-        const propName = configNumMatch[1];
-        // Skip "Shells" which is processed separately
-        if (propName !== "Shells") {
-          result[gunName].metadata.config[propName] = parseFloat(configNumMatch[2]);
+      // Count braces to find the matching closing brace
+      let braceCount = 1;
+      let configEnd = configContentStart;
+      
+      for (let i = configContentStart; i < componentContent.length; i++) {
+        if (componentContent[i] === '{') braceCount++;
+        if (componentContent[i] === '}') braceCount--;
+        
+        if (braceCount === 0) {
+          configEnd = i;
+          break;
         }
       }
       
-      // Process Shells section - new improved approach
-      if (configContent.includes("Shells = {")) {
-        result[gunName].metadata.config.Shells = {};
+      const configContent = componentContent.substring(configContentStart, configEnd);
+      
+      // Extract basic config properties
+      const basicProps = configContent.split(',');
+      for (const prop of basicProps) {
+        const propMatch = prop.match(/(\w+)\s*=\s*([\d\.]+)/);
+        if (propMatch && propMatch[1] !== "Shells") {
+          result[componentName].metadata.config[propMatch[1]] = parseFloat(propMatch[2]);
+        }
+      }
+      
+      // Extract Shells section
+      const shellsStart = configContent.indexOf("Shells = {");
+      if (shellsStart !== -1) {
+        // Initialize Shells object
+        result[componentName].metadata.config.Shells = {};
         
-        // Find the Shells section start and end
-        const shellsStart = configContent.indexOf("Shells = {") + "Shells = {".length;
-        let bracketCount = 1;
-        let shellsEnd = shellsStart;
+        // Find the end of the Shells section
+        const shellsContentStart = shellsStart + "Shells = {".length;
+        let shellsBraceCount = 1;
+        let shellsEnd = shellsContentStart;
         
-        for (let i = shellsStart; i < configContent.length; i++) {
-          if (configContent[i] === '{') bracketCount++;
-          if (configContent[i] === '}') bracketCount--;
+        for (let i = shellsContentStart; i < configContent.length; i++) {
+          if (configContent[i] === '{') shellsBraceCount++;
+          if (configContent[i] === '}') shellsBraceCount--;
           
-          if (bracketCount === 0) {
+          if (shellsBraceCount === 0) {
             shellsEnd = i;
             break;
           }
         }
         
-        // Extract the complete Shells content
-        const shellsContent = configContent.substring(shellsStart, shellsEnd);
-        console.log(`Found shells content for ${gunName}`);
+        const shellsContent = configContent.substring(shellsContentStart, shellsEnd);
         
         // Process each shell type
-        let currentIndex = 0;
+        // This is a key part - we'll look for patterns like "TYPE = { ... }"
+        let currentShellIndex = 0;
         
-        while (currentIndex < shellsContent.length) {
+        while (true) {
           // Find the next shell type
-          const shellTypeMatch = shellsContent.substring(currentIndex).match(/^\s*(\w+)\s*=\s*{/);
-          
+          const shellTypeMatch = shellsContent.substring(currentShellIndex).match(/(\w+)\s*=\s*{/);
           if (!shellTypeMatch) break;
           
           const shellType = shellTypeMatch[1];
-          currentIndex += shellTypeMatch[0].length;
+          console.log(`  Found shell type: ${shellType}`);
           
-          // Find the end of this shell's properties
-          let shellPropBracketCount = 1;
-          let shellPropsEnd = currentIndex;
+          // Move past the shell type name
+          currentShellIndex += shellTypeMatch.index + shellTypeMatch[0].length;
           
-          for (let i = currentIndex; i < shellsContent.length; i++) {
-            if (shellsContent[i] === '{') shellPropBracketCount++;
-            if (shellsContent[i] === '}') shellPropBracketCount--;
+          // Find where this shell type ends
+          let shellBraceCount = 1;
+          let shellEnd = currentShellIndex;
+          
+          for (let i = currentShellIndex; i < shellsContent.length; i++) {
+            if (shellsContent[i] === '{') shellBraceCount++;
+            if (shellsContent[i] === '}') shellBraceCount--;
             
-            if (shellPropBracketCount === 0) {
-              shellPropsEnd = i;
+            if (shellBraceCount === 0) {
+              shellEnd = i;
               break;
             }
           }
           
-          // Extract shell properties
-          const shellProps = shellsContent.substring(currentIndex, shellPropsEnd);
-          currentIndex = shellPropsEnd + 1;
+          const shellPropsContent = shellsContent.substring(currentShellIndex, shellEnd);
+          currentShellIndex = shellEnd + 1;
           
-          // Initialize shell
-          result[gunName].metadata.config.Shells[shellType] = {};
+          // Create shell type entry
+          result[componentName].metadata.config.Shells[shellType] = {};
           
-          // Process numeric shell properties
-          const shellNumRegex = /(\w+)\s*=\s*([\d\.]+)/g;
-          let shellNumMatch;
-          while ((shellNumMatch = shellNumRegex.exec(shellProps)) !== null) {
-            result[gunName].metadata.config.Shells[shellType][shellNumMatch[1]] = parseFloat(shellNumMatch[2]);
+          // Process shell properties
+          // Numeric properties
+          const shellNumMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*([\d\.]+)/g);
+          for (const match of shellNumMatches) {
+            result[componentName].metadata.config.Shells[shellType][match[1]] = parseFloat(match[2]);
           }
           
-          // Process string shell properties
-          const shellStrRegex = /(\w+)\s*=\s*"([^"]+)"/g;
-          let shellStrMatch;
-          while ((shellStrMatch = shellStrRegex.exec(shellProps)) !== null) {
-            result[gunName].metadata.config.Shells[shellType][shellStrMatch[1]] = shellStrMatch[2];
+          // String properties
+          const shellStrMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
+          for (const match of shellStrMatches) {
+            result[componentName].metadata.config.Shells[shellType][match[1]] = match[2];
           }
           
-          // Process boolean shell properties
-          if (shellProps.includes("HEATFS = true")) {
-            result[gunName].metadata.config.Shells[shellType].HEATFS = true;
+          // Boolean properties
+          if (shellPropsContent.includes("HEATFS = true")) {
+            result[componentName].metadata.config.Shells[shellType].HEATFS = true;
           }
         }
       }
-    } else {
-      console.log(`No config found for ${gunName}`);
     }
   }
   
@@ -192,7 +204,7 @@ function convertLuaToJson() {
   const args = process.argv.slice(2);
   
   if (args.length < 2) {
-    console.error('Usage: node improved-lua-to-json.js <input_lua_file> <output_json_file>');
+    console.error('Usage: node robust-lua-parser.js <input_lua_file> <output_json_file>');
     process.exit(1);
   }
   
@@ -210,16 +222,8 @@ function convertLuaToJson() {
     
     const luaContent = fs.readFileSync(inputFile, 'utf8');
     
-    // Determine file type based on content
-    const isGuns = luaContent.includes('GunWeight') || luaContent.includes('GunCaliber');
-    
-    let parsedData;
-    if (isGuns) {
-      parsedData = convertGunsToJson(luaContent);
-    } else {
-      console.error('Unsupported file type. Currently only supporting guns data.');
-      process.exit(1);
-    }
+    // Parse the Lua content
+    const parsedData = parseLuaFile(luaContent);
     
     // Create the output JSON
     const outputData = {
@@ -237,7 +241,12 @@ function convertLuaToJson() {
     // Write the output file
     fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf8');
     
+    // Also write a debug version with extra spacing for readability
+    const debugOutputFile = outputFile.replace('.json', '-debug.json');
+    fs.writeFileSync(debugOutputFile, JSON.stringify(outputData, null, 4), 'utf8');
+    
     console.log(`Successfully converted ${inputFile} to ${outputFile}`);
+    console.log(`Debug version saved as ${debugOutputFile}`);
     console.log(`Total items: ${outputData.count}`);
     
   } catch (error) {
