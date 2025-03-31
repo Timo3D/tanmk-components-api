@@ -503,6 +503,16 @@
             if (gunsResponse.ok) {
               const gunsData = await gunsResponse.json();
               componentData.guns = gunsData.items || {};
+              
+              // Remove any guns that are also in the turrets list to avoid duplication
+              if (componentData.turrets) {
+                const gunNames = Object.keys(componentData.guns);
+                gunNames.forEach(name => {
+                  if (componentData.turrets[name]) {
+                    delete componentData.turrets[name];
+                  }
+                });
+              }
             } else {
               setPlaceholder(gunsListElement, 'No guns data available');
               componentData.guns = {};
