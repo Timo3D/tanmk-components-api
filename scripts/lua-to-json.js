@@ -1,235 +1,149 @@
-// scripts/lua-to-json.js
+// improved-lua-to-json.js
 const fs = require('fs');
 const path = require('path');
 
 /**
- * Convert a Lua file to JSON
- * @param {string} luaContent - Content of the Lua file
- * @returns {Object|null} Parsed object or null if parsing failed
+ * Convert Lua gun data to JSON
+ * @param {string} luaContent - Lua file content
+ * @returns {Object} Parsed object
  */
-function parseLuaToJson(luaContent) {
-  // Detect the file type based on content patterns
-  const isGuns = luaContent.includes('GunWeight') || luaContent.includes('GunCaliber') || luaContent.includes('Shells');
-  const isTurrets = luaContent.includes('TurretWeight') || luaContent.includes('VtTraverse') || luaContent.includes('HzTraverse');
-  const isHulls = luaContent.includes('HullWeight') || luaContent.includes('TrackWidth') || luaContent.includes('SpringStiffness');
+function convertGunsToJson(luaContent) {
+  console.log("Starting conversion of guns data...");
   
-  console.log(`Detected type: ${isGuns ? 'guns' : (isTurrets ? 'turrets' : (isHulls ? 'hulls' : 'unknown'))}`);
-  
-  // Remove the 'return' at the beginning if present
+  // Remove the return statement at the beginning
   luaContent = luaContent.replace(/^return\s*{/, '{');
+  luaContent = luaContent.replace(/};$/, '}');
   
-  // Parse based on the detected type
-  let result = {};
+  // Create result object to hold all guns
+  const result = {};
   
-  try {
-    // Common patterns across all types
-    const itemPattern = /\['([^']+)'\]\s*=\s*{id\s*=\s*(\d+),\s*metadata\s*=\s*{([^}]+)}/g;
+  // Regular expression for gun entries
+  // Capturing the name, id, and the entire metadata section
+  const gunRegex = /\['([^']+)'\]\s*=\s*{id\s*=\s*(\d+),\s*metadata\s*=\s*{([\s\S]*?)}\}/g;
+  
+  let match;
+  while ((match = gunRegex.exec(luaContent)) !== null) {
+    const gunName = match[1];
+    const gunId = match[2];
+    const metadataContent = match[3];
     
-    let match;
-    while ((match = itemPattern.exec(luaContent)) !== null) {
-      const itemName = match[1];
-      const itemId = match[2];
-      const metadataContent = match[3];
+    console.log(`Found gun: ${gunName}, ID: ${gunId}`);
+    
+    // Initialize the gun object
+    result[gunName] = {
+      id: gunId,
+      metadata: {
+        attributes: {},
+        config: {}
+      }
+    };
+    
+    // Extract attributes section
+    const attributesRegex = /attributes\s*=\s*{([\s\S]*?)},\s*config/;
+    const attributesMatch = metadataContent.match(attributesRegex);
+    
+    if (attributesMatch) {
+      const attributesContent = attributesMatch[1];
+      console.log(`Found attributes for ${gunName}`);
       
-      // Initialize item
-      result[itemName] = {
-        id: itemId,
-        metadata: {
-          attributes: {},
-          config: {}
-        }
-      };
-      
-      // Parse attributes if present
-      const attributesMatch = metadataContent.match(/attributes\s*=\s*{([^}]+)}/);
-      if (attributesMatch) {
-        const attributesContent = attributesMatch[1];
-        
-        // Handle CFrame
-        const cfMatch = attributesContent.match(/CF\s*=\s*CFrame\.new\(([^)]+)\)/);
-        if (cfMatch) {
-          const values = cfMatch[1].split(',').map(v => parseFloat(v.trim()));
-          result[itemName].metadata.attributes.CF = {
-            position: [values[0], values[1], values[2]],
-            orientation: values.length > 3 ? 
-              [values[3], values[4], values[5], values[6], values[7], values[8], values[9] || 0, values[10] || 0, values[11] || 1] : 
-              [1, 0, 0, 0, 1, 0, 0, 0, 1]
-          };
-        }
-        
-        // Handle Vector2
-        const vector2Matches = attributesContent.matchAll(/(\w+)\s*=\s*Vector2\.new\(([^)]+)\)/g);
-        for (const vMatch of vector2Matches) {
-          const propName = vMatch[1];
-          const values = vMatch[2].split(',').map(v => parseFloat(v.trim()));
-          result[itemName].metadata.attributes[propName] = {
-            x: values[0],
-            y: values[1]
-          };
-        }
-        
-        // Handle string properties
-        const stringMatches = attributesContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
-        for (const sMatch of stringMatches) {
-          result[itemName].metadata.attributes[sMatch[1]] = sMatch[2];
-        }
-        
-        // Handle numeric properties
-        const numMatches = attributesContent.matchAll(/(\w+)\s*=\s*(\d+(?:\.\d+)?)/g);
-        for (const nMatch of numMatches) {
-          // Skip properties already processed (like CF, Vector2, etc.)
-          if (!result[itemName].metadata.attributes[nMatch[1]]) {
-            result[itemName].metadata.attributes[nMatch[1]] = parseFloat(nMatch[2]);
-          }
-        }
-        
-        // Handle boolean properties
-        const boolMatches = attributesContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
-        for (const bMatch of boolMatches) {
-          result[itemName].metadata.attributes[bMatch[1]] = bMatch[2] === 'true';
-        }
+      // Process CFrame
+      const cfRegex = /CF\s*=\s*CFrame\.new\(([-\d\., ]+)\)/;
+      const cfMatch = attributesContent.match(cfRegex);
+      if (cfMatch) {
+        const cfValues = cfMatch[1].split(',').map(v => parseFloat(v.trim()));
+        result[gunName].metadata.attributes.CF = {
+          position: [cfValues[0], cfValues[1], cfValues[2]],
+          orientation: [
+            cfValues[3] || 1, cfValues[4] || 0, cfValues[5] || 0,
+            cfValues[6] || 0, cfValues[7] || 1, cfValues[8] || 0,
+            cfValues[9] || 0, cfValues[10] || 0, cfValues[11] || 1
+          ]
+        };
       }
       
-      // Parse config if present
-      const configMatch = metadataContent.match(/config\s*=\s*{([^}]+)}/);
-      if (configMatch) {
-        const configContent = configMatch[1];
-        
-        // Handle Vector3 properties in config
-        const vector3Matches = configContent.matchAll(/(\w+)\s*=\s*Vector3\.new\(([^)]+)\)/g);
-        for (const vMatch of vector3Matches) {
-          const propName = vMatch[1];
-          const values = vMatch[2].split(',').map(v => parseFloat(v.trim()));
-          result[itemName].metadata.config[propName] = {
-            x: values[0],
-            y: values[1],
-            z: values[2]
-          };
-        }
-        
-        // Handle numeric properties in config
-        const configNumMatches = configContent.matchAll(/(\w+)\s*=\s*(\d+(?:\.\d+)?)/g);
-        for (const nMatch of configNumMatches) {
-          // Skip properties already processed
-          if (!result[itemName].metadata.config[nMatch[1]]) {
-            result[itemName].metadata.config[nMatch[1]] = parseFloat(nMatch[2]);
-          }
-        }
-        
-        // Handle string properties in config
-        const configStringMatches = configContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
-        for (const sMatch of configStringMatches) {
-          result[itemName].metadata.config[sMatch[1]] = sMatch[2];
-        }
-        
-        // Handle boolean properties in config
-        const configBoolMatches = configContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
-        for (const bMatch of configBoolMatches) {
-          result[itemName].metadata.config[bMatch[1]] = bMatch[2] === 'true';
-        }
-        
-        // Special handling for shells in guns
-        if (isGuns) {
-          const shellsMatch = configContent.match(/Shells\s*=\s*{([^}]+)}/);
-          if (shellsMatch) {
-            const shellsContent = shellsMatch[1];
-            result[itemName].metadata.config.Shells = {};
-            
-            // Extract shell types
-            const shellTypePattern = /(\w+)\s*=\s*{([^}]+)}/g;
-            let shellTypeMatch;
-            while ((shellTypeMatch = shellTypePattern.exec(shellsContent)) !== null) {
-              const shellType = shellTypeMatch[1];
-              const shellPropsContent = shellTypeMatch[2];
-              
-              result[itemName].metadata.config.Shells[shellType] = {};
-              
-              // Extract shell properties
-              const shellPropNumMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*(\d+(?:\.\d+)?)/g);
-              for (const propMatch of shellPropNumMatches) {
-                result[itemName].metadata.config.Shells[shellType][propMatch[1]] = parseFloat(propMatch[2]);
-              }
-              
-              // Extract shell string properties
-              const shellPropStringMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
-              for (const propMatch of shellPropStringMatches) {
-                result[itemName].metadata.config.Shells[shellType][propMatch[1]] = propMatch[2];
-              }
-              
-              // Extract shell boolean properties
-              const shellPropBoolMatches = shellPropsContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
-              for (const propMatch of shellPropBoolMatches) {
-                result[itemName].metadata.config.Shells[shellType][propMatch[1]] = propMatch[2] === 'true';
-              }
-            }
-          }
-        }
+      // Process string attributes
+      const stringRegex = /(\w+)\s*=\s*"([^"]+)"/g;
+      let stringMatch;
+      while ((stringMatch = stringRegex.exec(attributesContent)) !== null) {
+        result[gunName].metadata.attributes[stringMatch[1]] = stringMatch[2];
       }
       
-      // Parse crew if present
-      const crewMatch = metadataContent.match(/crew\s*=\s*{([^}]+)}/);
-      if (crewMatch) {
-        const crewContent = crewMatch[1];
-        result[itemName].metadata.crew = [];
-        
-        // Extract crew member names
-        const crewNameMatches = crewContent.matchAll(/"([^"]+)"/g);
-        for (const nameMatch of crewNameMatches) {
-          result[itemName].metadata.crew.push(nameMatch[1]);
+      // Process numeric attributes
+      const numericRegex = /(\w+)\s*=\s*(\d+)/g;
+      let numericMatch;
+      while ((numericMatch = numericRegex.exec(attributesContent)) !== null) {
+        // Skip if already processed as a different type
+        if (!result[gunName].metadata.attributes[numericMatch[1]]) {
+          result[gunName].metadata.attributes[numericMatch[1]] = parseInt(numericMatch[2]);
         }
       }
-      
-      // Parse TD attributes if present (for turrets)
-      const tdAttributesMatch = metadataContent.match(/tdAttributes\s*=\s*{([^}]+)}/);
-      if (tdAttributesMatch) {
-        const tdAttributesContent = tdAttributesMatch[1];
-        result[itemName].metadata.tdAttributes = {};
-        
-        // Handle Vector2 in TD attributes
-        const tdVector2Matches = tdAttributesContent.matchAll(/(\w+)\s*=\s*Vector2\.new\(([^)]+)\)/g);
-        for (const vMatch of tdVector2Matches) {
-          const propName = vMatch[1];
-          const values = vMatch[2].split(',').map(v => parseFloat(v.trim()));
-          result[itemName].metadata.tdAttributes[propName] = {
-            x: values[0],
-            y: values[1]
-          };
-        }
-        
-        // Handle string properties in TD attributes
-        const tdStringMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
-        for (const sMatch of tdStringMatches) {
-          result[itemName].metadata.tdAttributes[sMatch[1]] = sMatch[2];
-        }
-        
-        // Handle numeric properties in TD attributes
-        const tdNumMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*(\d+(?:\.\d+)?)/g);
-        for (const nMatch of tdNumMatches) {
-          // Skip properties already processed
-          if (!result[itemName].metadata.tdAttributes[nMatch[1]]) {
-            result[itemName].metadata.tdAttributes[nMatch[1]] = parseFloat(nMatch[2]);
-          }
-        }
-        
-        // Handle boolean properties in TD attributes
-        const tdBoolMatches = tdAttributesContent.matchAll(/(\w+)\s*=\s*(true|false)/g);
-        for (const bMatch of tdBoolMatches) {
-          result[itemName].metadata.tdAttributes[bMatch[1]] = bMatch[2] === 'true';
-        }
-      }
-      
-      // Parse ammoMass if present
-      const ammoMassMatch = metadataContent.match(/ammoMass\s*=\s*(\d+(?:\.\d+)?)/);
-      if (ammoMassMatch) {
-        result[itemName].metadata.ammoMass = parseFloat(ammoMassMatch[1]);
-      }
+    } else {
+      console.log(`No attributes found for ${gunName}`);
     }
     
-    return result;
-  } catch (error) {
-    console.error('Error parsing Lua content:', error);
-    return null;
+    // Extract config section
+    const configRegex = /config\s*=\s*{([\s\S]*?)}\s*}/;
+    const configMatch = metadataContent.match(configRegex);
+    
+    if (configMatch) {
+      const configContent = configMatch[1];
+      console.log(`Found config for ${gunName}`);
+      
+      // Process simple numeric properties in config
+      const configNumRegex = /(\w+)\s*=\s*([\d\.]+)/g;
+      let configNumMatch;
+      while ((configNumMatch = configNumRegex.exec(configContent)) !== null) {
+        const propName = configNumMatch[1];
+        // Skip "Shells" which is processed separately
+        if (propName !== "Shells") {
+          result[gunName].metadata.config[propName] = parseFloat(configNumMatch[2]);
+        }
+      }
+      
+      // Process Shells section
+      const shellsRegex = /Shells\s*=\s*{([\s\S]*?)}\s*}/;
+      const shellsMatch = configContent.match(shellsRegex);
+      
+      if (shellsMatch) {
+        const shellsContent = shellsMatch[1];
+        result[gunName].metadata.config.Shells = {};
+        
+        // Find all shell types
+        const shellTypeRegex = /(\w+)\s*=\s*{([\s\S]*?)}/g;
+        let shellTypeMatch;
+        while ((shellTypeMatch = shellTypeRegex.exec(shellsContent)) !== null) {
+          const shellType = shellTypeMatch[1];
+          const shellProps = shellTypeMatch[2];
+          
+          result[gunName].metadata.config.Shells[shellType] = {};
+          
+          // Process shell properties
+          // Numeric properties
+          const shellNumRegex = /(\w+)\s*=\s*([\d\.]+)/g;
+          let shellNumMatch;
+          while ((shellNumMatch = shellNumRegex.exec(shellProps)) !== null) {
+            result[gunName].metadata.config.Shells[shellType][shellNumMatch[1]] = parseFloat(shellNumMatch[2]);
+          }
+          
+          // String properties
+          const shellStrRegex = /(\w+)\s*=\s*"([^"]+)"/g;
+          let shellStrMatch;
+          while ((shellStrMatch = shellStrRegex.exec(shellProps)) !== null) {
+            result[gunName].metadata.config.Shells[shellType][shellStrMatch[1]] = shellStrMatch[2];
+          }
+          
+          // Boolean properties
+          if (shellProps.includes("HEATFS = true")) {
+            result[gunName].metadata.config.Shells[shellType].HEATFS = true;
+          }
+        }
+      }
+    } else {
+      console.log(`No config found for ${gunName}`);
+    }
   }
+  
+  return result;
 }
 
 /**
@@ -240,7 +154,7 @@ function convertLuaToJson() {
   const args = process.argv.slice(2);
   
   if (args.length < 2) {
-    console.error('Usage: node lua-to-json.js <input_lua_file> <output_json_file>');
+    console.error('Usage: node improved-lua-to-json.js <input_lua_file> <output_json_file>');
     process.exit(1);
   }
   
@@ -258,11 +172,14 @@ function convertLuaToJson() {
     
     const luaContent = fs.readFileSync(inputFile, 'utf8');
     
-    // Parse the Lua content
-    const parsedData = parseLuaToJson(luaContent);
+    // Determine file type based on content
+    const isGuns = luaContent.includes('GunWeight') || luaContent.includes('GunCaliber');
     
-    if (!parsedData) {
-      console.error('Failed to parse Lua content');
+    let parsedData;
+    if (isGuns) {
+      parsedData = convertGunsToJson(luaContent);
+    } else {
+      console.error('Unsupported file type. Currently only supporting guns data.');
       process.exit(1);
     }
     
